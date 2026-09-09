@@ -16,874 +16,377 @@
 }
 
 :root {
-    --bg: #08090c;
-    --panel: #151820;
-    --border: #303541;
-    --text: #f7f7fa;
-    --muted: #8d93a1;
-    --accent: #8b5cf6;
-    --accent-light: #b197ff;
+    --bg: #090b10;
+    --panel: #11151d;
+    --panel2: #171c25;
+    --panel3: #1d2430;
+    --border: #2b3442;
+    --text: #f5f7fa;
+    --muted: #8d98a8;
+    --accent: #6ea8ff;
+    --accent2: #8f7cff;
+    --danger: #ff6262;
 }
 
 html,
 body {
     width: 100%;
     height: 100%;
+    margin: 0;
+    overflow: hidden;
 }
 
 body {
-    margin: 0;
-    overflow: hidden;
-
-    color: var(--text);
-
     font-family: "Montserrat", sans-serif;
-
     background:
-        radial-gradient(
-            circle at 50% 25%,
-            #191c29 0%,
-            #0c0e13 42%,
-            #07080b 100%
-        );
+        radial-gradient(circle at 20% 0%, #182033 0%, transparent 35%),
+        radial-gradient(circle at 100% 100%, #151b2a 0%, transparent 40%),
+        var(--bg);
+    color: var(--text);
 }
 
-/* =========================================================
+/* =========================
    TOP BAR
-========================================================= */
+========================= */
 
 .topbar {
     height: 58px;
-
     display: flex;
     align-items: center;
-
-    padding: 0 15px;
-
-    gap: 5px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #242833,
-            #171a22 48%,
-            #101219
-        );
-
-    border-bottom: 1px solid #343947;
-
-    box-shadow:
-        0 4px 12px rgba(0,0,0,.55),
-        inset 0 1px rgba(255,255,255,.08);
-
+    gap: 8px;
+    padding: 8px 12px;
+    background: rgba(13, 17, 24, 0.96);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 5px 25px rgba(0,0,0,.3);
     position: relative;
-
-    z-index: 100;
+    z-index: 5000;
 }
 
 .logo {
-    margin-right: 15px;
-
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 700;
-
-    letter-spacing: -.5px;
-
-    text-shadow:
-        0 2px 5px rgba(0,0,0,.8);
-}
-
-.logo span {
-    color: var(--accent-light);
-
-    text-shadow:
-        0 0 14px rgba(139,92,246,.6);
+    padding: 0 15px 0 7px;
+    white-space: nowrap;
 }
 
 .menu {
     position: relative;
 }
 
-.menu-button {
+.menu-btn,
+.top-button {
     border: 1px solid transparent;
-
     background: transparent;
-
-    color: #c5c9d2;
-
+    color: var(--text);
     font-family: inherit;
-
-    font-size: 12px;
-
-    padding: 8px 11px;
-
-    border-radius: 7px;
-
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 12px;
+    border-radius: 9px;
     cursor: pointer;
 }
 
-.menu-button:hover {
-    color: white;
-
-    background:
-        linear-gradient(
-            180deg,
-            #303542,
-            #20242d
-        );
-
-    border-color: #3b404d;
+.menu-btn:hover,
+.top-button:hover {
+    background: var(--panel3);
+    border-color: var(--border);
 }
 
-.dropdown {
+.menu-dropdown {
     position: absolute;
-
     top: 43px;
     left: 0;
-
-    min-width: 210px;
-
+    width: 210px;
     padding: 7px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #252a35,
-            #151820
-        );
-
-    border: 1px solid #3b404c;
-
-    border-radius: 10px;
-
+    background: #121720;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.5);
     display: none;
-
-    box-shadow:
-        0 18px 40px rgba(0,0,0,.7),
-        inset 0 1px rgba(255,255,255,.08);
-
-    z-index: 5000;
 }
 
-.menu.open .dropdown {
+.menu-dropdown.open {
     display: block;
 }
 
-.dropdown button {
+.menu-item {
     width: 100%;
-
-    border: 1px solid transparent;
-
+    border: 0;
     background: transparent;
-
-    color: #cdd1da;
-
+    color: var(--text);
     font-family: inherit;
-
-    font-size: 11px;
-
-    padding: 10px;
-
     text-align: left;
-
-    border-radius: 6px;
-
+    padding: 10px 11px;
+    border-radius: 8px;
     cursor: pointer;
+    font-size: 12px;
 }
 
-.dropdown button:hover {
-    color: white;
-
-    background:
-        linear-gradient(
-            180deg,
-            #343945,
-            #252933
-        );
-
-    border-color: #424754;
+.menu-item:hover {
+    background: var(--panel3);
 }
 
-.dropdown-divider {
+.menu-separator {
     height: 1px;
-
+    background: var(--border);
     margin: 6px 3px;
-
-    background: #353a45;
 }
 
-.recent-title {
-    padding: 7px 9px 5px;
-
-    color: #777e8c;
-
-    font-size: 8px;
-    font-weight: 700;
-
-    text-transform: uppercase;
-
-    letter-spacing: 1px;
-}
-
-.recent-empty {
-    padding: 9px;
-
-    color: #737987;
-
-    font-size: 10px;
-}
-
-.recent-item {
-    display: flex;
-
-    align-items: center;
-
-    gap: 9px;
-
-    width: 100%;
-
-    padding: 8px;
-
-    border: 1px solid transparent;
-
-    background: transparent;
-
-    color: #cdd1da;
-
-    font-family: inherit;
-
-    border-radius: 6px;
-
-    cursor: pointer;
-
-    text-align: left;
-}
-
-.recent-item:hover {
-    color: white;
-
-    background:
-        linear-gradient(
-            180deg,
-            #343945,
-            #252933
-        );
-
-    border-color: #424754;
-}
-
-.recent-thumb {
-    width: 30px;
-    height: 30px;
-
-    object-fit: cover;
-
-    border-radius: 5px;
-
-    border: 1px solid #444a57;
-
-    background: #0d0f13;
-}
-
-.recent-name {
-    min-width: 0;
-
-    overflow: hidden;
-
-    white-space: nowrap;
-
-    text-overflow: ellipsis;
-
-    font-size: 9px;
-}
-
-.spacer {
+.top-spacer {
     flex: 1;
 }
 
-.top-button {
-    border: 1px solid #414654;
-
-    background:
-        linear-gradient(
-            180deg,
-            #303540,
-            #1b1f27
-        );
-
-    color: #e2e4ea;
-
-    font-family: inherit;
-
-    font-size: 11px;
-    font-weight: 600;
-
-    padding: 8px 13px;
-
-    border-radius: 7px;
-
-    cursor: pointer;
-
-    box-shadow:
-        inset 0 1px rgba(255,255,255,.1),
-        inset 0 -2px rgba(0,0,0,.25),
-        0 3px 8px rgba(0,0,0,.35);
-}
-
-.top-button:hover {
-    transform: translateY(-1px);
-
-    background:
-        linear-gradient(
-            180deg,
-            #3b414e,
-            #242831
-        );
-}
-
-.top-button:active {
-    transform: translateY(1px);
-}
-
-/* =========================================================
+/* =========================
    MAIN
-========================================================= */
+========================= */
 
-.main {
+.app {
     height: calc(100vh - 58px);
-
-    display: flex;
+    display: grid;
+    grid-template-columns: 72px 1fr 280px;
 }
 
-/* =========================================================
-   TOOLBAR
-========================================================= */
-
-.toolbar {
-    width: 68px;
-
+.sidebar {
+    background: rgba(14, 18, 25, .94);
+    border-right: 1px solid var(--border);
+    padding: 10px 8px;
     display: flex;
-
     flex-direction: column;
-
-    align-items: center;
-
-    padding: 11px 0;
-
     gap: 7px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #0e1015,
-            #181b23,
-            #101219
-        );
-
-    border-right: 1px solid #303541;
-
-    box-shadow:
-        5px 0 18px rgba(0,0,0,.45);
-
-    z-index: 50;
+    overflow-y: auto;
 }
 
 .tool {
-    width: 45px;
-    height: 43px;
-
-    border: 1px solid #303541;
-
-    border-radius: 9px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #292e39,
-            #171a21
-        );
-
-    color: #aeb3bf;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    font-size: 18px;
-
-    cursor: pointer;
-
     position: relative;
-
+    height: 45px;
+    border: 1px solid var(--border);
+    background: linear-gradient(145deg, #1b222d, #10151c);
+    color: #dfe5ee;
+    border-radius: 11px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 17px;
     box-shadow:
-        inset 0 1px rgba(255,255,255,.09),
-        inset 0 -2px rgba(0,0,0,.3),
-        0 4px 8px rgba(0,0,0,.4);
-
-    transition: .12s ease;
+        inset 0 1px 0 rgba(255,255,255,.04),
+        0 4px 10px rgba(0,0,0,.25);
 }
 
 .tool:hover {
-    color: white;
-
-    transform: translateY(-2px);
-
-    background:
-        linear-gradient(
-            145deg,
-            #373d4b,
-            #20242d
-        );
-}
-
-.tool:active {
-    transform: translateY(1px);
+    transform: translateY(-1px);
+    border-color: #4b596d;
 }
 
 .tool.active {
-    color: white;
-
-    border-color:
-        rgba(167,139,250,.7);
-
-    background:
-        linear-gradient(
-            145deg,
-            #7950d8,
-            #4c239e
-        );
-
+    background: linear-gradient(145deg, #31598e, #1e3658);
+    border-color: #6799d9;
     box-shadow:
-        inset 0 1px rgba(255,255,255,.18),
-        0 5px 13px rgba(91,33,182,.45),
-        0 0 17px rgba(139,92,246,.25);
+        inset 0 1px 0 rgba(255,255,255,.12),
+        0 5px 18px rgba(40,100,180,.25);
+}
+
+/* 1 second tooltip */
+
+.tool::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 58px;
+    top: 50%;
+    transform: translateY(-50%) translateX(-4px);
+    background: #05070a;
+    color: white;
+    padding: 7px 10px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    white-space: nowrap;
+    font-size: 11px;
+    font-weight: 600;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+        opacity .15s ease,
+        transform .15s ease;
+    transition-delay: 0s;
+    z-index: 9000;
+}
+
+.tool:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0);
+    transition-delay: 1s;
 }
 
 .tool-separator {
-    width: 39px;
     height: 1px;
-
-    margin: 2px 0;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #373c48,
-            transparent
-        );
+    background: var(--border);
+    margin: 3px 4px;
 }
 
-/* =========================================================
-   TOOLTIP
-========================================================= */
-
-.tooltip {
-    position: fixed;
-
-    z-index: 9000;
-
-    padding: 7px 10px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #292d37,
-            #15171d
-        );
-
-    border: 1px solid #464c59;
-
-    border-radius: 6px;
-
-    color: white;
-
-    font-size: 10px;
-
-    pointer-events: none;
-
-    opacity: 0;
-
-    transform: translateY(-3px);
-
-    transition:
-        opacity .15s,
-        transform .15s;
-
-    white-space: nowrap;
-
-    box-shadow:
-        0 7px 18px rgba(0,0,0,.6);
-}
-
-.tooltip.show {
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
-/* =========================================================
-   WORKSPACE
-========================================================= */
+/* =========================
+   CANVAS AREA
+========================= */
 
 .workspace {
-    flex: 1;
-
-    min-width: 0;
-
     position: relative;
-
+    overflow: hidden;
     display: flex;
-
-    flex-direction: column;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #171a23 0%,
-            #0d0f14 55%,
-            #090a0e 100%
-        );
-}
-
-.canvas-area {
-    flex: 1;
-
-    overflow: auto;
-
-    position: relative;
-
-    display: flex;
-
     align-items: center;
-
     justify-content: center;
-
-    padding: 45px;
+    background:
+        linear-gradient(45deg, rgba(255,255,255,.015) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255,255,255,.015) 25%, transparent 25%),
+        #0b0f15;
+    background-size: 28px 28px;
 }
 
 .canvas-wrap {
     position: relative;
-
-    transform-origin: center center;
-
-    border-radius: 4px;
-
-    box-shadow:
-        0 25px 55px rgba(0,0,0,.65),
-        0 8px 20px rgba(0,0,0,.5),
-        0 0 0 1px rgba(255,255,255,.08);
+    padding: 18px;
+    max-width: 100%;
+    max-height: 100%;
 }
 
-canvas {
+#canvas {
     display: block;
-
-    background:
-        linear-gradient(45deg,#cfcfcf 25%,transparent 25%),
-        linear-gradient(-45deg,#cfcfcf 25%,transparent 25%),
-        linear-gradient(45deg,transparent 75%,#cfcfcf 75%),
-        linear-gradient(-45deg,transparent 75%,#cfcfcf 75%);
-
-    background-size: 24px 24px;
-
-    background-position:
-        0 0,
-        0 12px,
-        12px -12px,
-        -12px 0;
-
-    background-color: #eeeeee;
-
+    width: min(1000px, calc(100vw - 400px));
+    height: auto;
+    max-height: calc(100vh - 110px);
+    background: white;
+    border-radius: 7px;
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.65),
+        0 0 0 1px rgba(255,255,255,.08);
     cursor: crosshair;
+    touch-action: none;
 }
 
 .canvas-marker {
     position: absolute;
-
-    width: 21px;
-    height: 21px;
-
+    width: 20px;
+    height: 20px;
     border: 2px solid white;
-
     border-radius: 50%;
-
-    transform:
-        translate(-50%,-50%);
-
     pointer-events: none;
-
-    box-shadow:
-        0 0 0 1px rgba(0,0,0,.7),
-        0 0 12px rgba(167,139,250,.9);
+    transform: translate(-50%, -50%);
+    display: none;
+    box-shadow: 0 0 0 1px black;
 }
 
-/* =========================================================
-   BOTTOM BAR
-========================================================= */
-
-.bottom-bar {
-    height: 36px;
-
-    display: flex;
-
-    align-items: center;
-
-    padding: 0 13px;
-
-    gap: 18px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #20242d,
-            #13161c
-        );
-
-    border-top: 1px solid #343945;
-
-    color: #8f95a2;
-
-    font-size: 10px;
-}
-
-.zoom-controls {
-    margin-left: auto;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 7px;
-}
-
-.zoom-controls button {
-    width: 27px;
-    height: 24px;
-
-    border: 1px solid #3c424f;
-
-    border-radius: 5px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #2b303b,
-            #181b22
-        );
-
-    color: #d5d8df;
-
-    cursor: pointer;
-}
-
-/* =========================================================
+/* =========================
    RIGHT PANEL
-========================================================= */
+========================= */
 
-.right-panel {
-    width: 285px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    overflow: hidden;
-
-    background:
-        linear-gradient(
-            90deg,
-            #111319,
-            #191c24,
-            #12141a
-        );
-
-    border-left: 1px solid #303541;
-
-    box-shadow:
-        -6px 0 18px rgba(0,0,0,.45);
-}
-
-.panel-section {
+.properties {
+    background: rgba(15, 19, 27, .96);
+    border-left: 1px solid var(--border);
     padding: 15px;
-
-    border-bottom: 1px solid #2d313b;
-}
-
-.panel-title {
-    margin-bottom: 13px;
-
-    color: #bfc4ce;
-
-    font-size: 10px;
-    font-weight: 700;
-
-    letter-spacing: 1px;
-
-    text-transform: uppercase;
-}
-
-.field {
-    margin-bottom: 12px;
-}
-
-.field label {
-    display: block;
-
-    margin-bottom: 6px;
-
-    color: #858b98;
-
-    font-size: 10px;
-}
-
-.field input,
-.field select {
-    width: 100%;
-
-    padding: 9px;
-
-    border: 1px solid #353a46;
-
-    border-radius: 6px;
-
-    outline: none;
-
-    background:
-        linear-gradient(
-            180deg,
-            #11141a,
-            #1c2028
-        );
-
-    color: white;
-
-    font-family: inherit;
-
-    font-size: 10px;
-}
-
-.range-row {
-    display: flex;
-
-    align-items: center;
-
-    gap: 9px;
-}
-
-.range-row input[type="range"] {
-    flex: 1;
-
-    padding: 0;
-}
-
-.range-value {
-    width: 43px;
-
-    color: #c4c8d0;
-
-    font-size: 9px;
-
-    text-align: right;
-}
-
-input[type="range"] {
-    accent-color: var(--accent);
-}
-
-.color-row {
-    display: flex;
-
-    gap: 8px;
-}
-
-.color-row input[type="color"] {
-    width: 48px;
-    height: 35px;
-
-    padding: 3px;
-
-    cursor: pointer;
-
-    border-radius: 6px;
-}
-
-.layers {
-    flex: 1;
-
     overflow-y: auto;
 }
 
-.layer {
-    display: flex;
-
-    align-items: center;
-
-    gap: 9px;
-
-    padding: 8px;
-
-    margin-bottom: 4px;
-
-    border: 1px solid transparent;
-
-    border-radius: 7px;
-
-    color: #bfc3cc;
-
-    font-size: 10px;
-
-    cursor: pointer;
+.panel-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 14px;
 }
 
-.layer:hover,
-.layer.selected {
-    border-color:
-        rgba(139,92,246,.35);
+.property-group {
+    background: linear-gradient(145deg, #171d26, #11161d);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 7px 20px rgba(0,0,0,.2);
+}
 
-    background:
-        linear-gradient(
-            180deg,
-            rgba(139,92,246,.2),
-            rgba(91,33,182,.08)
-        );
+.property-title {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: 10px;
+}
 
+label {
+    display: block;
+    font-size: 11px;
+    color: #b8c1ce;
+    margin-bottom: 5px;
+}
+
+input[type="range"] {
+    width: 100%;
+}
+
+input[type="number"],
+input[type="text"],
+select {
+    width: 100%;
+    background: #0c1016;
     color: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px;
+    font-family: inherit;
+    outline: none;
 }
 
-.layer-icon {
-    width: 27px;
-    height: 27px;
+input[type="color"] {
+    width: 100%;
+    height: 36px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #0c1016;
+    padding: 3px;
+}
 
+.row {
     display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid #3a3f4b;
-
-    border-radius: 5px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #303541,
-            #181b22
-        );
+    gap: 8px;
 }
 
-/* =========================================================
+.row > * {
+    flex: 1;
+}
+
+.value {
+    float: right;
+    color: var(--accent);
+}
+
+.action-button {
+    width: 100%;
+    border: 1px solid var(--border);
+    background: linear-gradient(145deg, #202a38, #151b24);
+    color: white;
+    border-radius: 9px;
+    padding: 9px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 7px;
+}
+
+.action-button:hover {
+    border-color: #52627a;
+    transform: translateY(-1px);
+}
+
+.danger {
+    color: #ff8a8a;
+}
+
+/* =========================
    LIGHTMAKER
-========================================================= */
+========================= */
 
 .lightmaker-panel {
     position: fixed;
-
     width: 520px;
-
     max-width: calc(100vw - 30px);
     max-height: calc(100vh - 90px);
-
     overflow-y: auto;
 
     left: 90px;
@@ -892,305 +395,178 @@ input[type="range"] {
     display: none;
 
     background:
-        linear-gradient(
-            145deg,
-            #252a35,
-            #111319 70%
-        );
+        linear-gradient(145deg, rgba(30,37,49,.98), rgba(12,16,23,.98));
 
-    border: 1px solid #464c59;
-
-    border-radius: 13px;
+    border: 1px solid #3a4658;
+    border-radius: 16px;
 
     box-shadow:
-        0 35px 80px rgba(0,0,0,.75),
-        0 10px 25px rgba(0,0,0,.55),
-        inset 0 1px rgba(255,255,255,.1);
+        0 35px 100px rgba(0,0,0,.7),
+        inset 0 1px 0 rgba(255,255,255,.07);
 
     z-index: 3000;
 }
 
 .lightmaker-panel.open {
     display: block;
-
-    animation:
-        lightmakerIn .18s ease;
+    animation: lightmakerIn .16s ease;
 }
 
 @keyframes lightmakerIn {
-
     from {
         opacity: 0;
-
-        transform:
-            translateY(-8px)
-            scale(.97);
+        transform: translateY(8px) scale(.98);
     }
 
     to {
         opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
+        transform: translateY(0) scale(1);
     }
 }
 
 .lightmaker-header {
-    height: 53px;
-
-    padding: 0 15px;
-
+    height: 54px;
+    padding: 0 10px 0 16px;
     display: flex;
-
     align-items: center;
-
-    border-bottom: 1px solid #373c47;
-
-    background:
-        linear-gradient(
-            180deg,
-            #2a2f3b,
-            #1b1e26
-        );
-
+    border-bottom: 1px solid var(--border);
     cursor: grab;
-
     user-select: none;
+}
+
+.lightmaker-header:active {
+    cursor: grabbing;
 }
 
 .lightmaker-title {
     font-size: 14px;
-
     font-weight: 700;
 }
 
-.lightmaker-title span {
-    color: var(--accent-light);
-
-    text-shadow:
-        0 0 14px rgba(139,92,246,.7);
+.lightmaker-subtitle {
+    font-size: 10px;
+    color: var(--muted);
+    margin-left: 8px;
 }
 
 .lightmaker-close {
-    width: 31px;
-    height: 31px;
-
+    flex: 0 0 auto;
+    width: 34px;
+    height: 34px;
     margin-left: auto;
 
-    border: 1px solid #3e434f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    border-radius: 7px;
+    border: 1px solid #414c5c;
+    border-radius: 9px;
 
-    background:
-        linear-gradient(
-            180deg,
-            #303541,
-            #1b1e25
-        );
+    background: #171d27;
+    color: #fff;
 
-    color: #aeb3bf;
-
-    font-size: 17px;
+    font-family: Arial, sans-serif;
+    font-size: 22px;
+    line-height: 1;
 
     cursor: pointer;
 
     position: relative;
+    z-index: 99999;
 
-    z-index: 10;
+    pointer-events: auto;
 }
 
 .lightmaker-close:hover {
-    color: white;
-
-    background:
-        linear-gradient(
-            180deg,
-            #414754,
-            #242831
-        );
+    background: #2a333f;
+    border-color: #65748a;
 }
 
-.lightmaker-content {
-    padding: 16px;
+.lightmaker-body {
+    padding: 14px;
 }
 
-.light-types {
+.light-type-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap: 9px;
-
-    margin-bottom: 17px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
 }
 
 .light-type {
-    min-height: 75px;
-
-    border: 1px solid #363b47;
-
-    border-radius: 8px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #292e39,
-            #171a21
-        );
-
-    color: #bfc3cc;
-
-    font-family: inherit;
-
-    font-size: 9px;
-
+    border: 1px solid var(--border);
+    background: #11161e;
+    color: white;
+    padding: 10px 5px;
+    border-radius: 9px;
     cursor: pointer;
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 600;
 }
 
 .light-type:hover {
-    color: white;
-
-    transform: translateY(-2px);
+    border-color: #56657b;
 }
 
 .light-type.active {
-    border-color:
-        rgba(167,139,250,.7);
-
-    background:
-        linear-gradient(
-            145deg,
-            #7048ce,
-            #44208f
-        );
-
-    color: white;
+    background: #253c5d;
+    border-color: #709bd3;
 }
 
-.light-icon {
-    font-size: 20px;
-
-    margin-bottom: 7px;
-}
-
-.position-grid {
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 10px;
-}
-
-.apply-light {
+.lightmaker-apply {
     width: 100%;
+    margin-top: 12px;
+    padding: 11px;
 
-    margin-top: 7px;
+    border: 1px solid #597cad;
+    border-radius: 10px;
 
-    padding: 12px;
-
-    border: 1px solid #9c7cf0;
-
-    border-radius: 8px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #9a70f0,
-            #6233b6
-        );
-
+    background: linear-gradient(145deg, #315b91, #1f3b60);
     color: white;
 
     font-family: inherit;
-
-    font-size: 11px;
-
     font-weight: 700;
-
     cursor: pointer;
 }
 
-.status {
-    margin-top: 10px;
-
-    padding: 10px;
-
-    border: 1px solid #323743;
-
-    border-radius: 7px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #1e222a,
-            #14171d
-        );
-
-    color: #808693;
-
-    font-size: 9px;
-
-    line-height: 1.5;
+.lightmaker-apply:hover {
+    filter: brightness(1.12);
 }
 
-/* =========================================================
-   SCROLLBAR
-========================================================= */
+/* =========================
+   STATUS
+========================= */
 
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+.statusbar {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 7px 12px;
+    border: 1px solid var(--border);
+    background: rgba(10,13,18,.88);
+    border-radius: 9px;
+    color: var(--muted);
+    font-size: 10px;
+    pointer-events: none;
+    z-index: 20;
 }
 
-::-webkit-scrollbar-track {
-    background: #0d0f13;
-}
-
-::-webkit-scrollbar-thumb {
-    background:
-        linear-gradient(
-            180deg,
-            #3c414d,
-            #252933
-        );
-
-    border-radius: 10px;
-}
-
-/* =========================================================
+/* =========================
    RESPONSIVE
-========================================================= */
+========================= */
 
-@media (max-width: 850px) {
-
-    .right-panel {
-        width: 225px;
+@media (max-width: 900px) {
+    .app {
+        grid-template-columns: 62px 1fr;
     }
-}
 
-@media (max-width: 650px) {
-
-    .right-panel {
+    .properties {
         display: none;
     }
 
-    .toolbar {
-        width: 58px;
-    }
-
-    .canvas-area {
-        padding: 20px;
-    }
-
-    .lightmaker-panel {
-        left: 70px;
-        top: 70px;
-
-        width:
-            calc(100vw - 85px);
+    #canvas {
+        width: calc(100vw - 90px);
     }
 }
 </style>
@@ -1198,738 +574,523 @@ input[type="range"] {
 
 <body>
 
-<!-- =====================================================
+<!-- =========================
      TOP BAR
-===================================================== -->
+========================= -->
 
 <div class="topbar">
 
-    <div class="logo">
-        Astro <span>Photos</span>
-    </div>
-
-    <!-- FILE -->
+    <div class="logo">Astro Photos</div>
 
     <div class="menu">
+        <button class="menu-btn" data-menu="fileMenu">File</button>
 
-        <button
-            class="menu-button"
-            onclick="toggleMenu(this)"
-        >
-            File
-        </button>
+        <div class="menu-dropdown" id="fileMenu">
+            <button class="menu-item" id="newButton">New</button>
+            <button class="menu-item" id="openButton">Open / Import</button>
+            <button class="menu-item" id="saveAPFButton">Save Project (.apf)</button>
+            <button class="menu-item" id="exportButton">Export PNG</button>
 
-        <div class="dropdown">
+            <div class="menu-separator"></div>
 
-            <button onclick="newCanvas();closeMenus()">
-                New
-            </button>
-
-            <button onclick="openFile();closeMenus()">
-                Open / Import
-            </button>
-
-            <button onclick="saveAPF();closeMenus()">
-                Save Project (.apf)
-            </button>
-
-            <button onclick="exportPNG();closeMenus()">
-                Export PNG
-            </button>
-
-            <div class="dropdown-divider"></div>
-
-            <div class="recent-title">
+            <button class="menu-item" id="recentButton">
                 Recent Pictures
-            </div>
+            </button>
 
-            <div id="recentList">
-                <div class="recent-empty">
-                    No recent pictures
-                </div>
-            </div>
-
-            <div class="dropdown-divider"></div>
-
-            <button onclick="clearRecent();closeMenus()">
+            <button class="menu-item" id="clearRecentButton">
                 Clear Recent Pictures
             </button>
-
         </div>
-
     </div>
 
-    <!-- EDIT -->
-
     <div class="menu">
+        <button class="menu-btn" data-menu="editMenu">Edit</button>
 
-        <button
-            class="menu-button"
-            onclick="toggleMenu(this)"
-        >
-            Edit
-        </button>
-
-        <div class="dropdown">
-
-            <button onclick="undo();closeMenus()">
-                Undo
-            </button>
-
-            <button onclick="redo();closeMenus()">
-                Redo
-            </button>
-
-            <button onclick="clearCanvas();closeMenus()">
-                Clear Canvas
-            </button>
-
+        <div class="menu-dropdown" id="editMenu">
+            <button class="menu-item" id="undoButton">Undo</button>
+            <button class="menu-item" id="redoButton">Redo</button>
+            <button class="menu-item" id="clearButton">Clear Canvas</button>
         </div>
-
     </div>
 
-    <!-- IMAGE -->
-
     <div class="menu">
+        <button class="menu-btn" data-menu="imageMenu">Image</button>
 
-        <button
-            class="menu-button"
-            onclick="toggleMenu(this)"
-        >
-            Image
-        </button>
-
-        <div class="dropdown">
-
-            <button onclick="flipHorizontal();closeMenus()">
+        <div class="menu-dropdown" id="imageMenu">
+            <button class="menu-item" id="flipHButton">
                 Flip Horizontal
             </button>
 
-            <button onclick="flipVertical();closeMenus()">
+            <button class="menu-item" id="flipVButton">
                 Flip Vertical
             </button>
 
-            <button onclick="rotateCanvas();closeMenus()">
+            <button class="menu-item" id="rotateButton">
                 Rotate 90°
             </button>
 
+            <button class="menu-item" id="resizeButton">
+                Resize Canvas
+            </button>
         </div>
-
     </div>
-
-    <!-- VIEW -->
 
     <div class="menu">
+        <button class="menu-btn" data-menu="viewMenu">View</button>
 
-        <button
-            class="menu-button"
-            onclick="toggleMenu(this)"
-        >
-            View
-        </button>
-
-        <div class="dropdown">
-
-            <button onclick="setZoom(.5);closeMenus()">
-                50%
+        <div class="menu-dropdown" id="viewMenu">
+            <button class="menu-item" id="zoomInButton">
+                Zoom In
             </button>
 
-            <button onclick="setZoom(.75);closeMenus()">
-                75%
+            <button class="menu-item" id="zoomOutButton">
+                Zoom Out
             </button>
 
-            <button onclick="setZoom(1);closeMenus()">
-                100%
+            <button class="menu-item" id="resetZoomButton">
+                Reset Zoom
             </button>
-
-            <button onclick="setZoom(1.5);closeMenus()">
-                150%
-            </button>
-
         </div>
-
     </div>
 
-    <div class="spacer"></div>
+    <div class="top-spacer"></div>
 
-    <button
-        class="top-button"
-        onclick="openFile()"
-    >
+    <button class="top-button" id="topImport">
         Import
     </button>
 
-    <button
-        class="top-button"
-        onclick="saveAPF()"
-    >
+    <button class="top-button" id="topSave">
         Save .APF
     </button>
 
-    <button
-        class="top-button"
-        onclick="exportPNG()"
-    >
+    <button class="top-button" id="topPNG">
         PNG
     </button>
 
 </div>
 
-<input
-    type="file"
-    id="fileInput"
-    accept="image/*,.apf"
-    hidden
->
+<!-- =========================
+     MAIN APP
+========================= -->
 
-<!-- =====================================================
-     MAIN
-===================================================== -->
+<div class="app">
 
-<div class="main">
+    <!-- SIDEBAR -->
 
-    <!-- TOOLBAR -->
+    <aside class="sidebar">
 
-    <div class="toolbar">
-
-        <button
-            class="tool active"
-            data-tooltip="Brush"
-            onclick="setTool('brush',this)"
-        >
-            🖌
+        <button class="tool active"
+                data-tool="brush"
+                data-tooltip="Brush">
+            ✎
         </button>
 
-        <button
-            class="tool"
-            data-tooltip="Eraser"
-            onclick="setTool('eraser',this)"
-        >
+        <button class="tool"
+                data-tool="eraser"
+                data-tooltip="Eraser">
             ⌫
         </button>
 
-        <button
-            class="tool"
-            data-tooltip="Move"
-            onclick="setTool('move',this)"
-        >
+        <button class="tool"
+                data-tool="move"
+                data-tooltip="Move">
             ✥
         </button>
 
-        <button
-            class="tool"
-            data-tooltip="Line"
-            onclick="setTool('line',this)"
-        >
+        <button class="tool"
+                data-tool="line"
+                data-tooltip="Line">
             ╱
         </button>
 
-        <button
-            class="tool"
-            data-tooltip="Rectangle"
-            onclick="setTool('rect',this)"
-        >
-            ▭
+        <button class="tool"
+                data-tool="rectangle"
+                data-tooltip="Rectangle">
+            □
         </button>
 
-        <button
-            class="tool"
-            data-tooltip="Circle"
-            onclick="setTool('circle',this)"
-        >
+        <button class="tool"
+                data-tool="circle"
+                data-tooltip="Circle">
             ○
         </button>
 
-        <button
-            class="tool"
-            data-tooltip="Text"
-            onclick="setTool('text',this)"
-        >
+        <button class="tool"
+                data-tool="text"
+                data-tooltip="Text">
             T
         </button>
 
         <div class="tool-separator"></div>
 
-        <button
-            class="tool"
-            data-tooltip="Lightmaker"
-            onclick="openLightmaker()"
-        >
+        <button class="tool"
+                id="lightmakerButton"
+                data-tooltip="Lightmaker">
             ✨
         </button>
 
         <div class="tool-separator"></div>
 
-        <button
-            class="tool"
-            data-tooltip="Undo"
-            onclick="undo()"
-        >
+        <button class="tool"
+                id="undoTool"
+                data-tooltip="Undo">
             ↶
         </button>
 
-        <button
-            class="tool"
-            data-tooltip="Redo"
-            onclick="redo()"
-        >
+        <button class="tool"
+                id="redoTool"
+                data-tooltip="Redo">
             ↷
         </button>
 
-        <button
-            class="tool"
-            data-tooltip="Clear Canvas"
-            onclick="clearCanvas()"
-        >
-            🗑
+        <button class="tool"
+                id="clearTool"
+                data-tooltip="Clear Canvas">
+            ⌫
         </button>
 
-    </div>
+    </aside>
 
     <!-- WORKSPACE -->
 
-    <div class="workspace">
+    <main class="workspace" id="workspace">
 
-        <div class="canvas-area">
+        <div class="canvas-wrap" id="canvasWrap">
+
+            <canvas
+                id="canvas"
+                width="1000"
+                height="650">
+            </canvas>
 
             <div
-                class="canvas-wrap"
-                id="canvasWrap"
-            >
-
-                <canvas
-                    id="canvas"
-                    width="1000"
-                    height="650"
-                ></canvas>
-
-                <div
-                    class="canvas-marker"
-                    id="canvasMarker"
-                    style="display:none"
-                ></div>
-
+                class="canvas-marker"
+                id="canvasMarker">
             </div>
 
         </div>
 
-        <div class="bottom-bar">
+        <div class="statusbar" id="statusbar">
+            1000 × 650 • Brush
+        </div>
 
-            <span id="statusText">
-                Brush Tool
-            </span>
+    </main>
 
-            <span id="canvasInfo">
-                1000 × 650
-            </span>
+    <!-- PROPERTIES -->
 
-            <div class="zoom-controls">
+    <aside class="properties">
 
-                <button onclick="changeZoom(-.1)">
-                    −
-                </button>
+        <div class="panel-title">
+            Properties
+        </div>
 
-                <span id="zoomText">
+        <div class="property-group">
+
+            <div class="property-title">
+                Brush
+            </div>
+
+            <label>
+                Size
+                <span class="value" id="brushSizeValue">
+                    15
+                </span>
+            </label>
+
+            <input
+                type="range"
+                id="brushSize"
+                min="1"
+                max="150"
+                value="15">
+
+            <br><br>
+
+            <label>Color</label>
+
+            <input
+                type="color"
+                id="brushColor"
+                value="#111111">
+
+            <br><br>
+
+            <label>
+                Opacity
+                <span class="value" id="opacityValue">
                     100%
                 </span>
+            </label>
 
-                <button onclick="changeZoom(.1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- RIGHT PANEL -->
-
-    <div class="right-panel">
-
-        <div class="panel-section">
-
-            <div class="panel-title">
-                Properties
-            </div>
-
-            <div class="field">
-
-                <label>
-                    Brush Size
-                </label>
-
-                <div class="range-row">
-
-                    <input
-                        type="range"
-                        id="brushSize"
-                        min="1"
-                        max="100"
-                        value="10"
-                    >
-
-                    <span
-                        class="range-value"
-                        id="brushSizeValue"
-                    >
-                        10
-                    </span>
-
-                </div>
-
-            </div>
-
-            <div class="field">
-
-                <label>
-                    Color
-                </label>
-
-                <div class="color-row">
-
-                    <input
-                        type="color"
-                        id="color"
-                        value="#ffffff"
-                    >
-
-                </div>
-
-            </div>
-
-            <div class="field">
-
-                <label>
-                    Opacity
-                </label>
-
-                <div class="range-row">
-
-                    <input
-                        type="range"
-                        id="opacity"
-                        min="0"
-                        max="1"
-                        step=".01"
-                        value="1"
-                    >
-
-                    <span
-                        class="range-value"
-                        id="opacityValue"
-                    >
-                        100%
-                    </span>
-
-                </div>
-
-            </div>
+            <input
+                type="range"
+                id="opacity"
+                min="1"
+                max="100"
+                value="100">
 
         </div>
 
-        <div class="panel-section">
+        <div class="property-group">
 
-            <div class="panel-title">
+            <div class="property-title">
                 Canvas
             </div>
 
-            <div class="position-grid">
+            <div class="row">
 
-                <div class="field">
-
-                    <label>
-                        Width
-                    </label>
-
+                <div>
+                    <label>Width</label>
                     <input
                         type="number"
                         id="canvasWidth"
                         value="1000"
-                        min="1"
-                    >
-
+                        min="50"
+                        max="4000">
                 </div>
 
-                <div class="field">
-
-                    <label>
-                        Height
-                    </label>
-
+                <div>
+                    <label>Height</label>
                     <input
                         type="number"
                         id="canvasHeight"
                         value="650"
-                        min="1"
-                    >
-
+                        min="50"
+                        max="4000">
                 </div>
 
             </div>
 
             <button
-                class="top-button"
-                style="width:100%"
-                onclick="resizeCanvas()"
-            >
-                Apply Canvas Size
+                class="action-button"
+                id="applyCanvasSize">
+                Apply Size
             </button>
 
         </div>
 
-        <div class="panel-section layers">
+        <div class="property-group">
 
-            <div class="panel-title">
+            <div class="property-title">
                 Layers
             </div>
 
-            <div class="layer selected">
-
-                <div class="layer-icon">
-                    ◈
-                </div>
-
-                <span>
-                    Background
-                </span>
-
+            <div style="font-size:11px;color:#9ca7b5;">
+                Background
             </div>
 
-            <div class="layer">
-
-                <div class="layer-icon">
-                    ✦
-                </div>
-
-                <span>
-                    Artwork
-                </span>
-
+            <div style="
+                margin-top:8px;
+                height:8px;
+                border-radius:5px;
+                background:#28313d;
+            ">
+                <div style="
+                    width:100%;
+                    height:100%;
+                    border-radius:5px;
+                    background:#5979a1;
+                "></div>
             </div>
 
         </div>
 
-    </div>
+    </aside>
 
 </div>
 
-<!-- =====================================================
+<!-- =========================
      LIGHTMAKER
-===================================================== -->
+========================= -->
 
-<div
+<section
     class="lightmaker-panel"
-    id="lightmakerPanel"
->
+    id="lightmakerPanel">
 
     <div
         class="lightmaker-header"
-        id="lightmakerHeader"
-    >
+        id="lightmakerHeader">
 
-        <div class="lightmaker-title">
-            ✨ <span>Lightmaker</span>
-        </div>
+        <span class="lightmaker-title">
+            ✨ Lightmaker
+        </span>
+
+        <span class="lightmaker-subtitle">
+            Lighting Studio
+        </span>
+
+        <!-- IMPORTANT:
+             This button is intentionally NOT handled
+             by the header drag system. -->
 
         <button
             class="lightmaker-close"
             id="lightmakerClose"
             type="button"
-        >
+            aria-label="Close Lightmaker">
             ×
         </button>
 
     </div>
 
-    <div class="lightmaker-content">
+    <div class="lightmaker-body">
 
-        <div class="panel-title">
-            Light Type
-        </div>
+        <div class="property-group">
 
-        <div class="light-types">
-
-            <button
-                class="light-type active"
-                onclick="selectLightType('glow',this)"
-            >
-                <div class="light-icon">●</div>
-                Glow
-            </button>
-
-            <button
-                class="light-type"
-                onclick="selectLightType('bloom',this)"
-            >
-                <div class="light-icon">✦</div>
-                Bloom
-            </button>
-
-            <button
-                class="light-type"
-                onclick="selectLightType('sunlight',this)"
-            >
-                <div class="light-icon">☀</div>
-                Sunlight
-            </button>
-
-            <button
-                class="light-type"
-                onclick="selectLightType('spotlight',this)"
-            >
-                <div class="light-icon">◉</div>
-                Spotlight
-            </button>
-
-            <button
-                class="light-type"
-                onclick="selectLightType('neon',this)"
-            >
-                <div class="light-icon">⚡</div>
-                Neon
-            </button>
-
-            <button
-                class="light-type"
-                onclick="selectLightType('fire',this)"
-            >
-                <div class="light-icon">🔥</div>
-                Fire Glow
-            </button>
-
-        </div>
-
-        <div class="position-grid">
-
-            <div class="field">
-
-                <label>
-                    X Position
-                </label>
-
-                <input
-                    type="number"
-                    id="lightX"
-                    value="500"
-                >
-
+            <div class="property-title">
+                Light Type
             </div>
 
-            <div class="field">
+            <div class="light-type-grid">
 
-                <label>
-                    Y Position
-                </label>
+                <button
+                    class="light-type active"
+                    data-light="glow">
+                    Glow
+                </button>
 
-                <input
-                    type="number"
-                    id="lightY"
-                    value="325"
-                >
+                <button
+                    class="light-type"
+                    data-light="bloom">
+                    Bloom
+                </button>
+
+                <button
+                    class="light-type"
+                    data-light="sun">
+                    Sunlight
+                </button>
+
+                <button
+                    class="light-type"
+                    data-light="spot">
+                    Spotlight
+                </button>
+
+                <button
+                    class="light-type"
+                    data-light="neon">
+                    Neon
+                </button>
+
+                <button
+                    class="light-type"
+                    data-light="fire">
+                    Fire Glow
+                </button>
 
             </div>
 
         </div>
 
-        <div class="field">
+        <div class="property-group">
+
+            <div class="property-title">
+                Position
+            </div>
+
+            <div class="row">
+
+                <div>
+                    <label>X</label>
+
+                    <input
+                        type="number"
+                        id="lightX"
+                        value="500">
+                </div>
+
+                <div>
+                    <label>Y</label>
+
+                    <input
+                        type="number"
+                        id="lightY"
+                        value="325">
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="property-group">
+
+            <div class="property-title">
+                Light Settings
+            </div>
 
             <label>
                 Intensity
+                <span class="value" id="lightIntensityValue">
+                    70
+                </span>
             </label>
 
-            <div class="range-row">
+            <input
+                type="range"
+                id="lightIntensity"
+                min="1"
+                max="100"
+                value="70">
 
-                <input
-                    type="range"
-                    id="lightIntensity"
-                    min="0"
-                    max="2"
-                    step=".01"
-                    value="1"
-                >
-
-                <span
-                    class="range-value"
-                    id="lightIntensityValue"
-                >
-                    100%
-                </span>
-
-            </div>
-
-        </div>
-
-        <div class="field">
+            <br><br>
 
             <label>
                 Size
-            </label>
-
-            <div class="range-row">
-
-                <input
-                    type="range"
-                    id="lightSize"
-                    min="10"
-                    max="1000"
-                    value="300"
-                >
-
-                <span
-                    class="range-value"
-                    id="lightSizeValue"
-                >
-                    300
+                <span class="value" id="lightSizeValue">
+                    200
                 </span>
-
-            </div>
-
-        </div>
-
-        <div class="field">
-
-            <label>
-                Light Color
             </label>
 
-            <div class="color-row">
+            <input
+                type="range"
+                id="lightSize"
+                min="20"
+                max="700"
+                value="200">
 
-                <input
-                    type="color"
-                    id="lightColor"
-                    value="#ffffff"
-                >
+            <br><br>
 
-            </div>
+            <label>Color</label>
+
+            <input
+                type="color"
+                id="lightColor"
+                value="#fff3b0">
+
+            <button
+                class="lightmaker-apply"
+                id="applyLight">
+                Apply Light
+            </button>
 
         </div>
 
-        <button
-            class="apply-light"
-            onclick="applyLight()"
-        >
-            Apply Light
-        </button>
-
-        <div class="status">
-            Click or drag directly on the canvas to position
-            the light.
+        <div style="
+            font-size:10px;
+            color:#7f8b9b;
+            line-height:1.6;
+            padding:3px 4px 10px;
+        ">
+            Tip: Click or drag directly on the canvas while
+            Lightmaker is open to position the light.
         </div>
 
     </div>
 
-</div>
+</section>
 
-<div
-    class="tooltip"
-    id="tooltip"
-></div>
+<input
+    type="file"
+    id="fileInput"
+    accept="image/*,.apf"
+    hidden>
 
 <script>
+"use strict";
 
 /* =========================================================
-   CORE
+   CANVAS
 ========================================================= */
 
 const canvas =
@@ -1938,8 +1099,50 @@ const canvas =
 const ctx =
     canvas.getContext("2d");
 
-const canvasMarker =
-    document.getElementById("canvasMarker");
+const canvasWrap =
+    document.getElementById("canvasWrap");
+
+const workspace =
+    document.getElementById("workspace");
+
+const statusbar =
+    document.getElementById("statusbar");
+
+let currentTool = "brush";
+
+let brushSize = 15;
+let brushColor = "#111111";
+let opacity = 1;
+
+let drawing = false;
+let startX = 0;
+let startY = 0;
+
+let zoom = 1;
+
+let undoStack = [];
+let redoStack = [];
+
+/* =========================================================
+   LIGHTMAKER STATE
+========================================================= */
+
+let lightmakerOpen = false;
+
+let lightType = "glow";
+let lightX = 500;
+let lightY = 325;
+let lightIntensity = 70;
+let lightSize = 200;
+let lightColor = "#fff3b0";
+
+let draggingLightmaker = false;
+let lightmakerDragX = 0;
+let lightmakerDragY = 0;
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
 
 const lightmakerPanel =
     document.getElementById("lightmakerPanel");
@@ -1950,657 +1153,60 @@ const lightmakerHeader =
 const lightmakerClose =
     document.getElementById("lightmakerClose");
 
-let tool = "brush";
-
-let drawing = false;
-
-let startX = 0;
-let startY = 0;
-
-let zoom = 1;
-
-let undoStack = [];
-let redoStack = [];
-
-let lightmakerOpen = false;
-
-let lightType = "glow";
-
-let lightX = 500;
-let lightY = 325;
-
-let draggingLightmaker = false;
-
-let lightmakerDragX = 0;
-let lightmakerDragY = 0;
+const canvasMarker =
+    document.getElementById("canvasMarker");
 
 /* =========================================================
-   MENU SYSTEM
+   INITIAL CANVAS
 ========================================================= */
 
-function toggleMenu(button) {
+function initializeCanvas() {
 
-    const menu =
-        button.parentElement;
+    ctx.fillStyle = "#ffffff";
 
-    document
-        .querySelectorAll(".menu")
-        .forEach(m => {
-
-            if (m !== menu) {
-                m.classList.remove("open");
-            }
-
-        });
-
-    menu.classList.toggle("open");
-}
-
-function closeMenus() {
-
-    document
-        .querySelectorAll(".menu")
-        .forEach(menu =>
-            menu.classList.remove("open")
-        );
-}
-
-document.addEventListener(
-    "click",
-    e => {
-
-        if (!e.target.closest(".menu")) {
-            closeMenus();
-        }
-
-    }
-);
-
-/* =========================================================
-   RECENT PICTURES
-========================================================= */
-
-const RECENT_KEY =
-    "astroPhotosRecent";
-
-const MAX_RECENT =
-    8;
-
-function getRecent() {
-
-    try {
-
-        return JSON.parse(
-            localStorage.getItem(
-                RECENT_KEY
-            )
-        ) || [];
-
-    } catch {
-
-        return [];
-
-    }
-}
-
-function saveRecent(
-    name,
-    data
-) {
-
-    let recent =
-        getRecent();
-
-    recent =
-        recent.filter(
-            item =>
-                item.name !== name
-        );
-
-    recent.unshift({
-        name: name,
-        data: data,
-        width: canvas.width,
-        height: canvas.height,
-        time: Date.now()
-    });
-
-    recent =
-        recent.slice(
-            0,
-            MAX_RECENT
-        );
-
-    try {
-
-        localStorage.setItem(
-            RECENT_KEY,
-            JSON.stringify(recent)
-        );
-
-    } catch {
-
-        /*
-           Browser storage can fill up if
-           very large pictures are stored.
-        */
-
-        recent =
-            recent.slice(
-                0,
-                3
-            );
-
-        try {
-
-            localStorage.setItem(
-                RECENT_KEY,
-                JSON.stringify(recent)
-            );
-
-        } catch {}
-
-    }
-
-    renderRecent();
-}
-
-function renderRecent() {
-
-    const list =
-        document.getElementById(
-            "recentList"
-        );
-
-    const recent =
-        getRecent();
-
-    list.innerHTML = "";
-
-    if (!recent.length) {
-
-        list.innerHTML =
-            `<div class="recent-empty">
-                No recent pictures
-            </div>`;
-
-        return;
-    }
-
-    recent.forEach(
-        (item,index) => {
-
-            const button =
-                document.createElement(
-                    "button"
-                );
-
-            button.className =
-                "recent-item";
-
-            button.title =
-                item.name;
-
-            button.innerHTML = `
-                <img
-                    class="recent-thumb"
-                    src="${item.data}"
-                >
-                <span class="recent-name">
-                    ${escapeHTML(item.name)}
-                </span>
-            `;
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    loadRecent(index);
-
-                    closeMenus();
-
-                }
-            );
-
-            list.appendChild(
-                button
-            );
-
-        }
+    ctx.fillRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
     );
 }
 
-function loadRecent(index) {
-
-    const recent =
-        getRecent();
-
-    const item =
-        recent[index];
-
-    if (!item)
-        return;
-
-    const img =
-        new Image();
-
-    img.onload = () => {
-
-        canvas.width =
-            item.width;
-
-        canvas.height =
-            item.height;
-
-        ctx.clearRect(
-            0,
-            0,
-            canvas.width,
-            canvas.height
-        );
-
-        ctx.drawImage(
-            img,
-            0,
-            0,
-            canvas.width,
-            canvas.height
-        );
-
-        updateCanvasInfo();
-
-        document.getElementById(
-            "canvasWidth"
-        ).value =
-            canvas.width;
-
-        document.getElementById(
-            "canvasHeight"
-        ).value =
-            canvas.height;
-
-        document.getElementById(
-            "statusText"
-        ).textContent =
-            "Opened " + item.name;
-
-    };
-
-    img.src =
-        item.data;
-}
-
-function clearRecent() {
-
-    if (
-        !confirm(
-            "Clear your recent pictures?"
-        )
-    )
-        return;
-
-    localStorage.removeItem(
-        RECENT_KEY
-    );
-
-    renderRecent();
-}
-
-function escapeHTML(text) {
-
-    return String(text)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
-}
-
-/* =========================================================
-   APF PROJECT FORMAT
-========================================================= */
-
-function saveAPF() {
-
-    const project = {
-
-        format: "APF",
-
-        version: 1,
-
-        application:
-            "Astro Photos",
-
-        created:
-            new Date().toISOString(),
-
-        width:
-            canvas.width,
-
-        height:
-            canvas.height,
-
-        image:
-            canvas.toDataURL(
-                "image/png"
-            )
-
-    };
-
-    const blob =
-        new Blob(
-            [
-                JSON.stringify(
-                    project
-                )
-            ],
-            {
-                type:
-                    "application/x-astro-photos"
-            }
-        );
-
-    const url =
-        URL.createObjectURL(
-            blob
-        );
-
-    const link =
-        document.createElement("a");
-
-    link.href =
-        url;
-
-    link.download =
-        "astro-project.apf";
-
-    document.body.appendChild(
-        link
-    );
-
-    link.click();
-
-    link.remove();
-
-    URL.revokeObjectURL(
-        url
-    );
-
-    /*
-       Save the current project
-       into Recent Pictures too.
-    */
-
-    saveRecent(
-        "astro-project.apf",
-        project.image
-    );
-
-    document.getElementById(
-        "statusText"
-    ).textContent =
-        "Project saved as .APF";
-}
-
-/* =========================================================
-   OPEN FILE
-========================================================= */
-
-function openFile() {
-
-    document
-        .getElementById(
-            "fileInput"
-        )
-        .click();
-}
-
-document
-    .getElementById(
-        "fileInput"
-    )
-    .addEventListener(
-        "change",
-        e => {
-
-            const file =
-                e.target.files[0];
-
-            if (!file)
-                return;
-
-            if (
-                file.name
-                    .toLowerCase()
-                    .endsWith(".apf")
-            ) {
-
-                openAPF(file);
-
-            } else {
-
-                openImage(file);
-
-            }
-
-            e.target.value = "";
-
-        }
-    );
-
-/* =========================================================
-   OPEN APF
-========================================================= */
-
-function openAPF(file) {
-
-    const reader =
-        new FileReader();
-
-    reader.onload = () => {
-
-        try {
-
-            const project =
-                JSON.parse(
-                    reader.result
-                );
-
-            if (
-                project.format !==
-                "APF"
-            ) {
-
-                throw new Error(
-                    "Invalid APF file"
-                );
-            }
-
-            if (
-                !project.image ||
-                !project.width ||
-                !project.height
-            ) {
-
-                throw new Error(
-                    "Incomplete APF file"
-                );
-            }
-
-            const img =
-                new Image();
-
-            img.onload = () => {
-
-                canvas.width =
-                    project.width;
-
-                canvas.height =
-                    project.height;
-
-                ctx.clearRect(
-                    0,
-                    0,
-                    canvas.width,
-                    canvas.height
-                );
-
-                ctx.drawImage(
-                    img,
-                    0,
-                    0,
-                    canvas.width,
-                    canvas.height
-                );
-
-                document.getElementById(
-                    "canvasWidth"
-                ).value =
-                    canvas.width;
-
-                document.getElementById(
-                    "canvasHeight"
-                ).value =
-                    canvas.height;
-
-                updateCanvasInfo();
-
-                saveRecent(
-                    file.name,
-                    project.image
-                );
-
-                document.getElementById(
-                    "statusText"
-                ).textContent =
-                    "Opened " +
-                    file.name;
-            };
-
-            img.src =
-                project.image;
-
-        } catch(error) {
-
-            alert(
-                "This doesn't appear to be a valid Astro Photos .APF project."
-            );
-
-            console.error(error);
-
-        }
-
-    };
-
-    reader.readAsText(file);
-}
-
-/* =========================================================
-   OPEN IMAGE
-========================================================= */
-
-function openImage(file) {
-
-    saveState();
-
-    const img =
-        new Image();
-
-    img.onload = () => {
-
-        ctx.clearRect(
-            0,
-            0,
-            canvas.width,
-            canvas.height
-        );
-
-        const scale =
-            Math.min(
-                canvas.width /
-                    img.width,
-
-                canvas.height /
-                    img.height
-            );
-
-        const width =
-            img.width * scale;
-
-        const height =
-            img.height * scale;
-
-        const x =
-            (
-                canvas.width -
-                width
-            ) / 2;
-
-        const y =
-            (
-                canvas.height -
-                height
-            ) / 2;
-
-        ctx.drawImage(
-            img,
-            x,
-            y,
-            width,
-            height
-        );
-
-        /*
-           Store a copy in Recent Pictures.
-        */
-
-        saveRecent(
-            file.name,
-            canvas.toDataURL(
-                "image/jpeg",
-                .75
-            )
-        );
-
-        document.getElementById(
-            "statusText"
-        ).textContent =
-            "Opened " + file.name;
-    };
-
-    img.src =
-        URL.createObjectURL(
-            file
-        );
-}
+initializeCanvas();
 
 /* =========================================================
    HISTORY
 ========================================================= */
 
-function saveState() {
+function saveHistory() {
 
-    undoStack.push(
-        canvas.toDataURL()
-    );
+    try {
 
-    if (
-        undoStack.length > 50
-    ) {
+        undoStack.push(
+            canvas.toDataURL("image/png")
+        );
 
-        undoStack.shift();
+        if (undoStack.length > 30) {
+            undoStack.shift();
+        }
+
+        redoStack = [];
+
+    } catch (error) {
+
+        console.warn(
+            "Could not save history:",
+            error
+        );
 
     }
-
-    redoStack = [];
 }
 
-function restoreImage(data) {
+function restoreImage(dataURL, callback) {
 
-    const img =
-        new Image();
+    const img = new Image();
 
-    img.onload = () => {
+    img.onload = function() {
 
         ctx.clearRect(
             0,
@@ -2612,105 +1218,99 @@ function restoreImage(data) {
         ctx.drawImage(
             img,
             0,
-            0
+            0,
+            canvas.width,
+            canvas.height
         );
 
+        if (callback) {
+            callback();
+        }
     };
 
-    img.src =
-        data;
+    img.src = dataURL;
 }
 
 function undo() {
 
-    if (!undoStack.length)
+    if (undoStack.length === 0) {
         return;
+    }
 
     redoStack.push(
-        canvas.toDataURL()
+        canvas.toDataURL("image/png")
     );
 
-    restoreImage(
-        undoStack.pop()
-    );
+    const previous =
+        undoStack.pop();
+
+    restoreImage(previous);
+
 }
 
 function redo() {
 
-    if (!redoStack.length)
+    if (redoStack.length === 0) {
         return;
+    }
 
     undoStack.push(
-        canvas.toDataURL()
+        canvas.toDataURL("image/png")
     );
 
-    restoreImage(
-        redoStack.pop()
-    );
+    const next =
+        redoStack.pop();
+
+    restoreImage(next);
+
 }
 
 /* =========================================================
-   TOOLS
+   TOOL SYSTEM
 ========================================================= */
 
-function setTool(
-    newTool,
-    element
-) {
+function setTool(tool, button = null) {
 
-    tool =
-        newTool;
+    currentTool = tool;
 
     document
         .querySelectorAll(".tool")
-        .forEach(t =>
-            t.classList.remove(
-                "active"
-            )
-        );
+        .forEach(el => {
 
-    if (element) {
+            if (
+                el.dataset.tool === tool
+            ) {
+                el.classList.add("active");
+            } else {
+                el.classList.remove("active");
+            }
 
-        element.classList.add(
-            "active"
-        );
+        });
 
-    }
-
-    const names = {
-
-        brush:
-            "Brush Tool",
-
-        eraser:
-            "Eraser Tool",
-
-        move:
-            "Move Tool",
-
-        line:
-            "Line Tool",
-
-        rect:
-            "Rectangle Tool",
-
-        circle:
-            "Circle Tool",
-
-        text:
-            "Text Tool",
-
-        lightmaker:
-            "Lightmaker"
-
-    };
-
-    document.getElementById(
-        "statusText"
-    ).textContent =
-        names[newTool] ||
-        newTool;
+    statusbar.textContent =
+        `${canvas.width} × ${canvas.height} • ${
+            tool.charAt(0).toUpperCase() +
+            tool.slice(1)
+        }`;
 }
+
+document
+    .querySelectorAll(".tool[data-tool]")
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                setTool(
+                    button.dataset.tool,
+                    button
+                );
+
+            }
+        );
+
+    });
 
 /* =========================================================
    CANVAS POSITION
@@ -2722,23 +1322,13 @@ function getCanvasPosition(e) {
         canvas.getBoundingClientRect();
 
     return {
-
         x:
-            (e.clientX -
-                rect.left) *
-            (
-                canvas.width /
-                rect.width
-            ),
+            (e.clientX - rect.left) *
+            (canvas.width / rect.width),
 
         y:
-            (e.clientY -
-                rect.top) *
-            (
-                canvas.height /
-                rect.height
-            )
-
+            (e.clientY - rect.top) *
+            (canvas.height / rect.height)
     };
 }
 
@@ -2746,9 +1336,130 @@ function getCanvasPosition(e) {
    DRAWING
 ========================================================= */
 
+function drawBrush(x, y) {
+
+    ctx.globalAlpha = opacity;
+
+    ctx.fillStyle = brushColor;
+
+    ctx.beginPath();
+
+    ctx.arc(
+        x,
+        y,
+        brushSize / 2,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fill();
+
+    ctx.globalAlpha = 1;
+}
+
+function drawEraser(x, y) {
+
+    ctx.save();
+
+    ctx.globalCompositeOperation =
+        "destination-out";
+
+    ctx.beginPath();
+
+    ctx.arc(
+        x,
+        y,
+        brushSize / 2,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fill();
+
+    ctx.restore();
+}
+
+function drawLine(x1, y1, x2, y2) {
+
+    ctx.save();
+
+    ctx.globalAlpha = opacity;
+    ctx.strokeStyle = brushColor;
+    ctx.lineWidth = brushSize;
+    ctx.lineCap = "round";
+
+    ctx.beginPath();
+
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+
+    ctx.stroke();
+
+    ctx.restore();
+}
+
+function drawRectangle(x1, y1, x2, y2) {
+
+    ctx.save();
+
+    ctx.globalAlpha = opacity;
+    ctx.strokeStyle = brushColor;
+    ctx.lineWidth = brushSize;
+
+    ctx.strokeRect(
+        x1,
+        y1,
+        x2 - x1,
+        y2 - y1
+    );
+
+    ctx.restore();
+}
+
+function drawCircle(x1, y1, x2, y2) {
+
+    const dx = x2 - x1;
+    const dy = y2 - y1;
+
+    const radius =
+        Math.sqrt(
+            dx * dx +
+            dy * dy
+        );
+
+    ctx.save();
+
+    ctx.globalAlpha = opacity;
+    ctx.strokeStyle = brushColor;
+    ctx.lineWidth = brushSize;
+
+    ctx.beginPath();
+
+    ctx.arc(
+        x1,
+        y1,
+        radius,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.stroke();
+
+    ctx.restore();
+}
+
+/* =========================================================
+   CANVAS POINTER
+========================================================= */
+
 canvas.addEventListener(
     "pointerdown",
     e => {
+
+        /*
+         * Lightmaker completely takes over
+         * canvas input while open.
+         */
 
         if (lightmakerOpen) {
 
@@ -2763,72 +1474,43 @@ canvas.addEventListener(
             return;
         }
 
-        saveState();
+        if (
+            currentTool === "move"
+        ) {
+            return;
+        }
+
+        saveHistory();
+
+        drawing = true;
 
         const pos =
             getCanvasPosition(e);
 
-        startX =
-            pos.x;
-
-        startY =
-            pos.y;
-
-        drawing =
-            true;
+        startX = pos.x;
+        startY = pos.y;
 
         if (
-            tool === "brush" ||
-            tool === "eraser"
+            currentTool === "brush"
         ) {
-
-            ctx.beginPath();
-
-            ctx.moveTo(
-                startX,
-                startY
+            drawBrush(
+                pos.x,
+                pos.y
             );
         }
 
-        if (
-            tool === "text"
+        else if (
+            currentTool === "eraser"
         ) {
-
-            const text =
-                prompt(
-                    "Enter text:"
-                );
-
-            if (text) {
-
-                ctx.fillStyle =
-                    document.getElementById(
-                        "color"
-                    ).value;
-
-                ctx.globalAlpha =
-                    Number(
-                        document.getElementById(
-                            "opacity"
-                        ).value
-                    );
-
-                ctx.font =
-                    "24px Montserrat";
-
-                ctx.fillText(
-                    text,
-                    startX,
-                    startY
-                );
-
-                ctx.globalAlpha =
-                    1;
-            }
-
-            drawing =
-                false;
+            drawEraser(
+                pos.x,
+                pos.y
+            );
         }
+
+        canvas.setPointerCapture(
+            e.pointerId
+        );
     }
 );
 
@@ -2836,9 +1518,13 @@ canvas.addEventListener(
     "pointermove",
     e => {
 
-        if (lightmakerOpen) {
+        if (
+            lightmakerOpen
+        ) {
 
-            if (e.buttons) {
+            if (
+                e.buttons
+            ) {
 
                 const pos =
                     getCanvasPosition(e);
@@ -2847,90 +1533,38 @@ canvas.addEventListener(
                     pos.x,
                     pos.y
                 );
-
             }
 
             return;
         }
 
-        if (!drawing)
+        if (!drawing) {
             return;
+        }
 
         const pos =
             getCanvasPosition(e);
 
-        const color =
-            document.getElementById(
-                "color"
-            ).value;
-
-        const opacity =
-            Number(
-                document.getElementById(
-                    "opacity"
-                ).value
-            );
-
-        const size =
-            Number(
-                document.getElementById(
-                    "brushSize"
-                ).value
-            );
-
-        ctx.globalAlpha =
-            opacity;
-
         if (
-            tool === "brush"
+            currentTool === "brush"
         ) {
 
-            ctx.globalCompositeOperation =
-                "source-over";
-
-            ctx.strokeStyle =
-                color;
-
-            ctx.lineWidth =
-                size;
-
-            ctx.lineCap =
-                "round";
-
-            ctx.lineJoin =
-                "round";
-
-            ctx.lineTo(
+            drawBrush(
                 pos.x,
                 pos.y
             );
-
-            ctx.stroke();
         }
 
-        if (
-            tool === "eraser"
+        else if (
+            currentTool === "eraser"
         ) {
 
-            ctx.globalCompositeOperation =
-                "destination-out";
-
-            ctx.lineWidth =
-                size;
-
-            ctx.lineCap =
-                "round";
-
-            ctx.lineTo(
+            drawEraser(
                 pos.x,
                 pos.y
             );
-
-            ctx.stroke();
-
-            ctx.globalCompositeOperation =
-                "source-over";
         }
+
     }
 );
 
@@ -2938,129 +1572,1022 @@ canvas.addEventListener(
     "pointerup",
     e => {
 
-        if (lightmakerOpen)
+        if (
+            lightmakerOpen
+        ) {
             return;
+        }
 
-        if (!drawing)
+        if (!drawing) {
             return;
+        }
+
+        drawing = false;
 
         const pos =
             getCanvasPosition(e);
 
-        const color =
-            document.getElementById(
-                "color"
-            ).value;
-
-        const size =
-            Number(
-                document.getElementById(
-                    "brushSize"
-                ).value
-            );
-
-        ctx.globalAlpha =
-            1;
-
         if (
-            tool === "line"
+            currentTool === "line"
         ) {
 
-            ctx.strokeStyle =
-                color;
-
-            ctx.lineWidth =
-                size;
-
-            ctx.beginPath();
-
-            ctx.moveTo(
+            drawLine(
                 startX,
-                startY
-            );
-
-            ctx.lineTo(
+                startY,
                 pos.x,
                 pos.y
             );
-
-            ctx.stroke();
         }
 
-        if (
-            tool === "rect"
+        else if (
+            currentTool === "rectangle"
         ) {
 
-            ctx.strokeStyle =
-                color;
-
-            ctx.lineWidth =
-                size;
-
-            ctx.strokeRect(
+            drawRectangle(
                 startX,
                 startY,
-                pos.x - startX,
-                pos.y - startY
+                pos.x,
+                pos.y
             );
         }
 
-        if (
-            tool === "circle"
+        else if (
+            currentTool === "circle"
         ) {
 
-            const dx =
-                pos.x - startX;
-
-            const dy =
-                pos.y - startY;
-
-            const radius =
-                Math.sqrt(
-                    dx * dx +
-                    dy * dy
-                );
-
-            ctx.strokeStyle =
-                color;
-
-            ctx.lineWidth =
-                size;
-
-            ctx.beginPath();
-
-            ctx.arc(
+            drawCircle(
                 startX,
                 startY,
-                radius,
-                0,
-                Math.PI * 2
+                pos.x,
+                pos.y
             );
-
-            ctx.stroke();
         }
 
-        drawing =
-            false;
-    }
-);
-
-canvas.addEventListener(
-    "pointerleave",
-    () => {
-
-        if (!lightmakerOpen) {
-
-            drawing =
-                false;
-
-        }
+        try {
+            canvas.releasePointerCapture(
+                e.pointerId
+            );
+        } catch {}
 
     }
 );
 
 /* =========================================================
-   LIGHTMAKER
+   TEXT TOOL
+========================================================= */
+
+canvas.addEventListener(
+    "click",
+    e => {
+
+        if (
+            lightmakerOpen ||
+            currentTool !== "text"
+        ) {
+            return;
+        }
+
+        const text =
+            prompt("Enter text:");
+
+        if (!text) {
+            return;
+        }
+
+        saveHistory();
+
+        const pos =
+            getCanvasPosition(e);
+
+        ctx.save();
+
+        ctx.globalAlpha = opacity;
+        ctx.fillStyle = brushColor;
+        ctx.font =
+            `${Math.max(12, brushSize * 2)}px Montserrat, sans-serif`;
+
+        ctx.fillText(
+            text,
+            pos.x,
+            pos.y
+        );
+
+        ctx.restore();
+    }
+);
+
+/* =========================================================
+   BRUSH CONTROLS
+========================================================= */
+
+const brushSizeInput =
+    document.getElementById("brushSize");
+
+const brushSizeValue =
+    document.getElementById("brushSizeValue");
+
+brushSizeInput.addEventListener(
+    "input",
+    () => {
+
+        brushSize =
+            Number(
+                brushSizeInput.value
+            );
+
+        brushSizeValue.textContent =
+            brushSize;
+    }
+);
+
+const brushColorInput =
+    document.getElementById("brushColor");
+
+brushColorInput.addEventListener(
+    "input",
+    () => {
+
+        brushColor =
+            brushColorInput.value;
+    }
+);
+
+const opacityInput =
+    document.getElementById("opacity");
+
+const opacityValue =
+    document.getElementById("opacityValue");
+
+opacityInput.addEventListener(
+    "input",
+    () => {
+
+        opacity =
+            Number(
+                opacityInput.value
+            ) / 100;
+
+        opacityValue.textContent =
+            opacityInput.value + "%";
+    }
+);
+
+/* =========================================================
+   CLEAR
+========================================================= */
+
+function clearCanvas() {
+
+    saveHistory();
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    ctx.fillStyle = "#ffffff";
+
+    ctx.fillRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+}
+
+document
+    .getElementById("clearButton")
+    .addEventListener(
+        "click",
+        clearCanvas
+    );
+
+document
+    .getElementById("clearTool")
+    .addEventListener(
+        "click",
+        clearCanvas
+    );
+
+/* =========================================================
+   IMPORT
+========================================================= */
+
+const fileInput =
+    document.getElementById("fileInput");
+
+function openFile() {
+    fileInput.click();
+}
+
+document
+    .getElementById("openButton")
+    .addEventListener(
+        "click",
+        openFile
+    );
+
+document
+    .getElementById("topImport")
+    .addEventListener(
+        "click",
+        openFile
+    );
+
+fileInput.addEventListener(
+    "change",
+    e => {
+
+        const file =
+            e.target.files[0];
+
+        if (!file) {
+            return;
+        }
+
+        if (
+            file.name
+                .toLowerCase()
+                .endsWith(".apf")
+        ) {
+
+            const reader =
+                new FileReader();
+
+            reader.onload = () => {
+
+                try {
+
+                    const project =
+                        JSON.parse(
+                            reader.result
+                        );
+
+                    if (
+                        project.image
+                    ) {
+
+                        restoreImage(
+                            project.image,
+                            () => {
+
+                                if (
+                                    project.width &&
+                                    project.height
+                                ) {
+
+                                    resizeCanvas(
+                                        project.width,
+                                        project.height,
+                                        false
+                                    );
+                                }
+
+                            }
+                        );
+                    }
+
+                } catch {
+
+                    alert(
+                        "This APF file is invalid."
+                    );
+                }
+
+            };
+
+            reader.readAsText(file);
+
+            return;
+        }
+
+        const reader =
+            new FileReader();
+
+        reader.onload = () => {
+
+            const img =
+                new Image();
+
+            img.onload = () => {
+
+                saveHistory();
+
+                canvas.width =
+                    img.naturalWidth;
+
+                canvas.height =
+                    img.naturalHeight;
+
+                ctx.drawImage(
+                    img,
+                    0,
+                    0
+                );
+
+                updateCanvasInputs();
+
+                addRecentPicture(
+                    file.name,
+                    reader.result
+                );
+
+                updateStatus();
+            };
+
+            img.src =
+                reader.result;
+        };
+
+        reader.readAsDataURL(file);
+
+    }
+);
+
+/* =========================================================
+   NEW
+========================================================= */
+
+document
+    .getElementById("newButton")
+    .addEventListener(
+        "click",
+        () => {
+
+            if (
+                confirm(
+                    "Create a new blank canvas?"
+                )
+            ) {
+
+                saveHistory();
+
+                canvas.width = 1000;
+                canvas.height = 650;
+
+                initializeCanvas();
+
+                updateCanvasInputs();
+                updateStatus();
+            }
+
+        }
+    );
+
+/* =========================================================
+   RESIZE
+========================================================= */
+
+function resizeCanvas(
+    width,
+    height,
+    save = true
+) {
+
+    width =
+        Math.max(
+            50,
+            Math.min(
+                4000,
+                Number(width)
+            )
+        );
+
+    height =
+        Math.max(
+            50,
+            Math.min(
+                4000,
+                Number(height)
+            )
+        );
+
+    if (save) {
+        saveHistory();
+    }
+
+    const oldCanvas =
+        document.createElement("canvas");
+
+    oldCanvas.width =
+        canvas.width;
+
+    oldCanvas.height =
+        canvas.height;
+
+    oldCanvas
+        .getContext("2d")
+        .drawImage(
+            canvas,
+            0,
+            0
+        );
+
+    canvas.width =
+        width;
+
+    canvas.height =
+        height;
+
+    ctx.fillStyle =
+        "#ffffff";
+
+    ctx.fillRect(
+        0,
+        0,
+        width,
+        height
+    );
+
+    ctx.drawImage(
+        oldCanvas,
+        0,
+        0,
+        width,
+        height
+    );
+
+    updateCanvasInputs();
+    updateStatus();
+}
+
+document
+    .getElementById("applyCanvasSize")
+    .addEventListener(
+        "click",
+        () => {
+
+            resizeCanvas(
+                document.getElementById(
+                    "canvasWidth"
+                ).value,
+
+                document.getElementById(
+                    "canvasHeight"
+                ).value
+            );
+
+        }
+    );
+
+document
+    .getElementById("resizeButton")
+    .addEventListener(
+        "click",
+        () => {
+
+            const width =
+                prompt(
+                    "Canvas width:",
+                    canvas.width
+                );
+
+            if (!width) {
+                return;
+            }
+
+            const height =
+                prompt(
+                    "Canvas height:",
+                    canvas.height
+                );
+
+            if (!height) {
+                return;
+            }
+
+            resizeCanvas(
+                width,
+                height
+            );
+
+        }
+    );
+
+function updateCanvasInputs() {
+
+    document.getElementById(
+        "canvasWidth"
+    ).value =
+        canvas.width;
+
+    document.getElementById(
+        "canvasHeight"
+    ).value =
+        canvas.height;
+}
+
+function updateStatus() {
+
+    statusbar.textContent =
+        `${canvas.width} × ${canvas.height} • ${
+            currentTool.charAt(0).toUpperCase() +
+            currentTool.slice(1)
+        }`;
+}
+
+/* =========================================================
+   FLIP / ROTATE
+========================================================= */
+
+function flipHorizontal() {
+
+    saveHistory();
+
+    const temp =
+        document.createElement("canvas");
+
+    temp.width =
+        canvas.width;
+
+    temp.height =
+        canvas.height;
+
+    const tctx =
+        temp.getContext("2d");
+
+    tctx.translate(
+        canvas.width,
+        0
+    );
+
+    tctx.scale(
+        -1,
+        1
+    );
+
+    tctx.drawImage(
+        canvas,
+        0,
+        0
+    );
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    ctx.drawImage(
+        temp,
+        0,
+        0
+    );
+}
+
+function flipVertical() {
+
+    saveHistory();
+
+    const temp =
+        document.createElement("canvas");
+
+    temp.width =
+        canvas.width;
+
+    temp.height =
+        canvas.height;
+
+    const tctx =
+        temp.getContext("2d");
+
+    tctx.translate(
+        0,
+        canvas.height
+    );
+
+    tctx.scale(
+        1,
+        -1
+    );
+
+    tctx.drawImage(
+        canvas,
+        0,
+        0
+    );
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    ctx.drawImage(
+        temp,
+        0,
+        0
+    );
+}
+
+function rotate90() {
+
+    saveHistory();
+
+    const temp =
+        document.createElement("canvas");
+
+    temp.width =
+        canvas.height;
+
+    temp.height =
+        canvas.width;
+
+    const tctx =
+        temp.getContext("2d");
+
+    tctx.translate(
+        temp.width / 2,
+        temp.height / 2
+    );
+
+    tctx.rotate(
+        Math.PI / 2
+    );
+
+    tctx.drawImage(
+        canvas,
+        -canvas.width / 2,
+        -canvas.height / 2
+    );
+
+    canvas.width =
+        temp.width;
+
+    canvas.height =
+        temp.height;
+
+    ctx.drawImage(
+        temp,
+        0,
+        0
+    );
+
+    updateCanvasInputs();
+    updateStatus();
+}
+
+document
+    .getElementById("flipHButton")
+    .addEventListener(
+        "click",
+        flipHorizontal
+    );
+
+document
+    .getElementById("flipVButton")
+    .addEventListener(
+        "click",
+        flipVertical
+    );
+
+document
+    .getElementById("rotateButton")
+    .addEventListener(
+        "click",
+        rotate90
+    );
+
+/* =========================================================
+   ZOOM
+========================================================= */
+
+function updateZoom() {
+
+    canvas.style.transform =
+        `scale(${zoom})`;
+
+    statusbar.textContent =
+        `${canvas.width} × ${canvas.height} • ${
+            Math.round(zoom * 100)
+        }%`;
+}
+
+document
+    .getElementById("zoomInButton")
+    .addEventListener(
+        "click",
+        () => {
+
+            zoom =
+                Math.min(
+                    3,
+                    zoom + .1
+                );
+
+            updateZoom();
+        }
+    );
+
+document
+    .getElementById("zoomOutButton")
+    .addEventListener(
+        "click",
+        () => {
+
+            zoom =
+                Math.max(
+                    .2,
+                    zoom - .1
+                );
+
+            updateZoom();
+        }
+    );
+
+document
+    .getElementById("resetZoomButton")
+    .addEventListener(
+        "click",
+        () => {
+
+            zoom = 1;
+
+            updateZoom();
+        }
+    );
+
+/* =========================================================
+   APF PROJECT FILE
+========================================================= */
+
+function saveAPF() {
+
+    const project = {
+
+        app:
+            "Astro Photos",
+
+        version:
+            1,
+
+        width:
+            canvas.width,
+
+        height:
+            canvas.height,
+
+        image:
+            canvas.toDataURL("image/png"),
+
+        brush: {
+
+            size:
+                brushSize,
+
+            color:
+                brushColor,
+
+            opacity:
+                opacity
+        }
+
+    };
+
+    const blob =
+        new Blob(
+            [
+                JSON.stringify(
+                    project
+                )
+            ],
+            {
+                type:
+                    "application/json"
+            }
+        );
+
+    const url =
+        URL.createObjectURL(
+            blob
+        );
+
+    const a =
+        document.createElement("a");
+
+    a.href = url;
+
+    a.download =
+        "AstroPhotos_Project.apf";
+
+    document.body.appendChild(a);
+
+    a.click();
+
+    a.remove();
+
+    URL.revokeObjectURL(url);
+}
+
+document
+    .getElementById("saveAPFButton")
+    .addEventListener(
+        "click",
+        saveAPF
+    );
+
+document
+    .getElementById("topSave")
+    .addEventListener(
+        "click",
+        saveAPF
+    );
+
+/* =========================================================
+   PNG EXPORT
+========================================================= */
+
+function exportPNG() {
+
+    const link =
+        document.createElement("a");
+
+    link.download =
+        "AstroPhotos.png";
+
+    link.href =
+        canvas.toDataURL(
+            "image/png"
+        );
+
+    link.click();
+}
+
+document
+    .getElementById("exportButton")
+    .addEventListener(
+        "click",
+        exportPNG
+    );
+
+document
+    .getElementById("topPNG")
+    .addEventListener(
+        "click",
+        exportPNG
+    );
+
+/* =========================================================
+   RECENT PICTURES
+========================================================= */
+
+function getRecentPictures() {
+
+    try {
+
+        return JSON.parse(
+            localStorage.getItem(
+                "astroPhotosRecent"
+            )
+        ) || [];
+
+    } catch {
+
+        return [];
+    }
+}
+
+function addRecentPicture(
+    name,
+    data
+) {
+
+    try {
+
+        let recent =
+            getRecentPictures();
+
+        recent =
+            recent.filter(
+                item =>
+                    item.name !== name
+            );
+
+        recent.unshift({
+            name,
+            data
+        });
+
+        recent =
+            recent.slice(
+                0,
+                5
+            );
+
+        localStorage.setItem(
+            "astroPhotosRecent",
+            JSON.stringify(
+                recent
+            )
+        );
+
+    } catch {
+
+        console.warn(
+            "Recent picture storage limit reached."
+        );
+    }
+}
+
+function openRecentPictures() {
+
+    const recent =
+        getRecentPictures();
+
+    if (
+        recent.length === 0
+    ) {
+
+        alert(
+            "No recent pictures."
+        );
+
+        return;
+    }
+
+    let message =
+        "Recent Pictures:\n\n";
+
+    recent.forEach(
+        (item, index) => {
+
+            message +=
+                `${index + 1}. ${item.name}\n`;
+        }
+    );
+
+    const choice =
+        prompt(
+            message +
+            "\nEnter a number to open:"
+        );
+
+    const index =
+        Number(choice) - 1;
+
+    if (
+        index < 0 ||
+        index >= recent.length
+    ) {
+        return;
+    }
+
+    const img =
+        new Image();
+
+    img.onload = () => {
+
+        saveHistory();
+
+        canvas.width =
+            img.naturalWidth;
+
+        canvas.height =
+            img.naturalHeight;
+
+        ctx.drawImage(
+            img,
+            0,
+            0
+        );
+
+        updateCanvasInputs();
+        updateStatus();
+    };
+
+    img.src =
+        recent[index].data;
+}
+
+document
+    .getElementById("recentButton")
+    .addEventListener(
+        "click",
+        openRecentPictures
+    );
+
+document
+    .getElementById("clearRecentButton")
+    .addEventListener(
+        "click",
+        () => {
+
+            localStorage.removeItem(
+                "astroPhotosRecent"
+            );
+
+            alert(
+                "Recent pictures cleared."
+            );
+        }
+    );
+
+/* =========================================================
+   LIGHTMAKER OPEN
 ========================================================= */
 
 function openLightmaker() {
@@ -3075,13 +2602,18 @@ function openLightmaker() {
     canvasMarker.style.display =
         "block";
 
-    setTool(
-        "lightmaker",
-        null
+    setLightPosition(
+        lightX,
+        lightY
     );
-
-    updateLightMarker();
 }
+
+/* =========================================================
+   LIGHTMAKER CLOSE
+   IMPORTANT:
+   The close button does NOT use the header's
+   pointerdown handler.
+========================================================= */
 
 function closeLightmaker() {
 
@@ -3098,74 +2630,284 @@ function closeLightmaker() {
     draggingLightmaker =
         false;
 
-    const brushButton =
-        document.querySelector(
-            '.tool[data-tooltip="Brush"]'
-        );
-
-    setTool(
-        "brush",
-        brushButton
-    );
+    setTool("brush");
 }
 
 /*
-   FIX:
-   The X button no longer activates
-   the draggable header.
-*/
+ * Direct onclick assignment.
+ *
+ * This is intentionally independent from
+ * the draggable header.
+ */
 
-lightmakerClose.addEventListener(
-    "pointerdown",
-    e => {
+lightmakerClose.onclick =
+    function(e) {
 
         e.preventDefault();
-
         e.stopPropagation();
+
+        closeLightmaker();
+
+    };
+
+/*
+ * Prevent the header from ever treating
+ * the X button as a drag.
+ */
+
+lightmakerHeader.addEventListener(
+    "pointerdown",
+    function(e) {
+
+        if (
+            e.target.closest(
+                "#lightmakerClose"
+            )
+        ) {
+            return;
+        }
+
+        draggingLightmaker =
+            true;
+
+        const rect =
+            lightmakerPanel
+                .getBoundingClientRect();
+
+        lightmakerDragX =
+            e.clientX -
+            rect.left;
+
+        lightmakerDragY =
+            e.clientY -
+            rect.top;
+
+        lightmakerHeader.setPointerCapture(
+            e.pointerId
+        );
 
     }
 );
 
-lightmakerClose.addEventListener(
-    "click",
+lightmakerHeader.addEventListener(
+    "pointermove",
+    function(e) {
+
+        if (
+            !draggingLightmaker
+        ) {
+            return;
+        }
+
+        const newLeft =
+            e.clientX -
+            lightmakerDragX;
+
+        const newTop =
+            e.clientY -
+            lightmakerDragY;
+
+        lightmakerPanel.style.left =
+            Math.max(
+                10,
+                Math.min(
+                    window.innerWidth -
+                    lightmakerPanel.offsetWidth -
+                    10,
+
+                    newLeft
+                )
+            ) + "px";
+
+        lightmakerPanel.style.top =
+            Math.max(
+                65,
+                Math.min(
+                    window.innerHeight -
+                    lightmakerPanel.offsetHeight -
+                    10,
+
+                    newTop
+                )
+            ) + "px";
+
+    }
+);
+
+lightmakerHeader.addEventListener(
+    "pointerup",
     e => {
 
-        e.preventDefault();
+        draggingLightmaker =
+            false;
 
-        e.stopPropagation();
-
-        closeLightmaker();
+        try {
+            lightmakerHeader.releasePointerCapture(
+                e.pointerId
+            );
+        } catch {}
 
     }
 );
 
 /* =========================================================
-   LIGHT TYPES
+   LIGHTMAKER TOOL BUTTON
 ========================================================= */
 
-function selectLightType(
-    type,
-    element
-) {
+document
+    .getElementById("lightmakerButton")
+    .addEventListener(
+        "click",
+        e => {
 
-    lightType =
-        type;
+            e.stopPropagation();
 
-    document
-        .querySelectorAll(
-            ".light-type"
-        )
-        .forEach(
-            button =>
-                button.classList.remove(
+            if (
+                lightmakerOpen
+            ) {
+
+                closeLightmaker();
+
+            } else {
+
+                openLightmaker();
+
+            }
+
+        }
+    );
+
+/* =========================================================
+   LIGHT TYPE
+========================================================= */
+
+document
+    .querySelectorAll(".light-type")
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                document
+                    .querySelectorAll(
+                        ".light-type"
+                    )
+                    .forEach(
+                        b =>
+                            b.classList.remove(
+                                "active"
+                            )
+                    );
+
+                button.classList.add(
                     "active"
-                )
+                );
+
+                lightType =
+                    button.dataset.light;
+            }
         );
 
-    element.classList.add(
-        "active"
+    });
+
+/* =========================================================
+   LIGHT CONTROLS
+========================================================= */
+
+const lightXInput =
+    document.getElementById("lightX");
+
+const lightYInput =
+    document.getElementById("lightY");
+
+const lightIntensityInput =
+    document.getElementById(
+        "lightIntensity"
     );
-}
+
+const lightSizeInput =
+    document.getElementById(
+        "lightSize"
+    );
+
+const lightColorInput =
+    document.getElementById(
+        "lightColor"
+    );
+
+const lightIntensityValue =
+    document.getElementById(
+        "lightIntensityValue"
+    );
+
+const lightSizeValue =
+    document.getElementById(
+        "lightSizeValue"
+    );
+
+lightXInput.addEventListener(
+    "input",
+    () => {
+
+        lightX =
+            Number(
+                lightXInput.value
+            );
+
+        updateLightMarker();
+    }
+);
+
+lightYInput.addEventListener(
+    "input",
+    () => {
+
+        lightY =
+            Number(
+                lightYInput.value
+            );
+
+        updateLightMarker();
+    }
+);
+
+lightIntensityInput.addEventListener(
+    "input",
+    () => {
+
+        lightIntensity =
+            Number(
+                lightIntensityInput.value
+            );
+
+        lightIntensityValue.textContent =
+            lightIntensity;
+    }
+);
+
+lightSizeInput.addEventListener(
+    "input",
+    () => {
+
+        lightSize =
+            Number(
+                lightSizeInput.value
+            );
+
+        lightSizeValue.textContent =
+            lightSize;
+    }
+);
+
+lightColorInput.addEventListener(
+    "input",
+    () => {
+
+        lightColor =
+            lightColorInput.value;
+    }
+);
 
 /* =========================================================
    LIGHT POSITION
@@ -3194,915 +2936,355 @@ function setLightPosition(
             )
         );
 
-    document.getElementById(
-        "lightX"
-    ).value =
-        Math.round(
-            lightX
-        );
+    lightXInput.value =
+        Math.round(lightX);
 
-    document.getElementById(
-        "lightY"
-    ).value =
-        Math.round(
-            lightY
-        );
+    lightYInput.value =
+        Math.round(lightY);
 
     updateLightMarker();
 }
 
 function updateLightMarker() {
 
+    const rect =
+        canvas.getBoundingClientRect();
+
+    const x =
+        rect.left +
+        (lightX / canvas.width) *
+        rect.width;
+
+    const y =
+        rect.top +
+        (lightY / canvas.height) *
+        rect.height;
+
     canvasMarker.style.left =
-        lightX + "px";
+        x + "px";
 
     canvasMarker.style.top =
-        lightY + "px";
+        y + "px";
 }
 
-document
-    .getElementById("lightX")
-    .addEventListener(
-        "input",
-        e => {
-
-            lightX =
-                Number(
-                    e.target.value
-                );
-
-            updateLightMarker();
-
-        }
-    );
-
-document
-    .getElementById("lightY")
-    .addEventListener(
-        "input",
-        e => {
-
-            lightY =
-                Number(
-                    e.target.value
-                );
-
-            updateLightMarker();
-
-        }
-    );
-
 /* =========================================================
-   LIGHT EFFECTS
+   APPLY LIGHT
 ========================================================= */
+
+function hexToRgb(hex) {
+
+    const value =
+        hex.replace("#", "");
+
+    return {
+        r:
+            parseInt(
+                value.substring(0,2),
+                16
+            ),
+
+        g:
+            parseInt(
+                value.substring(2,4),
+                16
+            ),
+
+        b:
+            parseInt(
+                value.substring(4,6),
+                16
+            )
+    };
+}
 
 function applyLight() {
 
-    saveState();
+    saveHistory();
 
-    const intensity =
-        Number(
-            document.getElementById(
-                "lightIntensity"
-            ).value
+    const rgb =
+        hexToRgb(
+            lightColor
         );
 
-    const size =
-        Number(
-            document.getElementById(
-                "lightSize"
-            ).value
+    const strength =
+        lightIntensity / 100;
+
+    const radius =
+        lightSize;
+
+    const gradient =
+        ctx.createRadialGradient(
+            lightX,
+            lightY,
+            0,
+            lightX,
+            lightY,
+            radius
         );
 
-    const color =
-        document.getElementById(
-            "lightColor"
-        ).value;
+    if (
+        lightType === "neon"
+    ) {
+
+        gradient.addColorStop(
+            0,
+            `rgba(${rgb.r},${rgb.g},${rgb.b},${strength})`
+        );
+
+        gradient.addColorStop(
+            .35,
+            `rgba(${rgb.r},${rgb.g},${rgb.b},${strength * .45})`
+        );
+
+        gradient.addColorStop(
+            1,
+            `rgba(${rgb.r},${rgb.g},${rgb.b},0)`
+        );
+
+    }
+
+    else if (
+        lightType === "fire"
+    ) {
+
+        gradient.addColorStop(
+            0,
+            `rgba(255,255,210,${strength})`
+        );
+
+        gradient.addColorStop(
+            .25,
+            `rgba(255,180,60,${strength * .7})`
+        );
+
+        gradient.addColorStop(
+            .65,
+            `rgba(255,80,20,${strength * .25})`
+        );
+
+        gradient.addColorStop(
+            1,
+            "rgba(255,40,0,0)"
+        );
+
+    }
+
+    else if (
+        lightType === "sun"
+    ) {
+
+        gradient.addColorStop(
+            0,
+            `rgba(255,255,220,${strength})`
+        );
+
+        gradient.addColorStop(
+            .35,
+            `rgba(${rgb.r},${rgb.g},${rgb.b},${strength * .45})`
+        );
+
+        gradient.addColorStop(
+            1,
+            "rgba(255,255,255,0)"
+        );
+
+    }
+
+    else if (
+        lightType === "spot"
+    ) {
+
+        gradient.addColorStop(
+            0,
+            `rgba(${rgb.r},${rgb.g},${rgb.b},${strength})`
+        );
+
+        gradient.addColorStop(
+            .2,
+            `rgba(${rgb.r},${rgb.g},${rgb.b},${strength * .65})`
+        );
+
+        gradient.addColorStop(
+            1,
+            "rgba(0,0,0,0)"
+        );
+
+    }
+
+    else if (
+        lightType === "bloom"
+    ) {
+
+        gradient.addColorStop(
+            0,
+            `rgba(255,255,255,${strength})`
+        );
+
+        gradient.addColorStop(
+            .15,
+            `rgba(${rgb.r},${rgb.g},${rgb.b},${strength * .75})`
+        );
+
+        gradient.addColorStop(
+            .5,
+            `rgba(${rgb.r},${rgb.g},${rgb.b},${strength * .3})`
+        );
+
+        gradient.addColorStop(
+            1,
+            "rgba(0,0,0,0)"
+        );
+
+    }
+
+    else {
+
+        gradient.addColorStop(
+            0,
+            `rgba(255,255,255,${strength})`
+        );
+
+        gradient.addColorStop(
+            .15,
+            `rgba(${rgb.r},${rgb.g},${rgb.b},${strength * .7})`
+        );
+
+        gradient.addColorStop(
+            .5,
+            `rgba(${rgb.r},${rgb.g},${rgb.b},${strength * .25})`
+        );
+
+        gradient.addColorStop(
+            1,
+            "rgba(0,0,0,0)"
+        );
+    }
 
     ctx.save();
 
     ctx.globalCompositeOperation =
         "screen";
 
-    if (
-        lightType ===
-        "glow"
-    ) {
-
-        drawGlow(
-            lightX,
-            lightY,
-            size,
-            color,
-            intensity
-        );
-
-    }
-
-    if (
-        lightType ===
-        "bloom"
-    ) {
-
-        drawGlow(
-            lightX,
-            lightY,
-            size,
-            color,
-            intensity
-        );
-
-        drawGlow(
-            lightX,
-            lightY,
-            size * .45,
-            color,
-            intensity * 1.5
-        );
-
-    }
-
-    if (
-        lightType ===
-        "sunlight"
-    ) {
-
-        drawGlow(
-            lightX,
-            lightY,
-            size * 1.4,
-            color,
-            intensity
-        );
-
-        drawGlow(
-            lightX,
-            lightY,
-            size * .35,
-            "#ffffff",
-            intensity
-        );
-
-    }
-
-    if (
-        lightType ===
-        "spotlight"
-    ) {
-
-        const gradient =
-            ctx.createRadialGradient(
-                lightX,
-                lightY,
-                0,
-                lightX,
-                lightY,
-                size
-            );
-
-        gradient.addColorStop(
-            0,
-            colorWithAlpha(
-                color,
-                intensity
-            )
-        );
-
-        gradient.addColorStop(
-            .35,
-            colorWithAlpha(
-                color,
-                intensity * .5
-            )
-        );
-
-        gradient.addColorStop(
-            1,
-            colorWithAlpha(
-                color,
-                0
-            )
-        );
-
-        ctx.fillStyle =
-            gradient;
-
-        ctx.fillRect(
-            0,
-            0,
-            canvas.width,
-            canvas.height
-        );
-    }
-
-    if (
-        lightType ===
-        "neon"
-    ) {
-
-        for (
-            let i = 0;
-            i < 5;
-            i++
-        ) {
-
-            drawGlow(
-                lightX,
-                lightY,
-                size *
-                    (1 - i * .14),
-                color,
-                intensity * .35
-            );
-
-        }
-
-    }
-
-    if (
-        lightType ===
-        "fire"
-    ) {
-
-        drawGlow(
-            lightX,
-            lightY,
-            size,
-            "#ff3300",
-            intensity
-        );
-
-        drawGlow(
-            lightX,
-            lightY,
-            size * .55,
-            "#ff9900",
-            intensity * 1.3
-        );
-
-        drawGlow(
-            lightX,
-            lightY,
-            size * .22,
-            "#fff1a8",
-            intensity * 1.5
-        );
-
-    }
-
-    ctx.restore();
-}
-
-function drawGlow(
-    x,
-    y,
-    radius,
-    color,
-    intensity
-) {
-
-    const gradient =
-        ctx.createRadialGradient(
-            x,
-            y,
-            0,
-            x,
-            y,
-            radius
-        );
-
-    gradient.addColorStop(
-        0,
-        colorWithAlpha(
-            color,
-            Math.min(
-                1,
-                intensity
-            )
-        )
-    );
-
-    gradient.addColorStop(
-        .2,
-        colorWithAlpha(
-            color,
-            Math.min(
-                .75,
-                intensity * .7
-            )
-        )
-    );
-
-    gradient.addColorStop(
-        .6,
-        colorWithAlpha(
-            color,
-            Math.min(
-                .25,
-                intensity * .25
-            )
-        )
-    );
-
-    gradient.addColorStop(
-        1,
-        colorWithAlpha(
-            color,
-            0
-        )
-    );
-
     ctx.fillStyle =
         gradient;
 
-    ctx.beginPath();
-
-    ctx.arc(
-        x,
-        y,
-        radius,
+    ctx.fillRect(
         0,
-        Math.PI * 2
+        0,
+        canvas.width,
+        canvas.height
     );
 
-    ctx.fill();
+    ctx.restore();
+
+    closeLightmaker();
 }
 
-function colorWithAlpha(
-    hex,
-    alpha
-) {
-
-    hex =
-        hex.replace(
-            "#",
-            ""
-        );
-
-    const r =
-        parseInt(
-            hex.substring(0,2),
-            16
-        );
-
-    const g =
-        parseInt(
-            hex.substring(2,4),
-            16
-        );
-
-    const b =
-        parseInt(
-            hex.substring(4,6),
-            16
-        );
-
-    return `
-        rgba(
-            ${r},
-            ${g},
-            ${b},
-            ${alpha}
-        )
-    `;
-}
+document
+    .getElementById("applyLight")
+    .addEventListener(
+        "click",
+        applyLight
+    );
 
 /* =========================================================
-   LIGHTMAKER DRAG
+   MENU SYSTEM
 ========================================================= */
 
-lightmakerHeader.addEventListener(
-    "pointerdown",
+function closeMenus() {
+
+    document
+        .querySelectorAll(
+            ".menu-dropdown"
+        )
+        .forEach(
+            menu =>
+                menu.classList.remove(
+                    "open"
+                )
+        );
+}
+
+document
+    .querySelectorAll(".menu-btn")
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            e => {
+
+                e.stopPropagation();
+
+                const menuId =
+                    button.dataset.menu;
+
+                const menu =
+                    document.getElementById(
+                        menuId
+                    );
+
+                const wasOpen =
+                    menu.classList.contains(
+                        "open"
+                    );
+
+                closeMenus();
+
+                if (!wasOpen) {
+                    menu.classList.add(
+                        "open"
+                    );
+                }
+
+            }
+        );
+
+    });
+
+document.addEventListener(
+    "click",
     e => {
 
         if (
-            e.target ===
-                lightmakerClose ||
-            lightmakerClose.contains(
-                e.target
-            )
+            !e.target.closest(".menu")
         ) {
-
-            return;
-
+            closeMenus();
         }
-
-        draggingLightmaker =
-            true;
-
-        const rect =
-            lightmakerPanel
-                .getBoundingClientRect();
-
-        lightmakerDragX =
-            e.clientX -
-            rect.left;
-
-        lightmakerDragY =
-            e.clientY -
-            rect.top;
-
-        lightmakerHeader.setPointerCapture(
-            e.pointerId
-        );
-    }
-);
-
-lightmakerHeader.addEventListener(
-    "pointermove",
-    e => {
-
-        if (
-            !draggingLightmaker
-        )
-            return;
-
-        let newLeft =
-            e.clientX -
-            lightmakerDragX;
-
-        let newTop =
-            e.clientY -
-            lightmakerDragY;
-
-        const maxLeft =
-            window.innerWidth -
-            lightmakerPanel.offsetWidth;
-
-        const maxTop =
-            window.innerHeight -
-            lightmakerPanel.offsetHeight;
-
-        newLeft =
-            Math.max(
-                5,
-                Math.min(
-                    newLeft,
-                    maxLeft - 5
-                )
-            );
-
-        newTop =
-            Math.max(
-                58,
-                Math.min(
-                    newTop,
-                    maxTop - 5
-                )
-            );
-
-        lightmakerPanel.style.left =
-            newLeft + "px";
-
-        lightmakerPanel.style.top =
-            newTop + "px";
-    }
-);
-
-lightmakerHeader.addEventListener(
-    "pointerup",
-    () => {
-
-        draggingLightmaker =
-            false;
 
     }
 );
 
 /* =========================================================
-   CONTROLS
+   UNDO / REDO BUTTONS
 ========================================================= */
 
 document
-    .getElementById("brushSize")
+    .getElementById("undoButton")
     .addEventListener(
-        "input",
-        e => {
-
-            document.getElementById(
-                "brushSizeValue"
-            ).textContent =
-                e.target.value;
-
-        }
+        "click",
+        undo
     );
 
 document
-    .getElementById("opacity")
+    .getElementById("redoButton")
     .addEventListener(
-        "input",
-        e => {
-
-            document.getElementById(
-                "opacityValue"
-            ).textContent =
-                Math.round(
-                    e.target.value *
-                    100
-                ) + "%";
-
-        }
+        "click",
+        redo
     );
 
 document
-    .getElementById("lightIntensity")
+    .getElementById("undoTool")
     .addEventListener(
-        "input",
-        e => {
-
-            document.getElementById(
-                "lightIntensityValue"
-            ).textContent =
-                Math.round(
-                    e.target.value *
-                    100
-                ) + "%";
-
-        }
+        "click",
+        undo
     );
 
 document
-    .getElementById("lightSize")
+    .getElementById("redoTool")
     .addEventListener(
-        "input",
-        e => {
-
-            document.getElementById(
-                "lightSizeValue"
-            ).textContent =
-                e.target.value;
-
-        }
+        "click",
+        redo
     );
-
-/* =========================================================
-   CANVAS RESIZE
-========================================================= */
-
-function resizeCanvas() {
-
-    saveState();
-
-    const oldCanvas =
-        document.createElement(
-            "canvas"
-        );
-
-    oldCanvas.width =
-        canvas.width;
-
-    oldCanvas.height =
-        canvas.height;
-
-    oldCanvas
-        .getContext("2d")
-        .drawImage(
-            canvas,
-            0,
-            0
-        );
-
-    const width =
-        Number(
-            document.getElementById(
-                "canvasWidth"
-            ).value
-        );
-
-    const height =
-        Number(
-            document.getElementById(
-                "canvasHeight"
-            ).value
-        );
-
-    canvas.width =
-        Math.max(
-            1,
-            width
-        );
-
-    canvas.height =
-        Math.max(
-            1,
-            height
-        );
-
-    ctx.drawImage(
-        oldCanvas,
-        0,
-        0
-    );
-
-    updateCanvasInfo();
-
-    lightX =
-        Math.min(
-            lightX,
-            canvas.width
-        );
-
-    lightY =
-        Math.min(
-            lightY,
-            canvas.height
-        );
-
-    updateLightMarker();
-}
-
-/* =========================================================
-   CANVAS INFO
-========================================================= */
-
-function updateCanvasInfo() {
-
-    document.getElementById(
-        "canvasInfo"
-    ).textContent =
-        canvas.width +
-        " × " +
-        canvas.height;
-
-    document.getElementById(
-        "canvasWidth"
-    ).value =
-        canvas.width;
-
-    document.getElementById(
-        "canvasHeight"
-    ).value =
-        canvas.height;
-}
-
-/* =========================================================
-   NEW CANVAS
-========================================================= */
-
-function newCanvas() {
-
-    if (
-        !confirm(
-            "Create a new canvas? Your current artwork will be cleared."
-        )
-    )
-        return;
-
-    saveState();
-
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-    document.getElementById(
-        "statusText"
-    ).textContent =
-        "New Canvas";
-}
-
-/* =========================================================
-   CLEAR
-========================================================= */
-
-function clearCanvas() {
-
-    saveState();
-
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-}
-
-/* =========================================================
-   EXPORT PNG
-========================================================= */
-
-function exportPNG() {
-
-    const data =
-        canvas.toDataURL(
-            "image/png"
-        );
-
-    const link =
-        document.createElement(
-            "a"
-        );
-
-    link.download =
-        "astro-photos.png";
-
-    link.href =
-        data;
-
-    link.click();
-
-    /*
-       PNG exports are also
-       added to Recent Pictures.
-    */
-
-    saveRecent(
-        "astro-photos.png",
-        data
-    );
-
-    document.getElementById(
-        "statusText"
-    ).textContent =
-        "PNG exported";
-}
-
-/* =========================================================
-   FLIP
-========================================================= */
-
-function flipHorizontal() {
-
-    saveState();
-
-    const image =
-        ctx.getImageData(
-            0,
-            0,
-            canvas.width,
-            canvas.height
-        );
-
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-    ctx.save();
-
-    ctx.translate(
-        canvas.width,
-        0
-    );
-
-    ctx.scale(
-        -1,
-        1
-    );
-
-    ctx.putImageData(
-        image,
-        0,
-        0
-    );
-
-    ctx.restore();
-}
-
-function flipVertical() {
-
-    saveState();
-
-    const image =
-        ctx.getImageData(
-            0,
-            0,
-            canvas.width,
-            canvas.height
-        );
-
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-    ctx.save();
-
-    ctx.translate(
-        0,
-        canvas.height
-    );
-
-    ctx.scale(
-        1,
-        -1
-    );
-
-    ctx.putImageData(
-        image,
-        0,
-        0
-    );
-
-    ctx.restore();
-}
-
-/* =========================================================
-   ROTATE
-========================================================= */
-
-function rotateCanvas() {
-
-    saveState();
-
-    const temp =
-        document.createElement(
-            "canvas"
-        );
-
-    temp.width =
-        canvas.width;
-
-    temp.height =
-        canvas.height;
-
-    temp
-        .getContext("2d")
-        .drawImage(
-            canvas,
-            0,
-            0
-        );
-
-    const oldWidth =
-        canvas.width;
-
-    const oldHeight =
-        canvas.height;
-
-    canvas.width =
-        oldHeight;
-
-    canvas.height =
-        oldWidth;
-
-    ctx.save();
-
-    ctx.translate(
-        canvas.width / 2,
-        canvas.height / 2
-    );
-
-    ctx.rotate(
-        Math.PI / 2
-    );
-
-    ctx.drawImage(
-        temp,
-        -oldWidth / 2,
-        -oldHeight / 2
-    );
-
-    ctx.restore();
-
-    updateCanvasInfo();
-}
-
-/* =========================================================
-   ZOOM
-========================================================= */
-
-function setZoom(value) {
-
-    zoom =
-        Math.max(
-            .25,
-            Math.min(
-                3,
-                value
-            )
-        );
-
-    canvas.style.width =
-        canvas.width *
-        zoom +
-        "px";
-
-    canvas.style.height =
-        canvas.height *
-        zoom +
-        "px";
-
-    document.getElementById(
-        "zoomText"
-    ).textContent =
-        Math.round(
-            zoom * 100
-        ) + "%";
-}
-
-function changeZoom(amount) {
-
-    setZoom(
-        zoom + amount
-    );
-}
 
 /* =========================================================
    KEYBOARD
@@ -4113,8 +3295,7 @@ document.addEventListener(
     e => {
 
         if (
-            e.key ===
-            "Escape"
+            e.key === "Escape"
         ) {
 
             if (
@@ -4127,12 +3308,12 @@ document.addEventListener(
 
             closeMenus();
 
+            return;
         }
 
         if (
             e.ctrlKey &&
-            e.key.toLowerCase() ===
-                "s"
+            e.key.toLowerCase() === "s"
         ) {
 
             e.preventDefault();
@@ -4143,8 +3324,7 @@ document.addEventListener(
 
         if (
             e.ctrlKey &&
-            e.key.toLowerCase() ===
-                "o"
+            e.key.toLowerCase() === "o"
         ) {
 
             e.preventDefault();
@@ -4155,8 +3335,7 @@ document.addEventListener(
 
         if (
             e.ctrlKey &&
-            e.key.toLowerCase() ===
-                "z"
+            e.key.toLowerCase() === "z"
         ) {
 
             e.preventDefault();
@@ -4167,8 +3346,7 @@ document.addEventListener(
 
         if (
             e.ctrlKey &&
-            e.key.toLowerCase() ===
-                "y"
+            e.key.toLowerCase() === "y"
         ) {
 
             e.preventDefault();
@@ -4181,101 +3359,33 @@ document.addEventListener(
 );
 
 /* =========================================================
-   TOOLTIP SYSTEM
+   WINDOW RESIZE
 ========================================================= */
 
-const tooltip =
-    document.getElementById(
-        "tooltip"
-    );
+window.addEventListener(
+    "resize",
+    () => {
 
-let tooltipTimer;
-
-document
-    .querySelectorAll(
-        ".tool"
-    )
-    .forEach(
-        toolButton => {
-
-            toolButton.addEventListener(
-                "mouseenter",
-                () => {
-
-                    clearTimeout(
-                        tooltipTimer
-                    );
-
-                    tooltipTimer =
-                        setTimeout(
-                            () => {
-
-                                const text =
-                                    toolButton
-                                        .dataset
-                                        .tooltip;
-
-                                tooltip.textContent =
-                                    text;
-
-                                const rect =
-                                    toolButton
-                                        .getBoundingClientRect();
-
-                                tooltip.style.left =
-                                    (
-                                        rect.right +
-                                        9
-                                    ) + "px";
-
-                                tooltip.style.top =
-                                    (
-                                        rect.top +
-                                        rect.height / 2 -
-                                        14
-                                    ) + "px";
-
-                                tooltip.classList.add(
-                                    "show"
-                                );
-
-                            },
-                            1000
-                        );
-
-                }
-            );
-
-            toolButton.addEventListener(
-                "mouseleave",
-                () => {
-
-                    clearTimeout(
-                        tooltipTimer
-                    );
-
-                    tooltip.classList.remove(
-                        "show"
-                    );
-
-                }
-            );
-
+        if (
+            lightmakerOpen
+        ) {
+            updateLightMarker();
         }
-    );
+
+    }
+);
 
 /* =========================================================
    INITIALIZE
 ========================================================= */
 
-renderRecent();
-
-updateCanvasInfo();
-
-setZoom(1);
+updateCanvasInputs();
+updateStatus();
 
 </script>
 
 </body>
 </html>
 ```
+
+This version specifically makes the **Lightmaker X use its own direct click handler**, while the draggable header explicitly ignores the X button. So clicking **×** should close it instead of being interpreted as dragging the window.
