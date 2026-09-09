@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,17 +17,12 @@
 
 :root {
     --bg: #08090c;
-    --bg2: #0d0f14;
     --panel: #151820;
-    --panel-light: #1d212b;
-    --panel-dark: #101219;
     --border: #303541;
     --text: #f7f7fa;
     --muted: #8d93a1;
     --accent: #8b5cf6;
     --accent-light: #b197ff;
-    --accent-dark: #5b21b6;
-    --shadow: rgba(0,0,0,.65);
 }
 
 html,
@@ -38,7 +34,9 @@ body {
 body {
     margin: 0;
     overflow: hidden;
+
     color: var(--text);
+
     font-family: "Montserrat", sans-serif;
 
     background:
@@ -61,14 +59,15 @@ body {
     align-items: center;
 
     padding: 0 15px;
+
     gap: 5px;
 
     background:
         linear-gradient(
             180deg,
-            #242833 0%,
+            #242833,
             #171a22 48%,
-            #101219 100%
+            #101219
         );
 
     border-bottom: 1px solid #343947;
@@ -78,6 +77,7 @@ body {
         inset 0 1px rgba(255,255,255,.08);
 
     position: relative;
+
     z-index: 100;
 }
 
@@ -86,6 +86,7 @@ body {
 
     font-size: 17px;
     font-weight: 700;
+
     letter-spacing: -.5px;
 
     text-shadow:
@@ -111,6 +112,7 @@ body {
     color: #c5c9d2;
 
     font-family: inherit;
+
     font-size: 12px;
 
     padding: 8px 11px;
@@ -118,9 +120,6 @@ body {
     border-radius: 7px;
 
     cursor: pointer;
-
-    transition:
-        .15s ease;
 }
 
 .menu-button:hover {
@@ -134,10 +133,6 @@ body {
         );
 
     border-color: #3b404d;
-
-    box-shadow:
-        inset 0 1px rgba(255,255,255,.08),
-        0 3px 8px rgba(0,0,0,.35);
 }
 
 .dropdown {
@@ -146,7 +141,7 @@ body {
     top: 43px;
     left: 0;
 
-    min-width: 185px;
+    min-width: 210px;
 
     padding: 7px;
 
@@ -167,7 +162,7 @@ body {
         0 18px 40px rgba(0,0,0,.7),
         inset 0 1px rgba(255,255,255,.08);
 
-    z-index: 1000;
+    z-index: 5000;
 }
 
 .menu.open .dropdown {
@@ -184,6 +179,7 @@ body {
     color: #cdd1da;
 
     font-family: inherit;
+
     font-size: 11px;
 
     padding: 10px;
@@ -206,9 +202,99 @@ body {
         );
 
     border-color: #424754;
+}
 
-    box-shadow:
-        inset 0 1px rgba(255,255,255,.07);
+.dropdown-divider {
+    height: 1px;
+
+    margin: 6px 3px;
+
+    background: #353a45;
+}
+
+.recent-title {
+    padding: 7px 9px 5px;
+
+    color: #777e8c;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+.recent-empty {
+    padding: 9px;
+
+    color: #737987;
+
+    font-size: 10px;
+}
+
+.recent-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    width: 100%;
+
+    padding: 8px;
+
+    border: 1px solid transparent;
+
+    background: transparent;
+
+    color: #cdd1da;
+
+    font-family: inherit;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    text-align: left;
+}
+
+.recent-item:hover {
+    color: white;
+
+    background:
+        linear-gradient(
+            180deg,
+            #343945,
+            #252933
+        );
+
+    border-color: #424754;
+}
+
+.recent-thumb {
+    width: 30px;
+    height: 30px;
+
+    object-fit: cover;
+
+    border-radius: 5px;
+
+    border: 1px solid #444a57;
+
+    background: #0d0f13;
+}
+
+.recent-name {
+    min-width: 0;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+
+    font-size: 9px;
 }
 
 .spacer {
@@ -228,6 +314,7 @@ body {
     color: #e2e4ea;
 
     font-family: inherit;
+
     font-size: 11px;
     font-weight: 600;
 
@@ -241,8 +328,6 @@ body {
         inset 0 1px rgba(255,255,255,.1),
         inset 0 -2px rgba(0,0,0,.25),
         0 3px 8px rgba(0,0,0,.35);
-
-    transition: .12s ease;
 }
 
 .top-button:hover {
@@ -254,17 +339,10 @@ body {
             #3b414e,
             #242831
         );
-
-    box-shadow:
-        inset 0 1px rgba(255,255,255,.12),
-        0 5px 12px rgba(0,0,0,.45);
 }
 
 .top-button:active {
     transform: translateY(1px);
-
-    box-shadow:
-        inset 0 2px 5px rgba(0,0,0,.45);
 }
 
 /* =========================================================
@@ -285,7 +363,9 @@ body {
     width: 68px;
 
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
 
     padding: 11px 0;
@@ -303,8 +383,7 @@ body {
     border-right: 1px solid #303541;
 
     box-shadow:
-        5px 0 18px rgba(0,0,0,.45),
-        inset -1px 0 rgba(255,255,255,.04);
+        5px 0 18px rgba(0,0,0,.45);
 
     z-index: 50;
 }
@@ -327,6 +406,7 @@ body {
     color: #aeb3bf;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -341,18 +421,13 @@ body {
         inset 0 -2px rgba(0,0,0,.3),
         0 4px 8px rgba(0,0,0,.4);
 
-    transition:
-        transform .12s ease,
-        box-shadow .12s ease,
-        color .12s ease;
+    transition: .12s ease;
 }
 
 .tool:hover {
     color: white;
 
-    transform:
-        translateY(-2px)
-        translateZ(4px);
+    transform: translateY(-2px);
 
     background:
         linear-gradient(
@@ -360,19 +435,10 @@ body {
             #373d4b,
             #20242d
         );
-
-    box-shadow:
-        inset 0 1px rgba(255,255,255,.13),
-        0 7px 15px rgba(0,0,0,.5),
-        0 0 12px rgba(139,92,246,.12);
 }
 
 .tool:active {
-    transform:
-        translateY(1px);
-
-    box-shadow:
-        inset 0 3px 7px rgba(0,0,0,.5);
+    transform: translateY(1px);
 }
 
 .tool.active {
@@ -390,7 +456,6 @@ body {
 
     box-shadow:
         inset 0 1px rgba(255,255,255,.18),
-        inset 0 -3px rgba(0,0,0,.18),
         0 5px 13px rgba(91,33,182,.45),
         0 0 17px rgba(139,92,246,.25);
 }
@@ -417,7 +482,7 @@ body {
 .tooltip {
     position: fixed;
 
-    z-index: 5000;
+    z-index: 9000;
 
     padding: 7px 10px;
 
@@ -440,26 +505,22 @@ body {
 
     opacity: 0;
 
-    transform:
-        translateY(-3px)
-        translateZ(0);
-
-    box-shadow:
-        0 7px 18px rgba(0,0,0,.6),
-        inset 0 1px rgba(255,255,255,.08);
+    transform: translateY(-3px);
 
     transition:
         opacity .15s,
         transform .15s;
 
     white-space: nowrap;
+
+    box-shadow:
+        0 7px 18px rgba(0,0,0,.6);
 }
 
 .tooltip.show {
     opacity: 1;
 
-    transform:
-        translateY(0);
+    transform: translateY(0);
 }
 
 /* =========================================================
@@ -474,6 +535,7 @@ body {
     position: relative;
 
     display: flex;
+
     flex-direction: column;
 
     background:
@@ -485,10 +547,6 @@ body {
         );
 }
 
-/* =========================================================
-   CANVAS AREA
-========================================================= */
-
 .canvas-area {
     flex: 1;
 
@@ -499,28 +557,10 @@ body {
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     padding: 45px;
-}
-
-.canvas-area::before {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.025),
-            transparent 30%,
-            transparent 70%,
-            rgba(139,92,246,.025)
-        );
 }
 
 .canvas-wrap {
@@ -528,23 +568,12 @@ body {
 
     transform-origin: center center;
 
-    border-radius: 3px;
+    border-radius: 4px;
 
     box-shadow:
         0 25px 55px rgba(0,0,0,.65),
         0 8px 20px rgba(0,0,0,.5),
-        0 0 0 1px rgba(255,255,255,.08),
-        0 0 35px rgba(139,92,246,.06);
-
-    transition:
-        box-shadow .2s;
-}
-
-.canvas-wrap:hover {
-    box-shadow:
-        0 28px 65px rgba(0,0,0,.7),
-        0 0 0 1px rgba(255,255,255,.11),
-        0 0 40px rgba(139,92,246,.09);
+        0 0 0 1px rgba(255,255,255,.08);
 }
 
 canvas {
@@ -586,8 +615,7 @@ canvas {
 
     box-shadow:
         0 0 0 1px rgba(0,0,0,.7),
-        0 0 12px rgba(167,139,250,.9),
-        inset 0 0 5px rgba(255,255,255,.4);
+        0 0 12px rgba(167,139,250,.9);
 }
 
 /* =========================================================
@@ -598,6 +626,7 @@ canvas {
     height: 36px;
 
     display: flex;
+
     align-items: center;
 
     padding: 0 13px;
@@ -613,10 +642,6 @@ canvas {
 
     border-top: 1px solid #343945;
 
-    box-shadow:
-        inset 0 1px rgba(255,255,255,.05),
-        0 -4px 12px rgba(0,0,0,.25);
-
     color: #8f95a2;
 
     font-size: 10px;
@@ -626,6 +651,7 @@ canvas {
     margin-left: auto;
 
     display: flex;
+
     align-items: center;
 
     gap: 7px;
@@ -649,19 +675,6 @@ canvas {
     color: #d5d8df;
 
     cursor: pointer;
-
-    box-shadow:
-        inset 0 1px rgba(255,255,255,.08),
-        0 2px 5px rgba(0,0,0,.35);
-}
-
-.zoom-controls button:hover {
-    background:
-        linear-gradient(
-            180deg,
-            #383e4a,
-            #20242d
-        );
 }
 
 /* =========================================================
@@ -672,6 +685,7 @@ canvas {
     width: 285px;
 
     display: flex;
+
     flex-direction: column;
 
     overflow: hidden;
@@ -687,17 +701,13 @@ canvas {
     border-left: 1px solid #303541;
 
     box-shadow:
-        -6px 0 18px rgba(0,0,0,.45),
-        inset 1px 0 rgba(255,255,255,.035);
+        -6px 0 18px rgba(0,0,0,.45);
 }
 
 .panel-section {
     padding: 15px;
 
     border-bottom: 1px solid #2d313b;
-
-    box-shadow:
-        inset 0 -1px rgba(0,0,0,.25);
 }
 
 .panel-title {
@@ -711,9 +721,6 @@ canvas {
     letter-spacing: 1px;
 
     text-transform: uppercase;
-
-    text-shadow:
-        0 1px 3px rgba(0,0,0,.7);
 }
 
 .field {
@@ -752,19 +759,8 @@ canvas {
     color: white;
 
     font-family: inherit;
+
     font-size: 10px;
-
-    box-shadow:
-        inset 0 2px 5px rgba(0,0,0,.35),
-        0 1px rgba(255,255,255,.03);
-}
-
-.field input:focus {
-    border-color: #7551c9;
-
-    box-shadow:
-        0 0 0 2px rgba(139,92,246,.12),
-        inset 0 2px 5px rgba(0,0,0,.35);
 }
 
 .range-row {
@@ -797,6 +793,7 @@ input[type="range"] {
 
 .color-row {
     display: flex;
+
     gap: 8px;
 }
 
@@ -811,10 +808,6 @@ input[type="range"] {
     border-radius: 6px;
 }
 
-/* =========================================================
-   LAYERS
-========================================================= */
-
 .layers {
     flex: 1;
 
@@ -823,6 +816,7 @@ input[type="range"] {
 
 .layer {
     display: flex;
+
     align-items: center;
 
     gap: 9px;
@@ -840,24 +834,9 @@ input[type="range"] {
     font-size: 10px;
 
     cursor: pointer;
-
-    transition: .12s;
 }
 
-.layer:hover {
-    border-color: #343946;
-
-    background:
-        linear-gradient(
-            180deg,
-            #252a34,
-            #1a1d24
-        );
-
-    box-shadow:
-        0 3px 8px rgba(0,0,0,.25);
-}
-
+.layer:hover,
 .layer.selected {
     border-color:
         rgba(139,92,246,.35);
@@ -870,10 +849,6 @@ input[type="range"] {
         );
 
     color: white;
-
-    box-shadow:
-        inset 0 1px rgba(255,255,255,.05),
-        0 3px 8px rgba(0,0,0,.2);
 }
 
 .layer-icon {
@@ -881,6 +856,7 @@ input[type="range"] {
     height: 27px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -894,10 +870,6 @@ input[type="range"] {
             #303541,
             #181b22
         );
-
-    box-shadow:
-        inset 0 1px rgba(255,255,255,.08),
-        0 2px 5px rgba(0,0,0,.35);
 }
 
 /* =========================================================
@@ -936,8 +908,6 @@ input[type="range"] {
         inset 0 1px rgba(255,255,255,.1);
 
     z-index: 3000;
-
-    overflow: hidden;
 }
 
 .lightmaker-panel.open {
@@ -948,8 +918,10 @@ input[type="range"] {
 }
 
 @keyframes lightmakerIn {
+
     from {
         opacity: 0;
+
         transform:
             translateY(-8px)
             scale(.97);
@@ -957,6 +929,7 @@ input[type="range"] {
 
     to {
         opacity: 1;
+
         transform:
             translateY(0)
             scale(1);
@@ -969,6 +942,7 @@ input[type="range"] {
     padding: 0 15px;
 
     display: flex;
+
     align-items: center;
 
     border-bottom: 1px solid #373c47;
@@ -983,22 +957,12 @@ input[type="range"] {
     cursor: grab;
 
     user-select: none;
-
-    box-shadow:
-        inset 0 1px rgba(255,255,255,.08),
-        0 4px 12px rgba(0,0,0,.25);
-}
-
-.lightmaker-header:active {
-    cursor: grabbing;
 }
 
 .lightmaker-title {
     font-size: 14px;
-    font-weight: 700;
 
-    text-shadow:
-        0 2px 5px rgba(0,0,0,.7);
+    font-weight: 700;
 }
 
 .lightmaker-title span {
@@ -1031,9 +995,9 @@ input[type="range"] {
 
     cursor: pointer;
 
-    box-shadow:
-        inset 0 1px rgba(255,255,255,.08),
-        0 3px 7px rgba(0,0,0,.35);
+    position: relative;
+
+    z-index: 10;
 }
 
 .lightmaker-close:hover {
@@ -1055,7 +1019,7 @@ input[type="range"] {
     display: grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(3,1fr);
 
     gap: 9px;
 
@@ -1079,33 +1043,16 @@ input[type="range"] {
     color: #bfc3cc;
 
     font-family: inherit;
+
     font-size: 9px;
 
     cursor: pointer;
-
-    box-shadow:
-        inset 0 1px rgba(255,255,255,.07),
-        inset 0 -2px rgba(0,0,0,.25),
-        0 4px 8px rgba(0,0,0,.3);
-
-    transition: .12s;
 }
 
 .light-type:hover {
-    transform: translateY(-2px);
-
     color: white;
 
-    background:
-        linear-gradient(
-            145deg,
-            #373d4b,
-            #20242d
-        );
-
-    box-shadow:
-        inset 0 1px rgba(255,255,255,.1),
-        0 7px 13px rgba(0,0,0,.4);
+    transform: translateY(-2px);
 }
 
 .light-type.active {
@@ -1120,20 +1067,12 @@ input[type="range"] {
         );
 
     color: white;
-
-    box-shadow:
-        inset 0 1px rgba(255,255,255,.15),
-        0 6px 15px rgba(91,33,182,.4),
-        0 0 15px rgba(139,92,246,.15);
 }
 
 .light-icon {
     font-size: 20px;
 
     margin-bottom: 7px;
-
-    text-shadow:
-        0 0 12px rgba(255,255,255,.35);
 }
 
 .position-grid {
@@ -1166,36 +1105,12 @@ input[type="range"] {
     color: white;
 
     font-family: inherit;
+
     font-size: 11px;
+
     font-weight: 700;
 
     cursor: pointer;
-
-    box-shadow:
-        inset 0 1px rgba(255,255,255,.2),
-        inset 0 -3px rgba(0,0,0,.2),
-        0 7px 16px rgba(91,33,182,.4);
-
-    transition: .12s;
-}
-
-.apply-light:hover {
-    transform: translateY(-1px);
-
-    background:
-        linear-gradient(
-            180deg,
-            #aa86fa,
-            #7041c7
-        );
-
-    box-shadow:
-        inset 0 1px rgba(255,255,255,.22),
-        0 10px 20px rgba(91,33,182,.5);
-}
-
-.apply-light:active {
-    transform: translateY(1px);
 }
 
 .status {
@@ -1219,13 +1134,10 @@ input[type="range"] {
     font-size: 9px;
 
     line-height: 1.5;
-
-    box-shadow:
-        inset 0 1px rgba(255,255,255,.04);
 }
 
 /* =========================================================
-   SCROLLBARS
+   SCROLLBAR
 ========================================================= */
 
 ::-webkit-scrollbar {
@@ -1246,12 +1158,6 @@ input[type="range"] {
         );
 
     border-radius: 10px;
-
-    border: 2px solid #0d0f13;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #505664;
 }
 
 /* =========================================================
@@ -1262,10 +1168,6 @@ input[type="range"] {
 
     .right-panel {
         width: 225px;
-    }
-
-    .logo {
-        font-size: 14px;
     }
 }
 
@@ -1286,7 +1188,9 @@ input[type="range"] {
     .lightmaker-panel {
         left: 70px;
         top: 70px;
-        width: calc(100vw - 85px);
+
+        width:
+            calc(100vw - 85px);
     }
 }
 </style>
@@ -1304,73 +1208,169 @@ input[type="range"] {
         Astro <span>Photos</span>
     </div>
 
+    <!-- FILE -->
+
     <div class="menu">
-        <button class="menu-button">File</button>
+
+        <button
+            class="menu-button"
+            onclick="toggleMenu(this)"
+        >
+            File
+        </button>
 
         <div class="dropdown">
-            <button onclick="newCanvas()">New</button>
-            <button onclick="document.getElementById('fileInput').click()">
+
+            <button onclick="newCanvas();closeMenus()">
+                New
+            </button>
+
+            <button onclick="openFile();closeMenus()">
                 Open / Import
             </button>
-            <button onclick="exportPNG()">
+
+            <button onclick="saveAPF();closeMenus()">
+                Save Project (.apf)
+            </button>
+
+            <button onclick="exportPNG();closeMenus()">
                 Export PNG
             </button>
+
+            <div class="dropdown-divider"></div>
+
+            <div class="recent-title">
+                Recent Pictures
+            </div>
+
+            <div id="recentList">
+                <div class="recent-empty">
+                    No recent pictures
+                </div>
+            </div>
+
+            <div class="dropdown-divider"></div>
+
+            <button onclick="clearRecent();closeMenus()">
+                Clear Recent Pictures
+            </button>
+
         </div>
+
     </div>
 
+    <!-- EDIT -->
+
     <div class="menu">
-        <button class="menu-button">Edit</button>
+
+        <button
+            class="menu-button"
+            onclick="toggleMenu(this)"
+        >
+            Edit
+        </button>
 
         <div class="dropdown">
-            <button onclick="undo()">Undo</button>
-            <button onclick="redo()">Redo</button>
-            <button onclick="clearCanvas()">Clear Canvas</button>
+
+            <button onclick="undo();closeMenus()">
+                Undo
+            </button>
+
+            <button onclick="redo();closeMenus()">
+                Redo
+            </button>
+
+            <button onclick="clearCanvas();closeMenus()">
+                Clear Canvas
+            </button>
+
         </div>
+
     </div>
 
+    <!-- IMAGE -->
+
     <div class="menu">
-        <button class="menu-button">Image</button>
+
+        <button
+            class="menu-button"
+            onclick="toggleMenu(this)"
+        >
+            Image
+        </button>
 
         <div class="dropdown">
-            <button onclick="flipHorizontal()">
+
+            <button onclick="flipHorizontal();closeMenus()">
                 Flip Horizontal
             </button>
 
-            <button onclick="flipVertical()">
+            <button onclick="flipVertical();closeMenus()">
                 Flip Vertical
             </button>
 
-            <button onclick="rotateCanvas()">
+            <button onclick="rotateCanvas();closeMenus()">
                 Rotate 90°
             </button>
+
         </div>
+
     </div>
 
+    <!-- VIEW -->
+
     <div class="menu">
-        <button class="menu-button">View</button>
+
+        <button
+            class="menu-button"
+            onclick="toggleMenu(this)"
+        >
+            View
+        </button>
 
         <div class="dropdown">
-            <button onclick="setZoom(.5)">50%</button>
-            <button onclick="setZoom(.75)">75%</button>
-            <button onclick="setZoom(1)">100%</button>
-            <button onclick="setZoom(1.5)">150%</button>
+
+            <button onclick="setZoom(.5);closeMenus()">
+                50%
+            </button>
+
+            <button onclick="setZoom(.75);closeMenus()">
+                75%
+            </button>
+
+            <button onclick="setZoom(1);closeMenus()">
+                100%
+            </button>
+
+            <button onclick="setZoom(1.5);closeMenus()">
+                150%
+            </button>
+
         </div>
+
     </div>
 
     <div class="spacer"></div>
 
     <button
         class="top-button"
-        onclick="document.getElementById('fileInput').click()"
+        onclick="openFile()"
     >
         Import
     </button>
 
     <button
         class="top-button"
+        onclick="saveAPF()"
+    >
+        Save .APF
+    </button>
+
+    <button
+        class="top-button"
         onclick="exportPNG()"
     >
-        Export
+        PNG
     </button>
 
 </div>
@@ -1378,7 +1378,7 @@ input[type="range"] {
 <input
     type="file"
     id="fileInput"
-    accept="image/*"
+    accept="image/*,.apf"
     hidden
 >
 
@@ -1685,6 +1685,7 @@ input[type="range"] {
             </div>
 
             <div class="layer selected">
+
                 <div class="layer-icon">
                     ◈
                 </div>
@@ -1692,9 +1693,11 @@ input[type="range"] {
                 <span>
                     Background
                 </span>
+
             </div>
 
             <div class="layer">
+
                 <div class="layer-icon">
                     ✦
                 </div>
@@ -1702,6 +1705,7 @@ input[type="range"] {
                 <span>
                     Artwork
                 </span>
+
             </div>
 
         </div>
@@ -1730,7 +1734,8 @@ input[type="range"] {
 
         <button
             class="lightmaker-close"
-            onclick="closeLightmaker()"
+            id="lightmakerClose"
+            type="button"
         >
             ×
         </button>
@@ -1807,7 +1812,6 @@ input[type="range"] {
                     type="number"
                     id="lightX"
                     value="500"
-                    min="0"
                 >
 
             </div>
@@ -1822,7 +1826,6 @@ input[type="range"] {
                     type="number"
                     id="lightY"
                     value="325"
-                    min="0"
                 >
 
             </div>
@@ -1911,7 +1914,7 @@ input[type="range"] {
 
         <div class="status">
             Click or drag directly on the canvas to position
-            the light. You can also enter exact X/Y values.
+            the light.
         </div>
 
     </div>
@@ -1935,11 +1938,17 @@ const canvas =
 const ctx =
     canvas.getContext("2d");
 
-const canvasWrap =
-    document.getElementById("canvasWrap");
-
 const canvasMarker =
     document.getElementById("canvasMarker");
+
+const lightmakerPanel =
+    document.getElementById("lightmakerPanel");
+
+const lightmakerHeader =
+    document.getElementById("lightmakerHeader");
+
+const lightmakerClose =
+    document.getElementById("lightmakerClose");
 
 let tool = "brush";
 
@@ -1966,6 +1975,606 @@ let lightmakerDragX = 0;
 let lightmakerDragY = 0;
 
 /* =========================================================
+   MENU SYSTEM
+========================================================= */
+
+function toggleMenu(button) {
+
+    const menu =
+        button.parentElement;
+
+    document
+        .querySelectorAll(".menu")
+        .forEach(m => {
+
+            if (m !== menu) {
+                m.classList.remove("open");
+            }
+
+        });
+
+    menu.classList.toggle("open");
+}
+
+function closeMenus() {
+
+    document
+        .querySelectorAll(".menu")
+        .forEach(menu =>
+            menu.classList.remove("open")
+        );
+}
+
+document.addEventListener(
+    "click",
+    e => {
+
+        if (!e.target.closest(".menu")) {
+            closeMenus();
+        }
+
+    }
+);
+
+/* =========================================================
+   RECENT PICTURES
+========================================================= */
+
+const RECENT_KEY =
+    "astroPhotosRecent";
+
+const MAX_RECENT =
+    8;
+
+function getRecent() {
+
+    try {
+
+        return JSON.parse(
+            localStorage.getItem(
+                RECENT_KEY
+            )
+        ) || [];
+
+    } catch {
+
+        return [];
+
+    }
+}
+
+function saveRecent(
+    name,
+    data
+) {
+
+    let recent =
+        getRecent();
+
+    recent =
+        recent.filter(
+            item =>
+                item.name !== name
+        );
+
+    recent.unshift({
+        name: name,
+        data: data,
+        width: canvas.width,
+        height: canvas.height,
+        time: Date.now()
+    });
+
+    recent =
+        recent.slice(
+            0,
+            MAX_RECENT
+        );
+
+    try {
+
+        localStorage.setItem(
+            RECENT_KEY,
+            JSON.stringify(recent)
+        );
+
+    } catch {
+
+        /*
+           Browser storage can fill up if
+           very large pictures are stored.
+        */
+
+        recent =
+            recent.slice(
+                0,
+                3
+            );
+
+        try {
+
+            localStorage.setItem(
+                RECENT_KEY,
+                JSON.stringify(recent)
+            );
+
+        } catch {}
+
+    }
+
+    renderRecent();
+}
+
+function renderRecent() {
+
+    const list =
+        document.getElementById(
+            "recentList"
+        );
+
+    const recent =
+        getRecent();
+
+    list.innerHTML = "";
+
+    if (!recent.length) {
+
+        list.innerHTML =
+            `<div class="recent-empty">
+                No recent pictures
+            </div>`;
+
+        return;
+    }
+
+    recent.forEach(
+        (item,index) => {
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+            button.className =
+                "recent-item";
+
+            button.title =
+                item.name;
+
+            button.innerHTML = `
+                <img
+                    class="recent-thumb"
+                    src="${item.data}"
+                >
+                <span class="recent-name">
+                    ${escapeHTML(item.name)}
+                </span>
+            `;
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    loadRecent(index);
+
+                    closeMenus();
+
+                }
+            );
+
+            list.appendChild(
+                button
+            );
+
+        }
+    );
+}
+
+function loadRecent(index) {
+
+    const recent =
+        getRecent();
+
+    const item =
+        recent[index];
+
+    if (!item)
+        return;
+
+    const img =
+        new Image();
+
+    img.onload = () => {
+
+        canvas.width =
+            item.width;
+
+        canvas.height =
+            item.height;
+
+        ctx.clearRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+        ctx.drawImage(
+            img,
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+        updateCanvasInfo();
+
+        document.getElementById(
+            "canvasWidth"
+        ).value =
+            canvas.width;
+
+        document.getElementById(
+            "canvasHeight"
+        ).value =
+            canvas.height;
+
+        document.getElementById(
+            "statusText"
+        ).textContent =
+            "Opened " + item.name;
+
+    };
+
+    img.src =
+        item.data;
+}
+
+function clearRecent() {
+
+    if (
+        !confirm(
+            "Clear your recent pictures?"
+        )
+    )
+        return;
+
+    localStorage.removeItem(
+        RECENT_KEY
+    );
+
+    renderRecent();
+}
+
+function escapeHTML(text) {
+
+    return String(text)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+}
+
+/* =========================================================
+   APF PROJECT FORMAT
+========================================================= */
+
+function saveAPF() {
+
+    const project = {
+
+        format: "APF",
+
+        version: 1,
+
+        application:
+            "Astro Photos",
+
+        created:
+            new Date().toISOString(),
+
+        width:
+            canvas.width,
+
+        height:
+            canvas.height,
+
+        image:
+            canvas.toDataURL(
+                "image/png"
+            )
+
+    };
+
+    const blob =
+        new Blob(
+            [
+                JSON.stringify(
+                    project
+                )
+            ],
+            {
+                type:
+                    "application/x-astro-photos"
+            }
+        );
+
+    const url =
+        URL.createObjectURL(
+            blob
+        );
+
+    const link =
+        document.createElement("a");
+
+    link.href =
+        url;
+
+    link.download =
+        "astro-project.apf";
+
+    document.body.appendChild(
+        link
+    );
+
+    link.click();
+
+    link.remove();
+
+    URL.revokeObjectURL(
+        url
+    );
+
+    /*
+       Save the current project
+       into Recent Pictures too.
+    */
+
+    saveRecent(
+        "astro-project.apf",
+        project.image
+    );
+
+    document.getElementById(
+        "statusText"
+    ).textContent =
+        "Project saved as .APF";
+}
+
+/* =========================================================
+   OPEN FILE
+========================================================= */
+
+function openFile() {
+
+    document
+        .getElementById(
+            "fileInput"
+        )
+        .click();
+}
+
+document
+    .getElementById(
+        "fileInput"
+    )
+    .addEventListener(
+        "change",
+        e => {
+
+            const file =
+                e.target.files[0];
+
+            if (!file)
+                return;
+
+            if (
+                file.name
+                    .toLowerCase()
+                    .endsWith(".apf")
+            ) {
+
+                openAPF(file);
+
+            } else {
+
+                openImage(file);
+
+            }
+
+            e.target.value = "";
+
+        }
+    );
+
+/* =========================================================
+   OPEN APF
+========================================================= */
+
+function openAPF(file) {
+
+    const reader =
+        new FileReader();
+
+    reader.onload = () => {
+
+        try {
+
+            const project =
+                JSON.parse(
+                    reader.result
+                );
+
+            if (
+                project.format !==
+                "APF"
+            ) {
+
+                throw new Error(
+                    "Invalid APF file"
+                );
+            }
+
+            if (
+                !project.image ||
+                !project.width ||
+                !project.height
+            ) {
+
+                throw new Error(
+                    "Incomplete APF file"
+                );
+            }
+
+            const img =
+                new Image();
+
+            img.onload = () => {
+
+                canvas.width =
+                    project.width;
+
+                canvas.height =
+                    project.height;
+
+                ctx.clearRect(
+                    0,
+                    0,
+                    canvas.width,
+                    canvas.height
+                );
+
+                ctx.drawImage(
+                    img,
+                    0,
+                    0,
+                    canvas.width,
+                    canvas.height
+                );
+
+                document.getElementById(
+                    "canvasWidth"
+                ).value =
+                    canvas.width;
+
+                document.getElementById(
+                    "canvasHeight"
+                ).value =
+                    canvas.height;
+
+                updateCanvasInfo();
+
+                saveRecent(
+                    file.name,
+                    project.image
+                );
+
+                document.getElementById(
+                    "statusText"
+                ).textContent =
+                    "Opened " +
+                    file.name;
+            };
+
+            img.src =
+                project.image;
+
+        } catch(error) {
+
+            alert(
+                "This doesn't appear to be a valid Astro Photos .APF project."
+            );
+
+            console.error(error);
+
+        }
+
+    };
+
+    reader.readAsText(file);
+}
+
+/* =========================================================
+   OPEN IMAGE
+========================================================= */
+
+function openImage(file) {
+
+    saveState();
+
+    const img =
+        new Image();
+
+    img.onload = () => {
+
+        ctx.clearRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+        const scale =
+            Math.min(
+                canvas.width /
+                    img.width,
+
+                canvas.height /
+                    img.height
+            );
+
+        const width =
+            img.width * scale;
+
+        const height =
+            img.height * scale;
+
+        const x =
+            (
+                canvas.width -
+                width
+            ) / 2;
+
+        const y =
+            (
+                canvas.height -
+                height
+            ) / 2;
+
+        ctx.drawImage(
+            img,
+            x,
+            y,
+            width,
+            height
+        );
+
+        /*
+           Store a copy in Recent Pictures.
+        */
+
+        saveRecent(
+            file.name,
+            canvas.toDataURL(
+                "image/jpeg",
+                .75
+            )
+        );
+
+        document.getElementById(
+            "statusText"
+        ).textContent =
+            "Opened " + file.name;
+    };
+
+    img.src =
+        URL.createObjectURL(
+            file
+        );
+}
+
+/* =========================================================
    HISTORY
 ========================================================= */
 
@@ -1975,8 +2584,12 @@ function saveState() {
         canvas.toDataURL()
     );
 
-    if (undoStack.length > 50) {
+    if (
+        undoStack.length > 50
+    ) {
+
         undoStack.shift();
+
     }
 
     redoStack = [];
@@ -1984,7 +2597,8 @@ function saveState() {
 
 function restoreImage(data) {
 
-    const img = new Image();
+    const img =
+        new Image();
 
     img.onload = () => {
 
@@ -2003,7 +2617,8 @@ function restoreImage(data) {
 
     };
 
-    img.src = data;
+    img.src =
+        data;
 }
 
 function undo() {
@@ -2038,34 +2653,63 @@ function redo() {
    TOOLS
 ========================================================= */
 
-function setTool(newTool, element) {
+function setTool(
+    newTool,
+    element
+) {
 
-    tool = newTool;
+    tool =
+        newTool;
 
     document
         .querySelectorAll(".tool")
         .forEach(t =>
-            t.classList.remove("active")
+            t.classList.remove(
+                "active"
+            )
         );
 
     if (element) {
-        element.classList.add("active");
+
+        element.classList.add(
+            "active"
+        );
+
     }
 
     const names = {
-        brush: "Brush Tool",
-        eraser: "Eraser Tool",
-        move: "Move Tool",
-        line: "Line Tool",
-        rect: "Rectangle Tool",
-        circle: "Circle Tool",
-        text: "Text Tool"
+
+        brush:
+            "Brush Tool",
+
+        eraser:
+            "Eraser Tool",
+
+        move:
+            "Move Tool",
+
+        line:
+            "Line Tool",
+
+        rect:
+            "Rectangle Tool",
+
+        circle:
+            "Circle Tool",
+
+        text:
+            "Text Tool",
+
+        lightmaker:
+            "Lightmaker"
+
     };
 
     document.getElementById(
         "statusText"
     ).textContent =
-        names[newTool] || "Lightmaker";
+        names[newTool] ||
+        newTool;
 }
 
 /* =========================================================
@@ -2080,12 +2724,20 @@ function getCanvasPosition(e) {
     return {
 
         x:
-            (e.clientX - rect.left) *
-            (canvas.width / rect.width),
+            (e.clientX -
+                rect.left) *
+            (
+                canvas.width /
+                rect.width
+            ),
 
         y:
-            (e.clientY - rect.top) *
-            (canvas.height / rect.height)
+            (e.clientY -
+                rect.top) *
+            (
+                canvas.height /
+                rect.height
+            )
 
     };
 }
@@ -2116,10 +2768,14 @@ canvas.addEventListener(
         const pos =
             getCanvasPosition(e);
 
-        startX = pos.x;
-        startY = pos.y;
+        startX =
+            pos.x;
 
-        drawing = true;
+        startY =
+            pos.y;
+
+        drawing =
+            true;
 
         if (
             tool === "brush" ||
@@ -2132,13 +2788,16 @@ canvas.addEventListener(
                 startX,
                 startY
             );
-
         }
 
-        if (tool === "text") {
+        if (
+            tool === "text"
+        ) {
 
             const text =
-                prompt("Enter text:");
+                prompt(
+                    "Enter text:"
+                );
 
             if (text) {
 
@@ -2163,12 +2822,13 @@ canvas.addEventListener(
                     startY
                 );
 
-                ctx.globalAlpha = 1;
+                ctx.globalAlpha =
+                    1;
             }
 
-            drawing = false;
+            drawing =
+                false;
         }
-
     }
 );
 
@@ -2221,7 +2881,9 @@ canvas.addEventListener(
         ctx.globalAlpha =
             opacity;
 
-        if (tool === "brush") {
+        if (
+            tool === "brush"
+        ) {
 
             ctx.globalCompositeOperation =
                 "source-over";
@@ -2244,10 +2906,11 @@ canvas.addEventListener(
             );
 
             ctx.stroke();
-
         }
 
-        if (tool === "eraser") {
+        if (
+            tool === "eraser"
+        ) {
 
             ctx.globalCompositeOperation =
                 "destination-out";
@@ -2268,7 +2931,6 @@ canvas.addEventListener(
             ctx.globalCompositeOperation =
                 "source-over";
         }
-
     }
 );
 
@@ -2290,27 +2952,25 @@ canvas.addEventListener(
                 "color"
             ).value;
 
-        const opacity =
+        const size =
             Number(
                 document.getElementById(
-                    "opacity"
+                    "brushSize"
                 ).value
             );
 
         ctx.globalAlpha =
-            opacity;
+            1;
 
-        if (tool === "line") {
+        if (
+            tool === "line"
+        ) {
 
             ctx.strokeStyle =
                 color;
 
             ctx.lineWidth =
-                Number(
-                    document.getElementById(
-                        "brushSize"
-                    ).value
-                );
+                size;
 
             ctx.beginPath();
 
@@ -2327,17 +2987,15 @@ canvas.addEventListener(
             ctx.stroke();
         }
 
-        if (tool === "rect") {
+        if (
+            tool === "rect"
+        ) {
 
             ctx.strokeStyle =
                 color;
 
             ctx.lineWidth =
-                Number(
-                    document.getElementById(
-                        "brushSize"
-                    ).value
-                );
+                size;
 
             ctx.strokeRect(
                 startX,
@@ -2345,10 +3003,11 @@ canvas.addEventListener(
                 pos.x - startX,
                 pos.y - startY
             );
-
         }
 
-        if (tool === "circle") {
+        if (
+            tool === "circle"
+        ) {
 
             const dx =
                 pos.x - startX;
@@ -2366,11 +3025,7 @@ canvas.addEventListener(
                 color;
 
             ctx.lineWidth =
-                Number(
-                    document.getElementById(
-                        "brushSize"
-                    ).value
-                );
+                size;
 
             ctx.beginPath();
 
@@ -2383,13 +3038,10 @@ canvas.addEventListener(
             );
 
             ctx.stroke();
-
         }
 
-        ctx.globalAlpha = 1;
-
-        drawing = false;
-
+        drawing =
+            false;
     }
 );
 
@@ -2398,7 +3050,10 @@ canvas.addEventListener(
     () => {
 
         if (!lightmakerOpen) {
-            drawing = false;
+
+            drawing =
+                false;
+
         }
 
     }
@@ -2410,11 +3065,12 @@ canvas.addEventListener(
 
 function openLightmaker() {
 
-    lightmakerOpen = true;
+    lightmakerOpen =
+        true;
 
-    document
-        .getElementById("lightmakerPanel")
-        .classList.add("open");
+    lightmakerPanel.classList.add(
+        "open"
+    );
 
     canvasMarker.style.display =
         "block";
@@ -2429,38 +3085,96 @@ function openLightmaker() {
 
 function closeLightmaker() {
 
-    lightmakerOpen = false;
+    lightmakerOpen =
+        false;
 
-    document
-        .getElementById("lightmakerPanel")
-        .classList.remove("open");
+    lightmakerPanel.classList.remove(
+        "open"
+    );
 
     canvasMarker.style.display =
         "none";
 
+    draggingLightmaker =
+        false;
+
+    const brushButton =
+        document.querySelector(
+            '.tool[data-tooltip="Brush"]'
+        );
+
     setTool(
         "brush",
-        document.querySelector(".tool")
+        brushButton
     );
 }
+
+/*
+   FIX:
+   The X button no longer activates
+   the draggable header.
+*/
+
+lightmakerClose.addEventListener(
+    "pointerdown",
+    e => {
+
+        e.preventDefault();
+
+        e.stopPropagation();
+
+    }
+);
+
+lightmakerClose.addEventListener(
+    "click",
+    e => {
+
+        e.preventDefault();
+
+        e.stopPropagation();
+
+        closeLightmaker();
+
+    }
+);
+
+/* =========================================================
+   LIGHT TYPES
+========================================================= */
 
 function selectLightType(
     type,
     element
 ) {
 
-    lightType = type;
+    lightType =
+        type;
 
     document
-        .querySelectorAll(".light-type")
-        .forEach(button =>
-            button.classList.remove("active")
+        .querySelectorAll(
+            ".light-type"
+        )
+        .forEach(
+            button =>
+                button.classList.remove(
+                    "active"
+                )
         );
 
-    element.classList.add("active");
+    element.classList.add(
+        "active"
+    );
 }
 
-function setLightPosition(x,y) {
+/* =========================================================
+   LIGHT POSITION
+========================================================= */
+
+function setLightPosition(
+    x,
+    y
+) {
 
     lightX =
         Math.max(
@@ -2483,12 +3197,16 @@ function setLightPosition(x,y) {
     document.getElementById(
         "lightX"
     ).value =
-        Math.round(lightX);
+        Math.round(
+            lightX
+        );
 
     document.getElementById(
         "lightY"
     ).value =
-        Math.round(lightY);
+        Math.round(
+            lightY
+        );
 
     updateLightMarker();
 }
@@ -2509,7 +3227,9 @@ document
         e => {
 
             lightX =
-                Number(e.target.value);
+                Number(
+                    e.target.value
+                );
 
             updateLightMarker();
 
@@ -2523,7 +3243,9 @@ document
         e => {
 
             lightY =
-                Number(e.target.value);
+                Number(
+                    e.target.value
+                );
 
             updateLightMarker();
 
@@ -2562,7 +3284,10 @@ function applyLight() {
     ctx.globalCompositeOperation =
         "screen";
 
-    if (lightType === "glow") {
+    if (
+        lightType ===
+        "glow"
+    ) {
 
         drawGlow(
             lightX,
@@ -2571,9 +3296,13 @@ function applyLight() {
             color,
             intensity
         );
+
     }
 
-    if (lightType === "bloom") {
+    if (
+        lightType ===
+        "bloom"
+    ) {
 
         drawGlow(
             lightX,
@@ -2590,9 +3319,13 @@ function applyLight() {
             color,
             intensity * 1.5
         );
+
     }
 
-    if (lightType === "sunlight") {
+    if (
+        lightType ===
+        "sunlight"
+    ) {
 
         drawGlow(
             lightX,
@@ -2609,9 +3342,13 @@ function applyLight() {
             "#ffffff",
             intensity
         );
+
     }
 
-    if (lightType === "spotlight") {
+    if (
+        lightType ===
+        "spotlight"
+    ) {
 
         const gradient =
             ctx.createRadialGradient(
@@ -2658,7 +3395,10 @@ function applyLight() {
         );
     }
 
-    if (lightType === "neon") {
+    if (
+        lightType ===
+        "neon"
+    ) {
 
         for (
             let i = 0;
@@ -2669,16 +3409,20 @@ function applyLight() {
             drawGlow(
                 lightX,
                 lightY,
-                size * (
-                    1 - i * .14
-                ),
+                size *
+                    (1 - i * .14),
                 color,
                 intensity * .35
             );
+
         }
+
     }
 
-    if (lightType === "fire") {
+    if (
+        lightType ===
+        "fire"
+    ) {
 
         drawGlow(
             lightX,
@@ -2703,6 +3447,7 @@ function applyLight() {
             "#fff1a8",
             intensity * 1.5
         );
+
     }
 
     ctx.restore();
@@ -2730,7 +3475,10 @@ function drawGlow(
         0,
         colorWithAlpha(
             color,
-            Math.min(1,intensity)
+            Math.min(
+                1,
+                intensity
+            )
         )
     );
 
@@ -2786,7 +3534,10 @@ function colorWithAlpha(
 ) {
 
     hex =
-        hex.replace("#","");
+        hex.replace(
+            "#",
+            ""
+        );
 
     const r =
         parseInt(
@@ -2806,37 +3557,50 @@ function colorWithAlpha(
             16
         );
 
-    return `rgba(${r},${g},${b},${alpha})`;
+    return `
+        rgba(
+            ${r},
+            ${g},
+            ${b},
+            ${alpha}
+        )
+    `;
 }
 
 /* =========================================================
    LIGHTMAKER DRAG
 ========================================================= */
 
-const lightmakerHeader =
-    document.getElementById(
-        "lightmakerHeader"
-    );
-
-const lightmakerPanel =
-    document.getElementById(
-        "lightmakerPanel"
-    );
-
 lightmakerHeader.addEventListener(
     "pointerdown",
     e => {
 
-        draggingLightmaker = true;
+        if (
+            e.target ===
+                lightmakerClose ||
+            lightmakerClose.contains(
+                e.target
+            )
+        ) {
+
+            return;
+
+        }
+
+        draggingLightmaker =
+            true;
 
         const rect =
-            lightmakerPanel.getBoundingClientRect();
+            lightmakerPanel
+                .getBoundingClientRect();
 
         lightmakerDragX =
-            e.clientX - rect.left;
+            e.clientX -
+            rect.left;
 
         lightmakerDragY =
-            e.clientY - rect.top;
+            e.clientY -
+            rect.top;
 
         lightmakerHeader.setPointerCapture(
             e.pointerId
@@ -2848,20 +3612,50 @@ lightmakerHeader.addEventListener(
     "pointermove",
     e => {
 
-        if (!draggingLightmaker)
+        if (
+            !draggingLightmaker
+        )
             return;
 
+        let newLeft =
+            e.clientX -
+            lightmakerDragX;
+
+        let newTop =
+            e.clientY -
+            lightmakerDragY;
+
+        const maxLeft =
+            window.innerWidth -
+            lightmakerPanel.offsetWidth;
+
+        const maxTop =
+            window.innerHeight -
+            lightmakerPanel.offsetHeight;
+
+        newLeft =
+            Math.max(
+                5,
+                Math.min(
+                    newLeft,
+                    maxLeft - 5
+                )
+            );
+
+        newTop =
+            Math.max(
+                58,
+                Math.min(
+                    newTop,
+                    maxTop - 5
+                )
+            );
+
         lightmakerPanel.style.left =
-            (
-                e.clientX -
-                lightmakerDragX
-            ) + "px";
+            newLeft + "px";
 
         lightmakerPanel.style.top =
-            (
-                e.clientY -
-                lightmakerDragY
-            ) + "px";
+            newTop + "px";
     }
 );
 
@@ -2869,7 +3663,8 @@ lightmakerHeader.addEventListener(
     "pointerup",
     () => {
 
-        draggingLightmaker = false;
+        draggingLightmaker =
+            false;
 
     }
 );
@@ -2902,7 +3697,8 @@ document
                 "opacityValue"
             ).textContent =
                 Math.round(
-                    e.target.value * 100
+                    e.target.value *
+                    100
                 ) + "%";
 
         }
@@ -2918,7 +3714,8 @@ document
                 "lightIntensityValue"
             ).textContent =
                 Math.round(
-                    e.target.value * 100
+                    e.target.value *
+                    100
                 ) + "%";
 
         }
@@ -2939,138 +3736,7 @@ document
     );
 
 /* =========================================================
-   IMPORT
-========================================================= */
-
-document
-    .getElementById("fileInput")
-    .addEventListener(
-        "change",
-        e => {
-
-            const file =
-                e.target.files[0];
-
-            if (!file)
-                return;
-
-            saveState();
-
-            const img =
-                new Image();
-
-            img.onload = () => {
-
-                ctx.clearRect(
-                    0,
-                    0,
-                    canvas.width,
-                    canvas.height
-                );
-
-                const scale =
-                    Math.min(
-                        canvas.width /
-                            img.width,
-
-                        canvas.height /
-                            img.height
-                    );
-
-                const width =
-                    img.width * scale;
-
-                const height =
-                    img.height * scale;
-
-                const x =
-                    (
-                        canvas.width -
-                        width
-                    ) / 2;
-
-                const y =
-                    (
-                        canvas.height -
-                        height
-                    ) / 2;
-
-                ctx.drawImage(
-                    img,
-                    x,
-                    y,
-                    width,
-                    height
-                );
-            };
-
-            img.src =
-                URL.createObjectURL(file);
-
-        }
-    );
-
-/* =========================================================
-   EXPORT
-========================================================= */
-
-function exportPNG() {
-
-    const link =
-        document.createElement("a");
-
-    link.download =
-        "astro-photos.png";
-
-    link.href =
-        canvas.toDataURL(
-            "image/png"
-        );
-
-    link.click();
-}
-
-/* =========================================================
-   NEW
-========================================================= */
-
-function newCanvas() {
-
-    if (
-        !confirm(
-            "Create a new canvas? Your current artwork will be cleared."
-        )
-    )
-        return;
-
-    saveState();
-
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-}
-
-/* =========================================================
-   CLEAR
-========================================================= */
-
-function clearCanvas() {
-
-    saveState();
-
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-}
-
-/* =========================================================
-   RESIZE
+   CANVAS RESIZE
 ========================================================= */
 
 function resizeCanvas() {
@@ -3078,7 +3744,9 @@ function resizeCanvas() {
     saveState();
 
     const oldCanvas =
-        document.createElement("canvas");
+        document.createElement(
+            "canvas"
+        );
 
     oldCanvas.width =
         canvas.width;
@@ -3109,10 +3777,16 @@ function resizeCanvas() {
         );
 
     canvas.width =
-        Math.max(1,width);
+        Math.max(
+            1,
+            width
+        );
 
     canvas.height =
-        Math.max(1,height);
+        Math.max(
+            1,
+            height
+        );
 
     ctx.drawImage(
         oldCanvas,
@@ -3120,12 +3794,7 @@ function resizeCanvas() {
         0
     );
 
-    document.getElementById(
-        "canvasInfo"
-    ).textContent =
-        canvas.width +
-        " × " +
-        canvas.height;
+    updateCanvasInfo();
 
     lightX =
         Math.min(
@@ -3143,7 +3812,115 @@ function resizeCanvas() {
 }
 
 /* =========================================================
-   TRANSFORMS
+   CANVAS INFO
+========================================================= */
+
+function updateCanvasInfo() {
+
+    document.getElementById(
+        "canvasInfo"
+    ).textContent =
+        canvas.width +
+        " × " +
+        canvas.height;
+
+    document.getElementById(
+        "canvasWidth"
+    ).value =
+        canvas.width;
+
+    document.getElementById(
+        "canvasHeight"
+    ).value =
+        canvas.height;
+}
+
+/* =========================================================
+   NEW CANVAS
+========================================================= */
+
+function newCanvas() {
+
+    if (
+        !confirm(
+            "Create a new canvas? Your current artwork will be cleared."
+        )
+    )
+        return;
+
+    saveState();
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    document.getElementById(
+        "statusText"
+    ).textContent =
+        "New Canvas";
+}
+
+/* =========================================================
+   CLEAR
+========================================================= */
+
+function clearCanvas() {
+
+    saveState();
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+}
+
+/* =========================================================
+   EXPORT PNG
+========================================================= */
+
+function exportPNG() {
+
+    const data =
+        canvas.toDataURL(
+            "image/png"
+        );
+
+    const link =
+        document.createElement(
+            "a"
+        );
+
+    link.download =
+        "astro-photos.png";
+
+    link.href =
+        data;
+
+    link.click();
+
+    /*
+       PNG exports are also
+       added to Recent Pictures.
+    */
+
+    saveRecent(
+        "astro-photos.png",
+        data
+    );
+
+    document.getElementById(
+        "statusText"
+    ).textContent =
+        "PNG exported";
+}
+
+/* =========================================================
+   FLIP
 ========================================================= */
 
 function flipHorizontal() {
@@ -3226,12 +4003,18 @@ function flipVertical() {
     ctx.restore();
 }
 
+/* =========================================================
+   ROTATE
+========================================================= */
+
 function rotateCanvas() {
 
     saveState();
 
     const temp =
-        document.createElement("canvas");
+        document.createElement(
+            "canvas"
+        );
 
     temp.width =
         canvas.width;
@@ -3278,12 +4061,7 @@ function rotateCanvas() {
 
     ctx.restore();
 
-    document.getElementById(
-        "canvasInfo"
-    ).textContent =
-        canvas.width +
-        " × " +
-        canvas.height;
+    updateCanvasInfo();
 }
 
 /* =========================================================
@@ -3301,8 +4079,15 @@ function setZoom(value) {
             )
         );
 
-    canvasWrap.style.transform =
-        `scale(${zoom})`;
+    canvas.style.width =
+        canvas.width *
+        zoom +
+        "px";
+
+    canvas.style.height =
+        canvas.height *
+        zoom +
+        "px";
 
     document.getElementById(
         "zoomText"
@@ -3320,135 +4105,6 @@ function changeZoom(amount) {
 }
 
 /* =========================================================
-   MENUS
-========================================================= */
-
-document
-    .querySelectorAll(".menu-button")
-    .forEach(button => {
-
-        button.addEventListener(
-            "click",
-            e => {
-
-                e.stopPropagation();
-
-                const parent =
-                    button.parentElement;
-
-                document
-                    .querySelectorAll(".menu")
-                    .forEach(menu => {
-
-                        if (
-                            menu !== parent
-                        ) {
-
-                            menu.classList.remove(
-                                "open"
-                            );
-                        }
-                    });
-
-                parent.classList.toggle(
-                    "open"
-                );
-            }
-        );
-    });
-
-document.addEventListener(
-    "click",
-    () => {
-
-        document
-            .querySelectorAll(".menu")
-            .forEach(menu =>
-                menu.classList.remove(
-                    "open"
-                )
-            );
-    }
-);
-
-/* =========================================================
-   TOOLTIP
-========================================================= */
-
-let tooltipTimer = null;
-
-const tooltip =
-    document.getElementById(
-        "tooltip"
-    );
-
-document
-    .querySelectorAll(".tool")
-    .forEach(button => {
-
-        button.addEventListener(
-            "mouseenter",
-            () => {
-
-                clearTimeout(
-                    tooltipTimer
-                );
-
-                tooltipTimer =
-                    setTimeout(
-                        () => {
-
-                            const text =
-                                button.dataset.tooltip;
-
-                            if (!text)
-                                return;
-
-                            const rect =
-                                button.getBoundingClientRect();
-
-                            tooltip.textContent =
-                                text;
-
-                            tooltip.style.left =
-                                (
-                                    rect.right +
-                                    9
-                                ) + "px";
-
-                            tooltip.style.top =
-                                (
-                                    rect.top +
-                                    rect.height / 2 -
-                                    14
-                                ) + "px";
-
-                            tooltip.classList.add(
-                                "show"
-                            );
-
-                        },
-                        1000
-                    );
-            }
-        );
-
-        button.addEventListener(
-            "mouseleave",
-            () => {
-
-                clearTimeout(
-                    tooltipTimer
-                );
-
-                tooltip.classList.remove(
-                    "show"
-                );
-            }
-        );
-    });
-
-/* =========================================================
    KEYBOARD
 ========================================================= */
 
@@ -3457,55 +4113,164 @@ document.addEventListener(
     e => {
 
         if (
+            e.key ===
+            "Escape"
+        ) {
+
+            if (
+                lightmakerOpen
+            ) {
+
+                closeLightmaker();
+
+            }
+
+            closeMenus();
+
+        }
+
+        if (
             e.ctrlKey &&
-            e.key.toLowerCase() === "z"
+            e.key.toLowerCase() ===
+                "s"
+        ) {
+
+            e.preventDefault();
+
+            saveAPF();
+
+        }
+
+        if (
+            e.ctrlKey &&
+            e.key.toLowerCase() ===
+                "o"
+        ) {
+
+            e.preventDefault();
+
+            openFile();
+
+        }
+
+        if (
+            e.ctrlKey &&
+            e.key.toLowerCase() ===
+                "z"
         ) {
 
             e.preventDefault();
 
             undo();
+
         }
 
         if (
             e.ctrlKey &&
-            e.key.toLowerCase() === "y"
+            e.key.toLowerCase() ===
+                "y"
         ) {
 
             e.preventDefault();
 
             redo();
+
         }
 
-        if (
-            e.ctrlKey &&
-            e.key.toLowerCase() === "s"
-        ) {
-
-            e.preventDefault();
-
-            exportPNG();
-        }
-
-        if (
-            e.key === "Escape" &&
-            lightmakerOpen
-        ) {
-
-            closeLightmaker();
-        }
     }
 );
 
 /* =========================================================
-   START
+   TOOLTIP SYSTEM
 ========================================================= */
 
-ctx.clearRect(
-    0,
-    0,
-    canvas.width,
-    canvas.height
-);
+const tooltip =
+    document.getElementById(
+        "tooltip"
+    );
+
+let tooltipTimer;
+
+document
+    .querySelectorAll(
+        ".tool"
+    )
+    .forEach(
+        toolButton => {
+
+            toolButton.addEventListener(
+                "mouseenter",
+                () => {
+
+                    clearTimeout(
+                        tooltipTimer
+                    );
+
+                    tooltipTimer =
+                        setTimeout(
+                            () => {
+
+                                const text =
+                                    toolButton
+                                        .dataset
+                                        .tooltip;
+
+                                tooltip.textContent =
+                                    text;
+
+                                const rect =
+                                    toolButton
+                                        .getBoundingClientRect();
+
+                                tooltip.style.left =
+                                    (
+                                        rect.right +
+                                        9
+                                    ) + "px";
+
+                                tooltip.style.top =
+                                    (
+                                        rect.top +
+                                        rect.height / 2 -
+                                        14
+                                    ) + "px";
+
+                                tooltip.classList.add(
+                                    "show"
+                                );
+
+                            },
+                            1000
+                        );
+
+                }
+            );
+
+            toolButton.addEventListener(
+                "mouseleave",
+                () => {
+
+                    clearTimeout(
+                        tooltipTimer
+                    );
+
+                    tooltip.classList.remove(
+                        "show"
+                    );
+
+                }
+            );
+
+        }
+    );
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+renderRecent();
+
+updateCanvasInfo();
 
 setZoom(1);
 
