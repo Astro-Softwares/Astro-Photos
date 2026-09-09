@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,52 +15,88 @@
 }
 
 :root {
-    --bg: #101114;
-    --panel: #17191e;
-    --panel2: #1d2026;
-    --border: #2b2e36;
-    --text: #f5f5f5;
-    --muted: #9297a3;
+    --bg: #08090c;
+    --bg2: #0d0f14;
+    --panel: #151820;
+    --panel-light: #1d212b;
+    --panel-dark: #101219;
+    --border: #303541;
+    --text: #f7f7fa;
+    --muted: #8d93a1;
     --accent: #8b5cf6;
-    --accent2: #a78bfa;
-    --danger: #ef4444;
+    --accent-light: #b197ff;
+    --accent-dark: #5b21b6;
+    --shadow: rgba(0,0,0,.65);
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
 }
 
 body {
     margin: 0;
-    width: 100vw;
-    height: 100vh;
     overflow: hidden;
-    background: var(--bg);
     color: var(--text);
     font-family: "Montserrat", sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            #191c29 0%,
+            #0c0e13 42%,
+            #07080b 100%
+        );
 }
 
-/* =========================
+/* =========================================================
    TOP BAR
-========================= */
+========================================================= */
 
 .topbar {
-    height: 56px;
-    background: #14161a;
-    border-bottom: 1px solid var(--border);
+    height: 58px;
+
     display: flex;
     align-items: center;
-    padding: 0 14px;
-    gap: 12px;
-    user-select: none;
+
+    padding: 0 15px;
+    gap: 5px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #242833 0%,
+            #171a22 48%,
+            #101219 100%
+        );
+
+    border-bottom: 1px solid #343947;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.55),
+        inset 0 1px rgba(255,255,255,.08);
+
+    position: relative;
+    z-index: 100;
 }
 
 .logo {
+    margin-right: 15px;
+
     font-size: 17px;
     font-weight: 700;
-    letter-spacing: -0.4px;
-    margin-right: 12px;
-    white-space: nowrap;
+    letter-spacing: -.5px;
+
+    text-shadow:
+        0 2px 5px rgba(0,0,0,.8);
 }
 
 .logo span {
-    color: var(--accent2);
+    color: var(--accent-light);
+
+    text-shadow:
+        0 0 14px rgba(139,92,246,.6);
 }
 
 .menu {
@@ -69,33 +104,70 @@ body {
 }
 
 .menu-button {
-    border: 0;
+    border: 1px solid transparent;
+
     background: transparent;
-    color: #c9ccd4;
+
+    color: #c5c9d2;
+
     font-family: inherit;
-    font-size: 13px;
-    padding: 8px 10px;
-    border-radius: 6px;
+    font-size: 12px;
+
+    padding: 8px 11px;
+
+    border-radius: 7px;
+
     cursor: pointer;
+
+    transition:
+        .15s ease;
 }
 
 .menu-button:hover {
-    background: #22252b;
     color: white;
+
+    background:
+        linear-gradient(
+            180deg,
+            #303542,
+            #20242d
+        );
+
+    border-color: #3b404d;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.08),
+        0 3px 8px rgba(0,0,0,.35);
 }
 
 .dropdown {
     position: absolute;
-    top: 38px;
+
+    top: 43px;
     left: 0;
-    min-width: 180px;
-    background: #1b1e24;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 6px;
+
+    min-width: 185px;
+
+    padding: 7px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #252a35,
+            #151820
+        );
+
+    border: 1px solid #3b404c;
+
+    border-radius: 10px;
+
     display: none;
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.7),
+        inset 0 1px rgba(255,255,255,.08);
+
     z-index: 1000;
-    box-shadow: 0 12px 30px rgba(0,0,0,.4);
 }
 
 .menu.open .dropdown {
@@ -104,20 +176,39 @@ body {
 
 .dropdown button {
     width: 100%;
-    text-align: left;
-    border: 0;
+
+    border: 1px solid transparent;
+
     background: transparent;
-    color: #d5d8df;
+
+    color: #cdd1da;
+
     font-family: inherit;
-    font-size: 12px;
-    padding: 9px 10px;
-    border-radius: 5px;
+    font-size: 11px;
+
+    padding: 10px;
+
+    text-align: left;
+
+    border-radius: 6px;
+
     cursor: pointer;
 }
 
 .dropdown button:hover {
-    background: #292c33;
     color: white;
+
+    background:
+        linear-gradient(
+            180deg,
+            #343945,
+            #252933
+        );
+
+    border-color: #424754;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.07);
 }
 
 .spacer {
@@ -125,216 +216,504 @@ body {
 }
 
 .top-button {
-    border: 1px solid var(--border);
-    background: #1b1e24;
-    color: #d9dce3;
+    border: 1px solid #414654;
+
+    background:
+        linear-gradient(
+            180deg,
+            #303540,
+            #1b1f27
+        );
+
+    color: #e2e4ea;
+
     font-family: inherit;
-    font-size: 12px;
-    padding: 8px 12px;
-    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+
+    padding: 8px 13px;
+
+    border-radius: 7px;
+
     cursor: pointer;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.1),
+        inset 0 -2px rgba(0,0,0,.25),
+        0 3px 8px rgba(0,0,0,.35);
+
+    transition: .12s ease;
 }
 
 .top-button:hover {
-    background: #252830;
-    color: white;
+    transform: translateY(-1px);
+
+    background:
+        linear-gradient(
+            180deg,
+            #3b414e,
+            #242831
+        );
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.12),
+        0 5px 12px rgba(0,0,0,.45);
 }
 
-/* =========================
+.top-button:active {
+    transform: translateY(1px);
+
+    box-shadow:
+        inset 0 2px 5px rgba(0,0,0,.45);
+}
+
+/* =========================================================
    MAIN
-========================= */
+========================================================= */
 
 .main {
-    height: calc(100vh - 56px);
+    height: calc(100vh - 58px);
+
     display: flex;
 }
 
-/* =========================
-   LEFT TOOLBAR
-========================= */
+/* =========================================================
+   TOOLBAR
+========================================================= */
 
 .toolbar {
-    width: 64px;
-    background: #15171b;
-    border-right: 1px solid var(--border);
+    width: 68px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 0;
-    gap: 5px;
-    overflow-y: auto;
+
+    padding: 11px 0;
+
+    gap: 7px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0e1015,
+            #181b23,
+            #101219
+        );
+
+    border-right: 1px solid #303541;
+
+    box-shadow:
+        5px 0 18px rgba(0,0,0,.45),
+        inset -1px 0 rgba(255,255,255,.04);
+
+    z-index: 50;
 }
 
 .tool {
-    width: 44px;
-    height: 44px;
-    border: 0;
-    background: transparent;
-    color: #9ca1ad;
-    border-radius: 8px;
-    cursor: pointer;
+    width: 45px;
+    height: 43px;
+
+    border: 1px solid #303541;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #292e39,
+            #171a21
+        );
+
+    color: #aeb3bf;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 19px;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
     position: relative;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.09),
+        inset 0 -2px rgba(0,0,0,.3),
+        0 4px 8px rgba(0,0,0,.4);
+
+    transition:
+        transform .12s ease,
+        box-shadow .12s ease,
+        color .12s ease;
 }
 
 .tool:hover {
-    background: #24272e;
     color: white;
+
+    transform:
+        translateY(-2px)
+        translateZ(4px);
+
+    background:
+        linear-gradient(
+            145deg,
+            #373d4b,
+            #20242d
+        );
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.13),
+        0 7px 15px rgba(0,0,0,.5),
+        0 0 12px rgba(139,92,246,.12);
+}
+
+.tool:active {
+    transform:
+        translateY(1px);
+
+    box-shadow:
+        inset 0 3px 7px rgba(0,0,0,.5);
 }
 
 .tool.active {
-    background: rgba(139,92,246,.2);
-    color: var(--accent2);
+    color: white;
+
+    border-color:
+        rgba(167,139,250,.7);
+
+    background:
+        linear-gradient(
+            145deg,
+            #7950d8,
+            #4c239e
+        );
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.18),
+        inset 0 -3px rgba(0,0,0,.18),
+        0 5px 13px rgba(91,33,182,.45),
+        0 0 17px rgba(139,92,246,.25);
 }
 
 .tool-separator {
-    width: 34px;
+    width: 39px;
     height: 1px;
-    background: var(--border);
-    margin: 4px 0;
+
+    margin: 2px 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #373c48,
+            transparent
+        );
 }
 
-/* TOOLTIP */
+/* =========================================================
+   TOOLTIP
+========================================================= */
 
 .tooltip {
     position: fixed;
+
     z-index: 5000;
-    background: #08090b;
-    border: 1px solid #30333a;
+
+    padding: 7px 10px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #292d37,
+            #15171d
+        );
+
+    border: 1px solid #464c59;
+
+    border-radius: 6px;
+
     color: white;
-    font-size: 11px;
-    padding: 6px 9px;
-    border-radius: 5px;
+
+    font-size: 10px;
+
     pointer-events: none;
+
     opacity: 0;
-    transform: translateY(-2px);
-    transition: opacity .12s ease, transform .12s ease;
+
+    transform:
+        translateY(-3px)
+        translateZ(0);
+
+    box-shadow:
+        0 7px 18px rgba(0,0,0,.6),
+        inset 0 1px rgba(255,255,255,.08);
+
+    transition:
+        opacity .15s,
+        transform .15s;
+
     white-space: nowrap;
 }
 
 .tooltip.show {
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+        translateY(0);
 }
 
-/* =========================
-   CANVAS AREA
-========================= */
+/* =========================================================
+   WORKSPACE
+========================================================= */
 
 .workspace {
     flex: 1;
+
     min-width: 0;
+
     position: relative;
+
     display: flex;
     flex-direction: column;
-    background: #0e0f12;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #171a23 0%,
+            #0d0f14 55%,
+            #090a0e 100%
+        );
 }
+
+/* =========================================================
+   CANVAS AREA
+========================================================= */
 
 .canvas-area {
     flex: 1;
+
     overflow: auto;
+
     position: relative;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
-    padding: 35px;
+
+    padding: 45px;
+}
+
+.canvas-area::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.025),
+            transparent 30%,
+            transparent 70%,
+            rgba(139,92,246,.025)
+        );
 }
 
 .canvas-wrap {
     position: relative;
-    box-shadow: 0 15px 45px rgba(0,0,0,.45);
+
     transform-origin: center center;
+
+    border-radius: 3px;
+
+    box-shadow:
+        0 25px 55px rgba(0,0,0,.65),
+        0 8px 20px rgba(0,0,0,.5),
+        0 0 0 1px rgba(255,255,255,.08),
+        0 0 35px rgba(139,92,246,.06);
+
+    transition:
+        box-shadow .2s;
+}
+
+.canvas-wrap:hover {
+    box-shadow:
+        0 28px 65px rgba(0,0,0,.7),
+        0 0 0 1px rgba(255,255,255,.11),
+        0 0 40px rgba(139,92,246,.09);
 }
 
 canvas {
     display: block;
+
     background:
-        linear-gradient(45deg, #d5d5d5 25%, transparent 25%),
-        linear-gradient(-45deg, #d5d5d5 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, #d5d5d5 75%),
-        linear-gradient(-45deg, transparent 75%, #d5d5d5 75%);
+        linear-gradient(45deg,#cfcfcf 25%,transparent 25%),
+        linear-gradient(-45deg,#cfcfcf 25%,transparent 25%),
+        linear-gradient(45deg,transparent 75%,#cfcfcf 75%),
+        linear-gradient(-45deg,transparent 75%,#cfcfcf 75%);
+
     background-size: 24px 24px;
-    background-position: 0 0, 0 12px, 12px -12px, -12px 0;
-    background-color: #f1f1f1;
+
+    background-position:
+        0 0,
+        0 12px,
+        12px -12px,
+        -12px 0;
+
+    background-color: #eeeeee;
+
     cursor: crosshair;
 }
 
 .canvas-marker {
     position: absolute;
-    width: 20px;
-    height: 20px;
+
+    width: 21px;
+    height: 21px;
+
     border: 2px solid white;
+
     border-radius: 50%;
-    transform: translate(-50%, -50%);
+
+    transform:
+        translate(-50%,-50%);
+
     pointer-events: none;
-    box-shadow: 0 0 0 1px rgba(0,0,0,.6), 0 0 15px rgba(167,139,250,.9);
+
+    box-shadow:
+        0 0 0 1px rgba(0,0,0,.7),
+        0 0 12px rgba(167,139,250,.9),
+        inset 0 0 5px rgba(255,255,255,.4);
 }
 
-/* =========================
+/* =========================================================
    BOTTOM BAR
-========================= */
+========================================================= */
 
 .bottom-bar {
-    height: 34px;
-    background: #15171b;
-    border-top: 1px solid var(--border);
+    height: 36px;
+
     display: flex;
     align-items: center;
-    padding: 0 12px;
-    color: var(--muted);
-    font-size: 11px;
+
+    padding: 0 13px;
+
     gap: 18px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #20242d,
+            #13161c
+        );
+
+    border-top: 1px solid #343945;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.05),
+        0 -4px 12px rgba(0,0,0,.25);
+
+    color: #8f95a2;
+
+    font-size: 10px;
 }
 
 .zoom-controls {
     margin-left: auto;
+
     display: flex;
     align-items: center;
+
     gap: 7px;
 }
 
 .zoom-controls button {
-    width: 25px;
-    height: 23px;
-    border: 1px solid var(--border);
-    background: #1c1f24;
-    color: #cdd0d7;
-    border-radius: 4px;
+    width: 27px;
+    height: 24px;
+
+    border: 1px solid #3c424f;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #2b303b,
+            #181b22
+        );
+
+    color: #d5d8df;
+
     cursor: pointer;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.08),
+        0 2px 5px rgba(0,0,0,.35);
 }
 
 .zoom-controls button:hover {
-    background: #292c33;
+    background:
+        linear-gradient(
+            180deg,
+            #383e4a,
+            #20242d
+        );
 }
 
-/* =========================
+/* =========================================================
    RIGHT PANEL
-========================= */
+========================================================= */
 
 .right-panel {
-    width: 280px;
-    background: #15171b;
-    border-left: 1px solid var(--border);
+    width: 285px;
+
     display: flex;
     flex-direction: column;
+
     overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            #111319,
+            #191c24,
+            #12141a
+        );
+
+    border-left: 1px solid #303541;
+
+    box-shadow:
+        -6px 0 18px rgba(0,0,0,.45),
+        inset 1px 0 rgba(255,255,255,.035);
 }
 
 .panel-section {
-    border-bottom: 1px solid var(--border);
-    padding: 14px;
+    padding: 15px;
+
+    border-bottom: 1px solid #2d313b;
+
+    box-shadow:
+        inset 0 -1px rgba(0,0,0,.25);
 }
 
 .panel-title {
-    font-size: 11px;
-    font-weight: 700;
-    color: #bfc3cc;
-    text-transform: uppercase;
-    letter-spacing: .7px;
     margin-bottom: 13px;
+
+    color: #bfc4ce;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 1px 3px rgba(0,0,0,.7);
 }
 
 .field {
@@ -343,44 +722,73 @@ canvas {
 
 .field label {
     display: block;
-    font-size: 11px;
-    color: var(--muted);
+
     margin-bottom: 6px;
+
+    color: #858b98;
+
+    font-size: 10px;
 }
 
 .field input,
 .field select {
     width: 100%;
-    background: #1d2026;
-    border: 1px solid var(--border);
-    color: white;
-    border-radius: 5px;
-    padding: 8px;
-    font-family: inherit;
-    font-size: 11px;
+
+    padding: 9px;
+
+    border: 1px solid #353a46;
+
+    border-radius: 6px;
+
     outline: none;
+
+    background:
+        linear-gradient(
+            180deg,
+            #11141a,
+            #1c2028
+        );
+
+    color: white;
+
+    font-family: inherit;
+    font-size: 10px;
+
+    box-shadow:
+        inset 0 2px 5px rgba(0,0,0,.35),
+        0 1px rgba(255,255,255,.03);
 }
 
-.field input:focus,
-.field select:focus {
-    border-color: var(--accent);
+.field input:focus {
+    border-color: #7551c9;
+
+    box-shadow:
+        0 0 0 2px rgba(139,92,246,.12),
+        inset 0 2px 5px rgba(0,0,0,.35);
 }
 
 .range-row {
     display: flex;
-    gap: 8px;
+
     align-items: center;
+
+    gap: 9px;
 }
 
 .range-row input[type="range"] {
     flex: 1;
+
+    padding: 0;
 }
 
 .range-value {
-    width: 45px;
+    width: 43px;
+
+    color: #c4c8d0;
+
+    font-size: 9px;
+
     text-align: right;
-    color: #c9ccd4;
-    font-size: 10px;
 }
 
 input[type="range"] {
@@ -393,80 +801,192 @@ input[type="range"] {
 }
 
 .color-row input[type="color"] {
-    width: 44px;
-    height: 34px;
-    padding: 2px;
+    width: 48px;
+    height: 35px;
+
+    padding: 3px;
+
     cursor: pointer;
+
+    border-radius: 6px;
 }
+
+/* =========================================================
+   LAYERS
+========================================================= */
 
 .layers {
     flex: 1;
+
     overflow-y: auto;
 }
 
 .layer {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 9px 10px;
-    border-radius: 5px;
-    margin-bottom: 3px;
-    color: #cdd0d7;
-    font-size: 11px;
+
+    gap: 9px;
+
+    padding: 8px;
+
+    margin-bottom: 4px;
+
+    border: 1px solid transparent;
+
+    border-radius: 7px;
+
+    color: #bfc3cc;
+
+    font-size: 10px;
+
     cursor: pointer;
+
+    transition: .12s;
 }
 
 .layer:hover {
-    background: #20232a;
+    border-color: #343946;
+
+    background:
+        linear-gradient(
+            180deg,
+            #252a34,
+            #1a1d24
+        );
+
+    box-shadow:
+        0 3px 8px rgba(0,0,0,.25);
 }
 
 .layer.selected {
-    background: rgba(139,92,246,.15);
+    border-color:
+        rgba(139,92,246,.35);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(139,92,246,.2),
+            rgba(91,33,182,.08)
+        );
+
     color: white;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.05),
+        0 3px 8px rgba(0,0,0,.2);
 }
 
 .layer-icon {
-    width: 25px;
-    height: 25px;
-    background: #292c33;
-    border-radius: 4px;
+    width: 27px;
+    height: 27px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
+    border: 1px solid #3a3f4b;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #303541,
+            #181b22
+        );
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.08),
+        0 2px 5px rgba(0,0,0,.35);
 }
 
-/* =========================
+/* =========================================================
    LIGHTMAKER
-========================= */
+========================================================= */
 
 .lightmaker-panel {
     position: fixed;
+
     width: 520px;
+
     max-width: calc(100vw - 30px);
     max-height: calc(100vh - 90px);
+
     overflow-y: auto;
+
     left: 90px;
     top: 80px;
-    background: #17191e;
-    border: 1px solid #353942;
-    border-radius: 12px;
-    box-shadow: 0 20px 70px rgba(0,0,0,.6);
-    z-index: 3000;
+
     display: none;
+
+    background:
+        linear-gradient(
+            145deg,
+            #252a35,
+            #111319 70%
+        );
+
+    border: 1px solid #464c59;
+
+    border-radius: 13px;
+
+    box-shadow:
+        0 35px 80px rgba(0,0,0,.75),
+        0 10px 25px rgba(0,0,0,.55),
+        inset 0 1px rgba(255,255,255,.1);
+
+    z-index: 3000;
+
+    overflow: hidden;
 }
 
 .lightmaker-panel.open {
     display: block;
+
+    animation:
+        lightmakerIn .18s ease;
+}
+
+@keyframes lightmakerIn {
+    from {
+        opacity: 0;
+        transform:
+            translateY(-8px)
+            scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
 }
 
 .lightmaker-header {
-    height: 52px;
-    padding: 0 14px;
+    height: 53px;
+
+    padding: 0 15px;
+
     display: flex;
     align-items: center;
-    border-bottom: 1px solid var(--border);
+
+    border-bottom: 1px solid #373c47;
+
+    background:
+        linear-gradient(
+            180deg,
+            #2a2f3b,
+            #1b1e26
+        );
+
     cursor: grab;
+
     user-select: none;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.08),
+        0 4px 12px rgba(0,0,0,.25);
 }
 
 .lightmaker-header:active {
@@ -476,113 +996,272 @@ input[type="range"] {
 .lightmaker-title {
     font-size: 14px;
     font-weight: 700;
+
+    text-shadow:
+        0 2px 5px rgba(0,0,0,.7);
 }
 
 .lightmaker-title span {
-    color: var(--accent2);
+    color: var(--accent-light);
+
+    text-shadow:
+        0 0 14px rgba(139,92,246,.7);
 }
 
 .lightmaker-close {
+    width: 31px;
+    height: 31px;
+
     margin-left: auto;
-    width: 30px;
-    height: 30px;
-    border: 0;
-    background: transparent;
-    color: #999eaa;
-    border-radius: 6px;
+
+    border: 1px solid #3e434f;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #303541,
+            #1b1e25
+        );
+
+    color: #aeb3bf;
+
+    font-size: 17px;
+
     cursor: pointer;
-    font-size: 18px;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.08),
+        0 3px 7px rgba(0,0,0,.35);
 }
 
 .lightmaker-close:hover {
-    background: #282b32;
     color: white;
+
+    background:
+        linear-gradient(
+            180deg,
+            #414754,
+            #242831
+        );
 }
 
 .lightmaker-content {
-    padding: 15px;
+    padding: 16px;
 }
 
 .light-types {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    margin-bottom: 16px;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 9px;
+
+    margin-bottom: 17px;
 }
 
 .light-type {
-    border: 1px solid var(--border);
-    background: #1d2026;
-    color: #c5c8d0;
-    border-radius: 7px;
-    padding: 12px 7px;
-    cursor: pointer;
-    text-align: center;
+    min-height: 75px;
+
+    border: 1px solid #363b47;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #292e39,
+            #171a21
+        );
+
+    color: #bfc3cc;
+
     font-family: inherit;
-    font-size: 10px;
+    font-size: 9px;
+
+    cursor: pointer;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.07),
+        inset 0 -2px rgba(0,0,0,.25),
+        0 4px 8px rgba(0,0,0,.3);
+
+    transition: .12s;
 }
 
 .light-type:hover {
-    background: #282b32;
+    transform: translateY(-2px);
+
     color: white;
+
+    background:
+        linear-gradient(
+            145deg,
+            #373d4b,
+            #20242d
+        );
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.1),
+        0 7px 13px rgba(0,0,0,.4);
 }
 
 .light-type.active {
-    border-color: var(--accent);
-    background: rgba(139,92,246,.15);
+    border-color:
+        rgba(167,139,250,.7);
+
+    background:
+        linear-gradient(
+            145deg,
+            #7048ce,
+            #44208f
+        );
+
     color: white;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.15),
+        0 6px 15px rgba(91,33,182,.4),
+        0 0 15px rgba(139,92,246,.15);
 }
 
 .light-icon {
-    font-size: 19px;
-    margin-bottom: 5px;
+    font-size: 20px;
+
+    margin-bottom: 7px;
+
+    text-shadow:
+        0 0 12px rgba(255,255,255,.35);
 }
 
 .position-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr;
+
     gap: 10px;
 }
 
 .apply-light {
     width: 100%;
-    border: 0;
-    background: var(--accent);
+
+    margin-top: 7px;
+
+    padding: 12px;
+
+    border: 1px solid #9c7cf0;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #9a70f0,
+            #6233b6
+        );
+
     color: white;
-    padding: 11px;
-    border-radius: 7px;
+
     font-family: inherit;
-    font-weight: 700;
     font-size: 11px;
+    font-weight: 700;
+
     cursor: pointer;
-    margin-top: 6px;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.2),
+        inset 0 -3px rgba(0,0,0,.2),
+        0 7px 16px rgba(91,33,182,.4);
+
+    transition: .12s;
 }
 
 .apply-light:hover {
-    background: #7c3aed;
+    transform: translateY(-1px);
+
+    background:
+        linear-gradient(
+            180deg,
+            #aa86fa,
+            #7041c7
+        );
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.22),
+        0 10px 20px rgba(91,33,182,.5);
 }
 
-/* =========================
-   STATUS
-========================= */
+.apply-light:active {
+    transform: translateY(1px);
+}
 
 .status {
-    margin-top: 8px;
-    padding: 9px;
-    background: #1d2026;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    font-size: 10px;
-    color: var(--muted);
+    margin-top: 10px;
+
+    padding: 10px;
+
+    border: 1px solid #323743;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1e222a,
+            #14171d
+        );
+
+    color: #808693;
+
+    font-size: 9px;
+
+    line-height: 1.5;
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.04);
 }
 
-/* =========================
+/* =========================================================
+   SCROLLBARS
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0d0f13;
+}
+
+::-webkit-scrollbar-thumb {
+    background:
+        linear-gradient(
+            180deg,
+            #3c414d,
+            #252933
+        );
+
+    border-radius: 10px;
+
+    border: 2px solid #0d0f13;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #505664;
+}
+
+/* =========================================================
    RESPONSIVE
-========================= */
+========================================================= */
 
 @media (max-width: 850px) {
+
     .right-panel {
-        width: 220px;
+        width: 225px;
     }
 
     .logo {
@@ -591,16 +1270,17 @@ input[type="range"] {
 }
 
 @media (max-width: 650px) {
+
     .right-panel {
         display: none;
     }
 
     .toolbar {
-        width: 56px;
+        width: 58px;
     }
 
     .canvas-area {
-        padding: 15px;
+        padding: 20px;
     }
 
     .lightmaker-panel {
@@ -614,7 +1294,10 @@ input[type="range"] {
 
 <body>
 
-<!-- TOP BAR -->
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
+
 <div class="topbar">
 
     <div class="logo">
@@ -623,15 +1306,21 @@ input[type="range"] {
 
     <div class="menu">
         <button class="menu-button">File</button>
+
         <div class="dropdown">
             <button onclick="newCanvas()">New</button>
-            <button onclick="document.getElementById('fileInput').click()">Open / Import</button>
-            <button onclick="exportPNG()">Export PNG</button>
+            <button onclick="document.getElementById('fileInput').click()">
+                Open / Import
+            </button>
+            <button onclick="exportPNG()">
+                Export PNG
+            </button>
         </div>
     </div>
 
     <div class="menu">
         <button class="menu-button">Edit</button>
+
         <div class="dropdown">
             <button onclick="undo()">Undo</button>
             <button onclick="redo()">Redo</button>
@@ -641,18 +1330,28 @@ input[type="range"] {
 
     <div class="menu">
         <button class="menu-button">Image</button>
+
         <div class="dropdown">
-            <button onclick="flipHorizontal()">Flip Horizontal</button>
-            <button onclick="flipVertical()">Flip Vertical</button>
-            <button onclick="rotateCanvas()">Rotate 90°</button>
+            <button onclick="flipHorizontal()">
+                Flip Horizontal
+            </button>
+
+            <button onclick="flipVertical()">
+                Flip Vertical
+            </button>
+
+            <button onclick="rotateCanvas()">
+                Rotate 90°
+            </button>
         </div>
     </div>
 
     <div class="menu">
         <button class="menu-button">View</button>
+
         <div class="dropdown">
-            <button onclick="setZoom(0.5)">50%</button>
-            <button onclick="setZoom(0.75)">75%</button>
+            <button onclick="setZoom(.5)">50%</button>
+            <button onclick="setZoom(.75)">75%</button>
             <button onclick="setZoom(1)">100%</button>
             <button onclick="setZoom(1.5)">150%</button>
         </div>
@@ -660,11 +1359,17 @@ input[type="range"] {
 
     <div class="spacer"></div>
 
-    <button class="top-button" onclick="document.getElementById('fileInput').click()">
+    <button
+        class="top-button"
+        onclick="document.getElementById('fileInput').click()"
+    >
         Import
     </button>
 
-    <button class="top-button" onclick="exportPNG()">
+    <button
+        class="top-button"
+        onclick="exportPNG()"
+    >
         Export
     </button>
 
@@ -674,71 +1379,123 @@ input[type="range"] {
     type="file"
     id="fileInput"
     accept="image/*"
-    style="display:none"
+    hidden
 >
 
-<!-- MAIN -->
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
 <div class="main">
 
     <!-- TOOLBAR -->
+
     <div class="toolbar">
 
-        <button class="tool active" data-tooltip="Brush" onclick="setTool('brush', this)">
+        <button
+            class="tool active"
+            data-tooltip="Brush"
+            onclick="setTool('brush',this)"
+        >
             🖌
         </button>
 
-        <button class="tool" data-tooltip="Eraser" onclick="setTool('eraser', this)">
+        <button
+            class="tool"
+            data-tooltip="Eraser"
+            onclick="setTool('eraser',this)"
+        >
             ⌫
         </button>
 
-        <button class="tool" data-tooltip="Move" onclick="setTool('move', this)">
+        <button
+            class="tool"
+            data-tooltip="Move"
+            onclick="setTool('move',this)"
+        >
             ✥
         </button>
 
-        <button class="tool" data-tooltip="Line" onclick="setTool('line', this)">
+        <button
+            class="tool"
+            data-tooltip="Line"
+            onclick="setTool('line',this)"
+        >
             ╱
         </button>
 
-        <button class="tool" data-tooltip="Rectangle" onclick="setTool('rect', this)">
+        <button
+            class="tool"
+            data-tooltip="Rectangle"
+            onclick="setTool('rect',this)"
+        >
             ▭
         </button>
 
-        <button class="tool" data-tooltip="Circle" onclick="setTool('circle', this)">
+        <button
+            class="tool"
+            data-tooltip="Circle"
+            onclick="setTool('circle',this)"
+        >
             ○
         </button>
 
-        <button class="tool" data-tooltip="Text" onclick="setTool('text', this)">
+        <button
+            class="tool"
+            data-tooltip="Text"
+            onclick="setTool('text',this)"
+        >
             T
         </button>
 
         <div class="tool-separator"></div>
 
-        <button class="tool" data-tooltip="Lightmaker" onclick="openLightmaker()">
+        <button
+            class="tool"
+            data-tooltip="Lightmaker"
+            onclick="openLightmaker()"
+        >
             ✨
         </button>
 
         <div class="tool-separator"></div>
 
-        <button class="tool" data-tooltip="Undo" onclick="undo()">
+        <button
+            class="tool"
+            data-tooltip="Undo"
+            onclick="undo()"
+        >
             ↶
         </button>
 
-        <button class="tool" data-tooltip="Redo" onclick="redo()">
+        <button
+            class="tool"
+            data-tooltip="Redo"
+            onclick="redo()"
+        >
             ↷
         </button>
 
-        <button class="tool" data-tooltip="Clear Canvas" onclick="clearCanvas()">
+        <button
+            class="tool"
+            data-tooltip="Clear Canvas"
+            onclick="clearCanvas()"
+        >
             🗑
         </button>
 
     </div>
 
     <!-- WORKSPACE -->
+
     <div class="workspace">
 
-        <div class="canvas-area" id="canvasArea">
+        <div class="canvas-area">
 
-            <div class="canvas-wrap" id="canvasWrap">
+            <div
+                class="canvas-wrap"
+                id="canvasWrap"
+            >
 
                 <canvas
                     id="canvas"
@@ -762,14 +1519,24 @@ input[type="range"] {
                 Brush Tool
             </span>
 
-            <span>
+            <span id="canvasInfo">
                 1000 × 650
             </span>
 
             <div class="zoom-controls">
-                <button onclick="changeZoom(-0.1)">−</button>
-                <span id="zoomText">100%</span>
-                <button onclick="changeZoom(0.1)">+</button>
+
+                <button onclick="changeZoom(-.1)">
+                    −
+                </button>
+
+                <span id="zoomText">
+                    100%
+                </span>
+
+                <button onclick="changeZoom(.1)">
+                    +
+                </button>
+
             </div>
 
         </div>
@@ -777,6 +1544,7 @@ input[type="range"] {
     </div>
 
     <!-- RIGHT PANEL -->
+
     <div class="right-panel">
 
         <div class="panel-section">
@@ -843,7 +1611,7 @@ input[type="range"] {
                         id="opacity"
                         min="0"
                         max="1"
-                        step="0.01"
+                        step=".01"
                         value="1"
                     >
 
@@ -869,23 +1637,33 @@ input[type="range"] {
             <div class="position-grid">
 
                 <div class="field">
-                    <label>Width</label>
+
+                    <label>
+                        Width
+                    </label>
+
                     <input
                         type="number"
                         id="canvasWidth"
                         value="1000"
                         min="1"
                     >
+
                 </div>
 
                 <div class="field">
-                    <label>Height</label>
+
+                    <label>
+                        Height
+                    </label>
+
                     <input
                         type="number"
                         id="canvasHeight"
                         value="650"
                         min="1"
                     >
+
                 </div>
 
             </div>
@@ -907,13 +1685,23 @@ input[type="range"] {
             </div>
 
             <div class="layer selected">
-                <div class="layer-icon">◈</div>
-                <span>Background</span>
+                <div class="layer-icon">
+                    ◈
+                </div>
+
+                <span>
+                    Background
+                </span>
             </div>
 
             <div class="layer">
-                <div class="layer-icon">✦</div>
-                <span>Artwork</span>
+                <div class="layer-icon">
+                    ✦
+                </div>
+
+                <span>
+                    Artwork
+                </span>
             </div>
 
         </div>
@@ -922,7 +1710,10 @@ input[type="range"] {
 
 </div>
 
-<!-- LIGHTMAKER -->
+<!-- =====================================================
+     LIGHTMAKER
+===================================================== -->
+
 <div
     class="lightmaker-panel"
     id="lightmakerPanel"
@@ -956,8 +1747,7 @@ input[type="range"] {
 
             <button
                 class="light-type active"
-                data-type="glow"
-                onclick="selectLightType('glow', this)"
+                onclick="selectLightType('glow',this)"
             >
                 <div class="light-icon">●</div>
                 Glow
@@ -965,8 +1755,7 @@ input[type="range"] {
 
             <button
                 class="light-type"
-                data-type="bloom"
-                onclick="selectLightType('bloom', this)"
+                onclick="selectLightType('bloom',this)"
             >
                 <div class="light-icon">✦</div>
                 Bloom
@@ -974,8 +1763,7 @@ input[type="range"] {
 
             <button
                 class="light-type"
-                data-type="sunlight"
-                onclick="selectLightType('sunlight', this)"
+                onclick="selectLightType('sunlight',this)"
             >
                 <div class="light-icon">☀</div>
                 Sunlight
@@ -983,8 +1771,7 @@ input[type="range"] {
 
             <button
                 class="light-type"
-                data-type="spotlight"
-                onclick="selectLightType('spotlight', this)"
+                onclick="selectLightType('spotlight',this)"
             >
                 <div class="light-icon">◉</div>
                 Spotlight
@@ -992,8 +1779,7 @@ input[type="range"] {
 
             <button
                 class="light-type"
-                data-type="neon"
-                onclick="selectLightType('neon', this)"
+                onclick="selectLightType('neon',this)"
             >
                 <div class="light-icon">⚡</div>
                 Neon
@@ -1001,8 +1787,7 @@ input[type="range"] {
 
             <button
                 class="light-type"
-                data-type="fire"
-                onclick="selectLightType('fire', this)"
+                onclick="selectLightType('fire',this)"
             >
                 <div class="light-icon">🔥</div>
                 Fire Glow
@@ -1057,7 +1842,7 @@ input[type="range"] {
                     id="lightIntensity"
                     min="0"
                     max="2"
-                    step="0.01"
+                    step=".01"
                     value="1"
                 >
 
@@ -1125,8 +1910,8 @@ input[type="range"] {
         </button>
 
         <div class="status">
-            Tip: Click or drag on the canvas to move the light.
-            You can also enter exact X/Y coordinates above.
+            Click or drag directly on the canvas to position
+            the light. You can also enter exact X/Y values.
         </div>
 
     </div>
@@ -1140,18 +1925,26 @@ input[type="range"] {
 
 <script>
 
-/* =========================
+/* =========================================================
    CORE
-========================= */
+========================================================= */
 
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
+const canvas =
+    document.getElementById("canvas");
 
-const canvasWrap = document.getElementById("canvasWrap");
-const canvasMarker = document.getElementById("canvasMarker");
+const ctx =
+    canvas.getContext("2d");
+
+const canvasWrap =
+    document.getElementById("canvasWrap");
+
+const canvasMarker =
+    document.getElementById("canvasMarker");
 
 let tool = "brush";
+
 let drawing = false;
+
 let startX = 0;
 let startY = 0;
 
@@ -1161,18 +1954,20 @@ let undoStack = [];
 let redoStack = [];
 
 let lightmakerOpen = false;
+
 let lightType = "glow";
 
 let lightX = 500;
 let lightY = 325;
 
 let draggingLightmaker = false;
+
 let lightmakerDragX = 0;
 let lightmakerDragY = 0;
 
-/* =========================
-   INITIALIZE
-========================= */
+/* =========================================================
+   HISTORY
+========================================================= */
 
 function saveState() {
 
@@ -1213,35 +2008,35 @@ function restoreImage(data) {
 
 function undo() {
 
-    if (!undoStack.length) return;
+    if (!undoStack.length)
+        return;
 
     redoStack.push(
         canvas.toDataURL()
     );
 
-    const previous =
-        undoStack.pop();
-
-    restoreImage(previous);
+    restoreImage(
+        undoStack.pop()
+    );
 }
 
 function redo() {
 
-    if (!redoStack.length) return;
+    if (!redoStack.length)
+        return;
 
     undoStack.push(
         canvas.toDataURL()
     );
 
-    const next =
-        redoStack.pop();
-
-    restoreImage(next);
+    restoreImage(
+        redoStack.pop()
+    );
 }
 
-/* =========================
+/* =========================================================
    TOOLS
-========================= */
+========================================================= */
 
 function setTool(newTool, element) {
 
@@ -1249,7 +2044,9 @@ function setTool(newTool, element) {
 
     document
         .querySelectorAll(".tool")
-        .forEach(t => t.classList.remove("active"));
+        .forEach(t =>
+            t.classList.remove("active")
+        );
 
     if (element) {
         element.classList.add("active");
@@ -1265,13 +2062,15 @@ function setTool(newTool, element) {
         text: "Text Tool"
     };
 
-    document.getElementById("statusText").textContent =
-        names[newTool] || newTool;
+    document.getElementById(
+        "statusText"
+    ).textContent =
+        names[newTool] || "Lightmaker";
 }
 
-/* =========================
+/* =========================================================
    CANVAS POSITION
-========================= */
+========================================================= */
 
 function getCanvasPosition(e) {
 
@@ -1279,6 +2078,7 @@ function getCanvasPosition(e) {
         canvas.getBoundingClientRect();
 
     return {
+
         x:
             (e.clientX - rect.left) *
             (canvas.width / rect.width),
@@ -1286,86 +2086,19 @@ function getCanvasPosition(e) {
         y:
             (e.clientY - rect.top) *
             (canvas.height / rect.height)
+
     };
 }
 
-/* =========================
+/* =========================================================
    DRAWING
-========================= */
+========================================================= */
 
-canvas.addEventListener("pointerdown", e => {
+canvas.addEventListener(
+    "pointerdown",
+    e => {
 
-    if (lightmakerOpen) {
-
-        const pos =
-            getCanvasPosition(e);
-
-        setLightPosition(
-            pos.x,
-            pos.y
-        );
-
-        return;
-    }
-
-    saveState();
-
-    const pos =
-        getCanvasPosition(e);
-
-    startX = pos.x;
-    startY = pos.y;
-
-    drawing = true;
-
-    if (tool === "brush" || tool === "eraser") {
-
-        ctx.beginPath();
-
-        ctx.moveTo(
-            startX,
-            startY
-        );
-
-    }
-
-    if (tool === "text") {
-
-        const text =
-            prompt("Enter text:");
-
-        if (text) {
-
-            ctx.fillStyle =
-                document.getElementById("color").value;
-
-            ctx.globalAlpha =
-                Number(
-                    document.getElementById("opacity").value
-                );
-
-            ctx.font =
-                "24px Montserrat";
-
-            ctx.fillText(
-                text,
-                startX,
-                startY
-            );
-
-            ctx.globalAlpha = 1;
-        }
-
-        drawing = false;
-    }
-
-});
-
-canvas.addEventListener("pointermove", e => {
-
-    if (lightmakerOpen) {
-
-        if (e.buttons) {
+        if (lightmakerOpen) {
 
             const pos =
                 getCanvasPosition(e);
@@ -1375,183 +2108,305 @@ canvas.addEventListener("pointermove", e => {
                 pos.y
             );
 
+            return;
         }
 
-        return;
+        saveState();
+
+        const pos =
+            getCanvasPosition(e);
+
+        startX = pos.x;
+        startY = pos.y;
+
+        drawing = true;
+
+        if (
+            tool === "brush" ||
+            tool === "eraser"
+        ) {
+
+            ctx.beginPath();
+
+            ctx.moveTo(
+                startX,
+                startY
+            );
+
+        }
+
+        if (tool === "text") {
+
+            const text =
+                prompt("Enter text:");
+
+            if (text) {
+
+                ctx.fillStyle =
+                    document.getElementById(
+                        "color"
+                    ).value;
+
+                ctx.globalAlpha =
+                    Number(
+                        document.getElementById(
+                            "opacity"
+                        ).value
+                    );
+
+                ctx.font =
+                    "24px Montserrat";
+
+                ctx.fillText(
+                    text,
+                    startX,
+                    startY
+                );
+
+                ctx.globalAlpha = 1;
+            }
+
+            drawing = false;
+        }
+
     }
+);
 
-    if (!drawing) return;
+canvas.addEventListener(
+    "pointermove",
+    e => {
 
-    const pos =
-        getCanvasPosition(e);
+        if (lightmakerOpen) {
 
-    const color =
-        document.getElementById("color").value;
+            if (e.buttons) {
 
-    const opacity =
-        Number(
-            document.getElementById("opacity").value
-        );
+                const pos =
+                    getCanvasPosition(e);
 
-    const size =
-        Number(
-            document.getElementById("brushSize").value
-        );
+                setLightPosition(
+                    pos.x,
+                    pos.y
+                );
 
-    ctx.globalAlpha = opacity;
+            }
 
-    if (tool === "brush") {
+            return;
+        }
 
-        ctx.globalCompositeOperation =
-            "source-over";
+        if (!drawing)
+            return;
 
-        ctx.strokeStyle = color;
-        ctx.lineWidth = size;
-        ctx.lineCap = "round";
-        ctx.lineJoin = "round";
+        const pos =
+            getCanvasPosition(e);
 
-        ctx.lineTo(
-            pos.x,
-            pos.y
-        );
+        const color =
+            document.getElementById(
+                "color"
+            ).value;
 
-        ctx.stroke();
-
-    }
-
-    if (tool === "eraser") {
-
-        ctx.globalCompositeOperation =
-            "destination-out";
-
-        ctx.lineWidth = size;
-        ctx.lineCap = "round";
-
-        ctx.lineTo(
-            pos.x,
-            pos.y
-        );
-
-        ctx.stroke();
-
-        ctx.globalCompositeOperation =
-            "source-over";
-    }
-
-});
-
-canvas.addEventListener("pointerup", e => {
-
-    if (lightmakerOpen) return;
-
-    if (!drawing) return;
-
-    const pos =
-        getCanvasPosition(e);
-
-    const color =
-        document.getElementById("color").value;
-
-    const opacity =
-        Number(
-            document.getElementById("opacity").value
-        );
-
-    ctx.globalAlpha = opacity;
-
-    if (tool === "line") {
-
-        ctx.strokeStyle = color;
-        ctx.lineWidth =
+        const opacity =
             Number(
-                document.getElementById("brushSize").value
+                document.getElementById(
+                    "opacity"
+                ).value
             );
 
-        ctx.beginPath();
-
-        ctx.moveTo(
-            startX,
-            startY
-        );
-
-        ctx.lineTo(
-            pos.x,
-            pos.y
-        );
-
-        ctx.stroke();
-    }
-
-    if (tool === "rect") {
-
-        ctx.strokeStyle = color;
-
-        ctx.lineWidth =
+        const size =
             Number(
-                document.getElementById("brushSize").value
+                document.getElementById(
+                    "brushSize"
+                ).value
             );
 
-        ctx.strokeRect(
-            startX,
-            startY,
-            pos.x - startX,
-            pos.y - startY
-        );
+        ctx.globalAlpha =
+            opacity;
+
+        if (tool === "brush") {
+
+            ctx.globalCompositeOperation =
+                "source-over";
+
+            ctx.strokeStyle =
+                color;
+
+            ctx.lineWidth =
+                size;
+
+            ctx.lineCap =
+                "round";
+
+            ctx.lineJoin =
+                "round";
+
+            ctx.lineTo(
+                pos.x,
+                pos.y
+            );
+
+            ctx.stroke();
+
+        }
+
+        if (tool === "eraser") {
+
+            ctx.globalCompositeOperation =
+                "destination-out";
+
+            ctx.lineWidth =
+                size;
+
+            ctx.lineCap =
+                "round";
+
+            ctx.lineTo(
+                pos.x,
+                pos.y
+            );
+
+            ctx.stroke();
+
+            ctx.globalCompositeOperation =
+                "source-over";
+        }
 
     }
+);
 
-    if (tool === "circle") {
+canvas.addEventListener(
+    "pointerup",
+    e => {
 
-        const dx =
-            pos.x - startX;
+        if (lightmakerOpen)
+            return;
 
-        const dy =
-            pos.y - startY;
+        if (!drawing)
+            return;
 
-        const radius =
-            Math.sqrt(
-                dx * dx +
-                dy * dy
-            );
+        const pos =
+            getCanvasPosition(e);
 
-        ctx.strokeStyle = color;
+        const color =
+            document.getElementById(
+                "color"
+            ).value;
 
-        ctx.lineWidth =
+        const opacity =
             Number(
-                document.getElementById("brushSize").value
+                document.getElementById(
+                    "opacity"
+                ).value
             );
 
-        ctx.beginPath();
+        ctx.globalAlpha =
+            opacity;
 
-        ctx.arc(
-            startX,
-            startY,
-            radius,
-            0,
-            Math.PI * 2
-        );
+        if (tool === "line") {
 
-        ctx.stroke();
+            ctx.strokeStyle =
+                color;
 
-    }
+            ctx.lineWidth =
+                Number(
+                    document.getElementById(
+                        "brushSize"
+                    ).value
+                );
 
-    ctx.globalAlpha = 1;
+            ctx.beginPath();
 
-    drawing = false;
+            ctx.moveTo(
+                startX,
+                startY
+            );
 
-});
+            ctx.lineTo(
+                pos.x,
+                pos.y
+            );
 
-canvas.addEventListener("pointerleave", () => {
+            ctx.stroke();
+        }
 
-    if (!lightmakerOpen) {
+        if (tool === "rect") {
+
+            ctx.strokeStyle =
+                color;
+
+            ctx.lineWidth =
+                Number(
+                    document.getElementById(
+                        "brushSize"
+                    ).value
+                );
+
+            ctx.strokeRect(
+                startX,
+                startY,
+                pos.x - startX,
+                pos.y - startY
+            );
+
+        }
+
+        if (tool === "circle") {
+
+            const dx =
+                pos.x - startX;
+
+            const dy =
+                pos.y - startY;
+
+            const radius =
+                Math.sqrt(
+                    dx * dx +
+                    dy * dy
+                );
+
+            ctx.strokeStyle =
+                color;
+
+            ctx.lineWidth =
+                Number(
+                    document.getElementById(
+                        "brushSize"
+                    ).value
+                );
+
+            ctx.beginPath();
+
+            ctx.arc(
+                startX,
+                startY,
+                radius,
+                0,
+                Math.PI * 2
+            );
+
+            ctx.stroke();
+
+        }
+
+        ctx.globalAlpha = 1;
+
         drawing = false;
+
     }
+);
 
-});
+canvas.addEventListener(
+    "pointerleave",
+    () => {
 
-/* =========================
+        if (!lightmakerOpen) {
+            drawing = false;
+        }
+
+    }
+);
+
+/* =========================================================
    LIGHTMAKER
-========================= */
+========================================================= */
 
 function openLightmaker() {
 
@@ -1561,16 +2416,15 @@ function openLightmaker() {
         .getElementById("lightmakerPanel")
         .classList.add("open");
 
+    canvasMarker.style.display =
+        "block";
+
     setTool(
         "lightmaker",
         null
     );
 
-    canvasMarker.style.display =
-        "block";
-
     updateLightMarker();
-
 }
 
 function closeLightmaker() {
@@ -1588,10 +2442,12 @@ function closeLightmaker() {
         "brush",
         document.querySelector(".tool")
     );
-
 }
 
-function selectLightType(type, element) {
+function selectLightType(
+    type,
+    element
+) {
 
     lightType = type;
 
@@ -1604,24 +2460,34 @@ function selectLightType(type, element) {
     element.classList.add("active");
 }
 
-function setLightPosition(x, y) {
+function setLightPosition(x,y) {
 
     lightX =
         Math.max(
             0,
-            Math.min(canvas.width, x)
+            Math.min(
+                canvas.width,
+                x
+            )
         );
 
     lightY =
         Math.max(
             0,
-            Math.min(canvas.height, y)
+            Math.min(
+                canvas.height,
+                y
+            )
         );
 
-    document.getElementById("lightX").value =
+    document.getElementById(
+        "lightX"
+    ).value =
         Math.round(lightX);
 
-    document.getElementById("lightY").value =
+    document.getElementById(
+        "lightY"
+    ).value =
         Math.round(lightY);
 
     updateLightMarker();
@@ -1634,30 +2500,39 @@ function updateLightMarker() {
 
     canvasMarker.style.top =
         lightY + "px";
-
 }
 
 document
     .getElementById("lightX")
-    .addEventListener("input", e => {
+    .addEventListener(
+        "input",
+        e => {
 
-        lightX =
-            Number(e.target.value);
+            lightX =
+                Number(e.target.value);
 
-        updateLightMarker();
+            updateLightMarker();
 
-    });
+        }
+    );
 
 document
     .getElementById("lightY")
-    .addEventListener("input", e => {
+    .addEventListener(
+        "input",
+        e => {
 
-        lightY =
-            Number(e.target.value);
+            lightY =
+                Number(e.target.value);
 
-        updateLightMarker();
+            updateLightMarker();
 
-    });
+        }
+    );
+
+/* =========================================================
+   LIGHT EFFECTS
+========================================================= */
 
 function applyLight() {
 
@@ -1665,16 +2540,22 @@ function applyLight() {
 
     const intensity =
         Number(
-            document.getElementById("lightIntensity").value
+            document.getElementById(
+                "lightIntensity"
+            ).value
         );
 
     const size =
         Number(
-            document.getElementById("lightSize").value
+            document.getElementById(
+                "lightSize"
+            ).value
         );
 
     const color =
-        document.getElementById("lightColor").value;
+        document.getElementById(
+            "lightColor"
+        ).value;
 
     ctx.save();
 
@@ -1690,7 +2571,6 @@ function applyLight() {
             color,
             intensity
         );
-
     }
 
     if (lightType === "bloom") {
@@ -1710,7 +2590,6 @@ function applyLight() {
             color,
             intensity * 1.5
         );
-
     }
 
     if (lightType === "sunlight") {
@@ -1730,7 +2609,6 @@ function applyLight() {
             "#ffffff",
             intensity
         );
-
     }
 
     if (lightType === "spotlight") {
@@ -1747,17 +2625,26 @@ function applyLight() {
 
         gradient.addColorStop(
             0,
-            colorWithAlpha(color, intensity)
+            colorWithAlpha(
+                color,
+                intensity
+            )
         );
 
         gradient.addColorStop(
             .35,
-            colorWithAlpha(color, intensity * .5)
+            colorWithAlpha(
+                color,
+                intensity * .5
+            )
         );
 
         gradient.addColorStop(
             1,
-            colorWithAlpha(color, 0)
+            colorWithAlpha(
+                color,
+                0
+            )
         );
 
         ctx.fillStyle =
@@ -1769,23 +2656,26 @@ function applyLight() {
             canvas.width,
             canvas.height
         );
-
     }
 
     if (lightType === "neon") {
 
-        for (let i = 0; i < 5; i++) {
+        for (
+            let i = 0;
+            i < 5;
+            i++
+        ) {
 
             drawGlow(
                 lightX,
                 lightY,
-                size * (1 - i * .14),
+                size * (
+                    1 - i * .14
+                ),
                 color,
                 intensity * .35
             );
-
         }
-
     }
 
     if (lightType === "fire") {
@@ -1813,14 +2703,18 @@ function applyLight() {
             "#fff1a8",
             intensity * 1.5
         );
-
     }
 
     ctx.restore();
-
 }
 
-function drawGlow(x, y, radius, color, intensity) {
+function drawGlow(
+    x,
+    y,
+    radius,
+    color,
+    intensity
+) {
 
     const gradient =
         ctx.createRadialGradient(
@@ -1836,7 +2730,7 @@ function drawGlow(x, y, radius, color, intensity) {
         0,
         colorWithAlpha(
             color,
-            Math.min(1, intensity)
+            Math.min(1,intensity)
         )
     );
 
@@ -1844,7 +2738,10 @@ function drawGlow(x, y, radius, color, intensity) {
         .2,
         colorWithAlpha(
             color,
-            Math.min(.75, intensity * .7)
+            Math.min(
+                .75,
+                intensity * .7
+            )
         )
     );
 
@@ -1852,7 +2749,10 @@ function drawGlow(x, y, radius, color, intensity) {
         .6,
         colorWithAlpha(
             color,
-            Math.min(.25, intensity * .25)
+            Math.min(
+                .25,
+                intensity * .25
+            )
         )
     );
 
@@ -1878,35 +2778,50 @@ function drawGlow(x, y, radius, color, intensity) {
     );
 
     ctx.fill();
-
 }
 
-function colorWithAlpha(hex, alpha) {
+function colorWithAlpha(
+    hex,
+    alpha
+) {
 
     hex =
-        hex.replace("#", "");
+        hex.replace("#","");
 
     const r =
-        parseInt(hex.substring(0, 2), 16);
+        parseInt(
+            hex.substring(0,2),
+            16
+        );
 
     const g =
-        parseInt(hex.substring(2, 4), 16);
+        parseInt(
+            hex.substring(2,4),
+            16
+        );
 
     const b =
-        parseInt(hex.substring(4, 6), 16);
+        parseInt(
+            hex.substring(4,6),
+            16
+        );
 
     return `rgba(${r},${g},${b},${alpha})`;
 }
 
-/* =========================
+/* =========================================================
    LIGHTMAKER DRAG
-========================= */
+========================================================= */
 
 const lightmakerHeader =
-    document.getElementById("lightmakerHeader");
+    document.getElementById(
+        "lightmakerHeader"
+    );
 
 const lightmakerPanel =
-    document.getElementById("lightmakerPanel");
+    document.getElementById(
+        "lightmakerPanel"
+    );
 
 lightmakerHeader.addEventListener(
     "pointerdown",
@@ -1926,7 +2841,6 @@ lightmakerHeader.addEventListener(
         lightmakerHeader.setPointerCapture(
             e.pointerId
         );
-
     }
 );
 
@@ -1934,14 +2848,20 @@ lightmakerHeader.addEventListener(
     "pointermove",
     e => {
 
-        if (!draggingLightmaker) return;
+        if (!draggingLightmaker)
+            return;
 
         lightmakerPanel.style.left =
-            (e.clientX - lightmakerDragX) + "px";
+            (
+                e.clientX -
+                lightmakerDragX
+            ) + "px";
 
         lightmakerPanel.style.top =
-            (e.clientY - lightmakerDragY) + "px";
-
+            (
+                e.clientY -
+                lightmakerDragY
+            ) + "px";
     }
 );
 
@@ -1954,137 +2874,145 @@ lightmakerHeader.addEventListener(
     }
 );
 
-/* =========================
+/* =========================================================
    CONTROLS
-========================= */
+========================================================= */
 
-const brushSize =
-    document.getElementById("brushSize");
+document
+    .getElementById("brushSize")
+    .addEventListener(
+        "input",
+        e => {
 
-brushSize.addEventListener(
-    "input",
-    () => {
+            document.getElementById(
+                "brushSizeValue"
+            ).textContent =
+                e.target.value;
 
-        document.getElementById(
-            "brushSizeValue"
-        ).textContent =
-            brushSize.value;
+        }
+    );
 
-    }
-);
+document
+    .getElementById("opacity")
+    .addEventListener(
+        "input",
+        e => {
 
-const opacity =
-    document.getElementById("opacity");
+            document.getElementById(
+                "opacityValue"
+            ).textContent =
+                Math.round(
+                    e.target.value * 100
+                ) + "%";
 
-opacity.addEventListener(
-    "input",
-    () => {
+        }
+    );
 
-        document.getElementById(
-            "opacityValue"
-        ).textContent =
-            Math.round(
-                opacity.value * 100
-            ) + "%";
+document
+    .getElementById("lightIntensity")
+    .addEventListener(
+        "input",
+        e => {
 
-    }
-);
+            document.getElementById(
+                "lightIntensityValue"
+            ).textContent =
+                Math.round(
+                    e.target.value * 100
+                ) + "%";
 
-const lightIntensity =
-    document.getElementById("lightIntensity");
+        }
+    );
 
-lightIntensity.addEventListener(
-    "input",
-    () => {
+document
+    .getElementById("lightSize")
+    .addEventListener(
+        "input",
+        e => {
 
-        document.getElementById(
-            "lightIntensityValue"
-        ).textContent =
-            Math.round(
-                lightIntensity.value * 100
-            ) + "%";
+            document.getElementById(
+                "lightSizeValue"
+            ).textContent =
+                e.target.value;
 
-    }
-);
+        }
+    );
 
-const lightSize =
-    document.getElementById("lightSize");
-
-lightSize.addEventListener(
-    "input",
-    () => {
-
-        document.getElementById(
-            "lightSizeValue"
-        ).textContent =
-            lightSize.value;
-
-    }
-);
-
-/* =========================
+/* =========================================================
    IMPORT
-========================= */
+========================================================= */
 
 document
     .getElementById("fileInput")
-    .addEventListener("change", e => {
+    .addEventListener(
+        "change",
+        e => {
 
-        const file =
-            e.target.files[0];
+            const file =
+                e.target.files[0];
 
-        if (!file) return;
+            if (!file)
+                return;
 
-        saveState();
+            saveState();
 
-        const img =
-            new Image();
+            const img =
+                new Image();
 
-        img.onload = () => {
+            img.onload = () => {
 
-            ctx.clearRect(
-                0,
-                0,
-                canvas.width,
-                canvas.height
-            );
-
-            const scale =
-                Math.min(
-                    canvas.width / img.width,
-                    canvas.height / img.height
+                ctx.clearRect(
+                    0,
+                    0,
+                    canvas.width,
+                    canvas.height
                 );
 
-            const width =
-                img.width * scale;
+                const scale =
+                    Math.min(
+                        canvas.width /
+                            img.width,
 
-            const height =
-                img.height * scale;
+                        canvas.height /
+                            img.height
+                    );
 
-            const x =
-                (canvas.width - width) / 2;
+                const width =
+                    img.width * scale;
 
-            const y =
-                (canvas.height - height) / 2;
+                const height =
+                    img.height * scale;
 
-            ctx.drawImage(
-                img,
-                x,
-                y,
-                width,
-                height
-            );
+                const x =
+                    (
+                        canvas.width -
+                        width
+                    ) / 2;
 
-        };
+                const y =
+                    (
+                        canvas.height -
+                        height
+                    ) / 2;
 
-        img.src =
-            URL.createObjectURL(file);
+                ctx.drawImage(
+                    img,
+                    x,
+                    y,
+                    width,
+                    height
+                );
+            };
 
-    });
+            img.src =
+                URL.createObjectURL(file);
 
-/* =========================
+        }
+    );
+
+/* =========================================================
    EXPORT
-========================= */
+========================================================= */
 
 function exportPNG() {
 
@@ -2095,15 +3023,16 @@ function exportPNG() {
         "astro-photos.png";
 
     link.href =
-        canvas.toDataURL("image/png");
+        canvas.toDataURL(
+            "image/png"
+        );
 
     link.click();
-
 }
 
-/* =========================
-   NEW CANVAS
-========================= */
+/* =========================================================
+   NEW
+========================================================= */
 
 function newCanvas() {
 
@@ -2111,7 +3040,8 @@ function newCanvas() {
         !confirm(
             "Create a new canvas? Your current artwork will be cleared."
         )
-    ) return;
+    )
+        return;
 
     saveState();
 
@@ -2121,12 +3051,11 @@ function newCanvas() {
         canvas.width,
         canvas.height
     );
-
 }
 
-/* =========================
+/* =========================================================
    CLEAR
-========================= */
+========================================================= */
 
 function clearCanvas() {
 
@@ -2138,12 +3067,11 @@ function clearCanvas() {
         canvas.width,
         canvas.height
     );
-
 }
 
-/* =========================
+/* =========================================================
    RESIZE
-========================= */
+========================================================= */
 
 function resizeCanvas() {
 
@@ -2160,29 +3088,44 @@ function resizeCanvas() {
 
     oldCanvas
         .getContext("2d")
-        .drawImage(canvas, 0, 0);
+        .drawImage(
+            canvas,
+            0,
+            0
+        );
 
     const width =
         Number(
-            document.getElementById("canvasWidth").value
+            document.getElementById(
+                "canvasWidth"
+            ).value
         );
 
     const height =
         Number(
-            document.getElementById("canvasHeight").value
+            document.getElementById(
+                "canvasHeight"
+            ).value
         );
 
     canvas.width =
-        Math.max(1, width);
+        Math.max(1,width);
 
     canvas.height =
-        Math.max(1, height);
+        Math.max(1,height);
 
     ctx.drawImage(
         oldCanvas,
         0,
         0
     );
+
+    document.getElementById(
+        "canvasInfo"
+    ).textContent =
+        canvas.width +
+        " × " +
+        canvas.height;
 
     lightX =
         Math.min(
@@ -2197,12 +3140,11 @@ function resizeCanvas() {
         );
 
     updateLightMarker();
-
 }
 
-/* =========================
+/* =========================================================
    TRANSFORMS
-========================= */
+========================================================= */
 
 function flipHorizontal() {
 
@@ -2242,7 +3184,6 @@ function flipHorizontal() {
     );
 
     ctx.restore();
-
 }
 
 function flipVertical() {
@@ -2283,7 +3224,6 @@ function flipVertical() {
     );
 
     ctx.restore();
-
 }
 
 function rotateCanvas() {
@@ -2338,11 +3278,17 @@ function rotateCanvas() {
 
     ctx.restore();
 
+    document.getElementById(
+        "canvasInfo"
+    ).textContent =
+        canvas.width +
+        " × " +
+        canvas.height;
 }
 
-/* =========================
+/* =========================================================
    ZOOM
-========================= */
+========================================================= */
 
 function setZoom(value) {
 
@@ -2364,7 +3310,6 @@ function setZoom(value) {
         Math.round(
             zoom * 100
         ) + "%";
-
 }
 
 function changeZoom(amount) {
@@ -2372,12 +3317,11 @@ function changeZoom(amount) {
     setZoom(
         zoom + amount
     );
-
 }
 
-/* =========================
+/* =========================================================
    MENUS
-========================= */
+========================================================= */
 
 document
     .querySelectorAll(".menu-button")
@@ -2396,19 +3340,21 @@ document
                     .querySelectorAll(".menu")
                     .forEach(menu => {
 
-                        if (menu !== parent) {
-                            menu.classList.remove("open");
-                        }
+                        if (
+                            menu !== parent
+                        ) {
 
+                            menu.classList.remove(
+                                "open"
+                            );
+                        }
                     });
 
                 parent.classList.toggle(
                     "open"
                 );
-
             }
         );
-
     });
 
 document.addEventListener(
@@ -2418,20 +3364,23 @@ document.addEventListener(
         document
             .querySelectorAll(".menu")
             .forEach(menu =>
-                menu.classList.remove("open")
+                menu.classList.remove(
+                    "open"
+                )
             );
-
     }
 );
 
-/* =========================
-   TOOLTIP SYSTEM
-========================= */
+/* =========================================================
+   TOOLTIP
+========================================================= */
 
 let tooltipTimer = null;
 
 const tooltip =
-    document.getElementById("tooltip");
+    document.getElementById(
+        "tooltip"
+    );
 
 document
     .querySelectorAll(".tool")
@@ -2446,35 +3395,41 @@ document
                 );
 
                 tooltipTimer =
-                    setTimeout(() => {
+                    setTimeout(
+                        () => {
 
-                        const text =
-                            button.dataset.tooltip;
+                            const text =
+                                button.dataset.tooltip;
 
-                        if (!text) return;
+                            if (!text)
+                                return;
 
-                        const rect =
-                            button.getBoundingClientRect();
+                            const rect =
+                                button.getBoundingClientRect();
 
-                        tooltip.textContent =
-                            text;
+                            tooltip.textContent =
+                                text;
 
-                        tooltip.style.left =
-                            (rect.right + 9) + "px";
+                            tooltip.style.left =
+                                (
+                                    rect.right +
+                                    9
+                                ) + "px";
 
-                        tooltip.style.top =
-                            (
-                                rect.top +
-                                rect.height / 2 -
-                                14
-                            ) + "px";
+                            tooltip.style.top =
+                                (
+                                    rect.top +
+                                    rect.height / 2 -
+                                    14
+                                ) + "px";
 
-                        tooltip.classList.add(
-                            "show"
-                        );
+                            tooltip.classList.add(
+                                "show"
+                            );
 
-                    }, 1000);
-
+                        },
+                        1000
+                    );
             }
         );
 
@@ -2489,15 +3444,13 @@ document
                 tooltip.classList.remove(
                     "show"
                 );
-
             }
         );
-
     });
 
-/* =========================
-   KEYBOARD SHORTCUTS
-========================= */
+/* =========================================================
+   KEYBOARD
+========================================================= */
 
 document.addEventListener(
     "keydown",
@@ -2509,8 +3462,8 @@ document.addEventListener(
         ) {
 
             e.preventDefault();
-            undo();
 
+            undo();
         }
 
         if (
@@ -2519,8 +3472,8 @@ document.addEventListener(
         ) {
 
             e.preventDefault();
-            redo();
 
+            redo();
         }
 
         if (
@@ -2529,8 +3482,8 @@ document.addEventListener(
         ) {
 
             e.preventDefault();
-            exportPNG();
 
+            exportPNG();
         }
 
         if (
@@ -2539,15 +3492,13 @@ document.addEventListener(
         ) {
 
             closeLightmaker();
-
         }
-
     }
 );
 
-/* =========================
-   STARTUP
-========================= */
+/* =========================================================
+   START
+========================================================= */
 
 ctx.clearRect(
     0,
